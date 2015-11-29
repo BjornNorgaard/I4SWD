@@ -5,4 +5,4 @@
 \contentsline {section}{\numberline {4}Sammenligning}{2}
 \contentsline {paragraph}{Open-Closed}{2}
 \contentsline {paragraph}{Single-Responsibility}{2}
-\contentsline {section}{\numberline {5}Konklusion}{2}
+\contentsline {section}{\numberline {5}Konklusion}{3}
