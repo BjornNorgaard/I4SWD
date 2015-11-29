@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MediatorPattern
 {
-    public class Mediator
+    public class Mediator : IMediator
     {
         // works kinda like hashmaps, you can search for complex class with simple key, i.e. string in this case
         protected readonly Dictionary<string, Participant> Participants = new Dictionary<string, Participant>();
