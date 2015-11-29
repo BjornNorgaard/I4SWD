@@ -12,7 +12,7 @@ namespace MediatorPattern
             Name = name;
         }
 
-        public void Send(string to, string message)
+        public virtual void Send(string to, string message)
         {
             Mediator.Send(Name, to, message);
         }

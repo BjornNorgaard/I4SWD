@@ -26,7 +26,5 @@ namespace MediatorPattern
                 participant.Receive(from, message);
             }
         }
-
-
     }
 }
