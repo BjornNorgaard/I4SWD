@@ -12,7 +12,7 @@ namespace MediatorPattern
             base.Send(to, message);
         }
 
-        public override void Receive(string @from, string message)
+        public override void Receive(string from, string message)
         {
             Console.Write("Til Kommunen: ");
             base.Receive(from, message);
