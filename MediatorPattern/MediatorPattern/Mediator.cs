@@ -5,7 +5,7 @@ namespace MediatorPattern
 {
     public class Mediator : IMediator
     {
-        // works kinda like hashmaps, you can search for complex class with simple key, i.e. string in this case
+        // you can search for complex class with simple key, i.e. string in this case
         protected readonly Dictionary<string, IParticipant> Participants = new Dictionary<string, IParticipant>();
 
         public virtual void Register(IParticipant participant)
