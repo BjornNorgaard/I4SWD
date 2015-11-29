@@ -6,17 +6,20 @@
         {
             Mediator chatroom = new Mediator();
 
-            Participant tyksak = new Borger("Dennis Tyksak");
-            Participant damAnd = new Borger("Joachim Dam-and");
-            Participant derpsted = new Kommune("Derpstaden");
+            Participant dennis = new Borger("Dennis");
+            Participant joachim = new Borger("Joachim");
+            Participant kommune = new Kommune("Århus");
 
-            chatroom.Register(tyksak);
-            chatroom.Register(damAnd);
-            chatroom.Register(derpsted);
+            chatroom.Register(dennis);
+            chatroom.Register(joachim);
+            chatroom.Register(kommune);
 
-            tyksak.Send("Dennis Tyksak", "D-J herro!");
-            damAnd.Send("Joachim Dam-and", "J-D Buuh!");
-            derpsted.Send("Dennis Tyksak", "S-D you suck!");
+            dennis.Send("Joachim", "Herro Jokke!");
+            joachim.Send("Dennis", "Hello Dennis");
+            kommune.Send("Joachim", "Du skylder penge!");
+            joachim.Send("Århus", "Øv!");
+            kommune.Send("Dennis", "Du får ikke SU!");
+            dennis.Send("Århus", "But maamm, i wanna play!");
         }
     }
 }
