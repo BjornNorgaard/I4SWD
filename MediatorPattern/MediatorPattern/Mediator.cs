@@ -5,13 +5,13 @@ namespace MediatorPattern
 {
     public class Mediator
     {
-        Dictionary<string, Participant> _participants = new Dictionary<string, Participant>();
+        protected readonly Dictionary<string, Participant> Participants = new Dictionary<string, Participant>();
 
         public virtual void Register(Participant participant)
         {
-            if (_participants.ContainsValue(participant) == false)
+            if (Participants.ContainsValue(participant) == false)
             {
-                _participants[participant.Name] = participant;
+                Participants[participant.Name] = participant;
             }
 
             participant.Mediator = this;
@@ -19,7 +19,7 @@ namespace MediatorPattern
 
         public virtual void Send(string from, string to, string message)
         {
-            Participant participant = _participants[to];
+            Participant participant = Participants[to];
 
             if (participant != null)
             {
