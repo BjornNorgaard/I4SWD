@@ -6,9 +6,9 @@ namespace MediatorPattern
     public class Mediator : IMediator
     {
         // works kinda like hashmaps, you can search for complex class with simple key, i.e. string in this case
-        protected readonly Dictionary<string, Participant> Participants = new Dictionary<string, Participant>();
+        protected readonly Dictionary<string, IParticipant> Participants = new Dictionary<string, IParticipant>();
 
-        public virtual void Register(Participant participant)
+        public virtual void Register(IParticipant participant)
         {
             // checking if participant is already in dictionary
             if (Participants.ContainsValue(participant) == false)
@@ -23,7 +23,7 @@ namespace MediatorPattern
         public virtual void Send(string from, string to, string message)
         {
             // using dict's key as receiver, no need for actual value/object
-            Participant participant = Participants[to];
+            IParticipant participant = Participants[to];
 
             // checking if participant excists, needed because sender may not have correct key
             if (participant != null)

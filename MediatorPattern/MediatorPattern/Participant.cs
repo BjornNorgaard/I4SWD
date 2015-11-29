@@ -2,7 +2,7 @@
 
 namespace MediatorPattern
 {
-    public class Participant
+    public class Participant : IParticipant
     {
         public string Name { get; set; }
         public IMediator Mediator { get; set; }
