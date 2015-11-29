@@ -5,7 +5,7 @@ namespace MediatorPattern
     public class Participant
     {
         public string Name { get; set; }
-        public Mediator Mediator { get; set; }
+        public IMediator Mediator { get; set; }
 
         public Participant(string name)
         {

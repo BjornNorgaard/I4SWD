@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Borger.cs" />
+    <Compile Include="IMediator.cs" />
     <Compile Include="Kommune.cs" />
     <Compile Include="Mediator.cs" />
     <Compile Include="Participant.cs" />
