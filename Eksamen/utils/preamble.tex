@@ -28,6 +28,7 @@ a4paper, % papirtype
 \usepackage{tikz}
 \usepackage[pages=some]{background}
 \usepackage{lastpage}
+\usepackage{multicol}
 
 %============================================================%
 %=== Package settings========================================%
@@ -74,8 +75,11 @@ a4paper, % papirtype
 \usepackage[english]{babel}	% bruges til at skrive ihft. på dansk
 \addto\captionsenglish{\renewcommand{\contentsname}{Indholdsfortegnelse}} % skriver inholdfortegnelse på dansk
 
-%\renewcommand{\thesection}{} % fjerner nummer fra sections, men beholder dem i indhodsfortegnelsen
-%\renewcommand{\thesubsection}{}
+%% gør det muligt at refererer til "this"-section i tekst
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
 
 \addtolength{\jot}{1em} % gør rowspacing med align større
 
