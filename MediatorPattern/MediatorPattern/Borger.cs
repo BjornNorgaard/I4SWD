@@ -9,7 +9,7 @@ namespace MediatorPattern
         public override void Receive(string @from, string message)
         {
             Console.Write("Til Borger: ");
-            base.Receive(@from, message);
+            base.Receive(from, message);
         }
     }
 }
