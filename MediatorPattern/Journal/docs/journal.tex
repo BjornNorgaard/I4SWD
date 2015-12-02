@@ -40,11 +40,11 @@ Definition og identifikation af deltagende klassers type:
 
 \section{Sammenligning}
 
-\paragraph{Open-Closed}
-Mediator pattern mindsker koblingen i programmet. Dette gør, at alle klasser blot skal bruge én reference (til mediatoren), i stedet for at have adskillige referencer til mange forskellige klasser. Dette er godt for Open-Closed princippet, da programmet er åbent for tilføjelser, men lukket for modifikationer. I princippet kan et objekt fjernes fra programmet, uden at programmet går i stykker. Dette skyldes, at mediatoren blot vil undlade at sende en besked, i stedet for, at der er NullPointer referencer i koden.
+\subsection{Publisher-subscriber}
+Mediator patternet kan sammenlignes med publisher-subscriber. Begge står for at håndtere kommunikationen mellem to eller flere klasser. Hvor publisher-subscriber blot broadcaster til alle subscribers, så har mediatoren i højere grad funktionalitet til at finde ud af, hvilke "colleague" eller "subscribers" der skal udføres noget på. Wiki har et glimrende eksempel på siden om Mediator\footnote{\url{https://en.wikipedia.org/wiki/Mediator_pattern#Java} - Mediator eksempel i Java}, som viser, at alt efter hvilken kommando der kaldes, så udfører mediatoren noget forskelligt, og kalder metoderne hos de registrerede objekter med forskellige parametre.
 
-\paragraph{Single-Responsibility}
-SRP betyder, at alle klasser kun skal stå for at udføre én ting, altså have et enkelt ansvar. Derudover skal hver klasse også kun have en grund til at ændre sig. Mediatoren overholder SRP, da dens eneste (og fornemmeste) opgave er at sende beskeder fra A til B, altså at “Mediate”. Selve funktionaliteten der skal udføres, når der modtages en besked ligger ved de individuelle objekter der modtager beskederne fra mediatoren.
+\subsection{Konsekvenser}
+Mediatoren samler en masse funktionalitet på ét sted, hvilket har den fordel at interaktionen mellem objekter bliver nemmere, men mediatoren får derved større ansvar og bliver mere kompleks. Mediatoren kan derfor hurtigt blive en monolit, som er svær at vedligeholde.
 
 \section{Konklusion}
-Ud fra journalen kan det konkluderes, at Mediator pattern er godt at bruge, i tilfælde, hvor der opstår mange forbindelser mellem mange forskellige klasser. Ved hjælp af mediatoren centraliseres referencerne til de forskellige objekter ét sted, og samler kald til mediatoren, i stedet for enkelte klasser.
+Ud fra journalen kan det konkluderes, at Mediator pattern er godt at bruge, i tilfælde, hvor der opstår mange forbindelser mellem mange forskellige klasser. Ved hjælp af mediatoren centraliseres referencerne til de forskellige objekter ét sted, og samler kald til mediatoren, i stedet for enkelte klasser. Dog skal der passes på at mediatoren ikke bliver til en monolit, hvis for meget funktionalitet bliver pakket ind i den.
