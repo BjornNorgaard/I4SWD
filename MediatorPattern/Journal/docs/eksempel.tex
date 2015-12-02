@@ -27,9 +27,7 @@ public virtual void Register(IParticipant participant)
 {
 	// checking if participant is already in dictionary
 	if (Participants.ContainsValue(participant) == false)
-	{
 		Participants[participant.Name] = participant;
-	}
 	
 	// adding this mediator object to participant when registering
 	participant.Mediator = this;
@@ -37,6 +35,40 @@ public virtual void Register(IParticipant participant)
 \end{lstlisting}
 
 Det er også i Mediatorens \textit{Register} metode at den indeksere det gældende object af typen IParticipant, i dette tilfælde ved \textit{Name} af typen \textit{string}. 
+
+Når en Participant vil sende en besked skal den bare kende modtagerens navn og kalde sin mediators \textit{Send} metode, som det kan ses herunder:
+
+\begin{lstlisting}
+public virtual void Send(string to, string message)
+{
+	// Name being the "return-address"/Senders name
+	Mediator.Send(Name, to, message);
+}
+\end{lstlisting}
+
+Når Mediatoren så skal videreformidle denne besked skal den blot kalde modtagerens \textit{Receive} funktion.
+
+\begin{lstlisting}
+public virtual void Send(string from, string to, string message)
+{
+	// using dict's key as receiver, no need for actual value/object
+	IParticipant participant = Participants[to];
+	
+	if (participant != null)
+		participant.Receive(from, message);
+}
+\end{lstlisting}
+
+Herefter kan modtageren så gøre med besked hvad den nu skal. I dette eksempel vil den blot lave en udskrift:
+
+\begin{lstlisting}
+public virtual void Receive(string from, string message)
+{
+	Console.WriteLine(from + " to " + Name + ": " + message);
+}
+\end{lstlisting}
+
+Igen så er koden at finde på \url{https://github.com/BjornNorgaard/I4SWD/tree/master/MediatorPattern}. Her følger klassediagrammet for implementering af eksemplet:
 
 \begin{figure}[h]
 	\centering
