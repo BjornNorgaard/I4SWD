@@ -1,0 +1,46 @@
+\section{Eksempel}
+Her følger et eksempel på brugen af Mediator pattern. Kildekoden kan ses fra github\footnote{\url{https://github.com/BjornNorgaard/I4SWD/tree/master/MediatorPattern}} I eksempelet vil klasserne \textbf{Kommune} og \textbf{Borger} af typen \textit{Participant} kommunikere indbyrdes. Eksempelet er holdt simpelt idet at klasserne via Mediatoren kun kan sende \textit{strings} til hinanden, men selvfølgelig ville dette kunne ændres til hvad end man har brug for.
+
+\begin{lstlisting}
+static void Main(string[] args)
+{
+	Mediator Chatroom = new Mediator();
+	
+	Participant Dennis = new Borger("Dennis");
+	Participant Joachim = new Borger("Joachim");
+	
+	Chatroom.Register(Dennis);
+	Chatroom.Register(Joachim);
+	
+	Dennis.Send("Joachim", "Herro Jokke!");
+	Joachim.Send("Dennis", "Hello Dennis");
+}
+\end{lstlisting}
+
+Hele klassediagrammet for programmet kan ses på figur~\ref{fig:mediclass} på side~\pageref{fig:mediclass}. En \textit{Participant} har et Mediator medlem og denne bliver sat med \textit{Chatroom.Register(''Parcipant'');} metoden. Hvorved Mediatoren sætte sig selv som netop denne mediator. Implementering ses her:
+
+\begin{lstlisting}
+// you can search for complex class with simple key, i.e. string in this case
+protected Dictionary<string, IParticipant> Participants;
+
+public virtual void Register(IParticipant participant)
+{
+	// checking if participant is already in dictionary
+	if (Participants.ContainsValue(participant) == false)
+	{
+		Participants[participant.Name] = participant;
+	}
+	
+	// adding this mediator object to participant when registering
+	participant.Mediator = this;
+}
+\end{lstlisting}
+
+Det er også i Mediatorens \textit{Register} metode at den indeksere det gældende object af typen IParticipant, i dette tilfælde ved \textit{Name} af typen \textit{string}. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{figs/classdiagram}
+	\caption{Klassediagram for vores eksempel på Mediator pattern.}
+	\label{fig:mediclass}
+\end{figure}
