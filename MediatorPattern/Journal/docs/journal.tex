@@ -10,11 +10,6 @@ Når objekters funktionalitet distribueres ud mellem hinanden, vil der opstå h�
 	\label{fig:concrete}
 \end{figure}
 
-Brugen af et mediator pattern begrænser mængden af afledte klasser i et system, i og med mediatoren centraliserer funktionalitet der ellers ville være spredt ud på mange klasser. Ved at pakke objekters interkonnektivitet ind i et mediator pattern, får man samtidig skabt et ekstra abtraktionsniveau der gør funktionalitet mere overskuelig.
-
-\section{Eksempel}
-Definition og identifikation af deltagende klassers type:
-
 \begin{itemize}
 	\item Mediator.
 	\begin{itemize}
@@ -31,7 +26,10 @@ Definition og identifikation af deltagende klassers type:
 	\end{itemize}
 \end{itemize}
 
-\section{Sammenligning}
+Brugen af et mediator pattern begrænser mængden af afledte klasser i et system, i og med mediatoren centraliserer funktionalitet der ellers ville være spredt ud på mange klasser. Ved at pakke objekters interkonnektivitet ind i et mediator pattern, får man samtidig skabt et ekstra abtraktionsniveau der gør funktionalitet mere overskuelig.
+
+\section{Eksempel}
+Definition og identifikation af deltagende klassers type:
 
 \begin{figure}[h]
 	\centering
@@ -39,6 +37,8 @@ Definition og identifikation af deltagende klassers type:
 	\caption{Klassediagram for vores eksempel på Mediator pattern.}
 	\label{fig:mediclass}
 \end{figure}
+
+\section{Sammenligning}
 
 \paragraph{Open-Closed}
 Mediator pattern mindsker koblingen i programmet. Dette gør, at alle klasser blot skal bruge én reference (til mediatoren), i stedet for at have adskillige referencer til mange forskellige klasser. Dette er godt for Open-Closed princippet, da programmet er åbent for tilføjelser, men lukket for modifikationer. I princippet kan et objekt fjernes fra programmet, uden at programmet går i stykker. Dette skyldes, at mediatoren blot vil undlade at sende en besked, i stedet for, at der er NullPointer referencer i koden.
