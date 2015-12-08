@@ -6,7 +6,7 @@
 	\item Redegør for:
 	\begin{itemize}
 		\item Open-Closed Principle (OCP).
-		\item Lisskov's Substitution Principle (ISP).
+		\item Lisskov's Substitution Principle (LSP).
 		\item Dependency Inversion Principle (DIP).
 	\end{itemize}
 	\item Redegør for, hvordan du mener anvendelsen af principperne fremmer godt SW design.
@@ -14,3 +14,101 @@
 	\item Redegør for konsekvenserne ved anvendelsen af OCP, LSP og/eller DIP - har det nogle ulemper?
 \end{itemize}
 
+\subsection{Open-Closed Principle (OCP)}
+
+\subsection{Lisskov's Substitution Principle (LSP)}
+\textit{''Subtypes must be substitutable for their base types''}.
+
+\subsubsection{LSP overholdt}
+Hvis vi har følgende klasse Vehicle:
+
+\begin{lstlisting}
+class Vehicle {
+	public void StartEngine() {
+		// Default engine start functionality
+	}
+	public void Accelerate() {
+		// Default acceleration functionality
+	}
+}
+\end{lstlisting}
+
+Og vi så vil aflede to klasser, Car og ElectricCar.
+
+\begin{lstlisting}
+class Car : Vehicle {
+	public void StartEngine() {
+		engageIgnition();
+	}
+	private void engageIgnition() {
+		// Ignition procedure
+	}
+}
+
+class ElectricCar : Vehicle {
+	public void accelerate() {
+		increaseVoltage();
+	}
+	private void increaseVoltage() {
+		// Electric logic
+	}
+}
+\end{lstlisting}
+
+Så skal begge være lavet så de kan skiftes ud med Car klassen. Således vil følgende funktionskald ikke give fejl og stadig virke som de skal, som set fra clientens side.
+
+\begin{lstlisting}
+class Driver {
+	public void Drive(Vehicle v) {
+		v.StartEngine();
+		v.Accelerate();
+	}
+}
+\end{lstlisting}
+
+\subsubsection{Brud på LSP}
+Hvis vi allerede har lavet en klasse \textit{Rectangle}:
+
+\begin{lstlisting}
+class  Rectangle {
+	int width, height;
+	public void setHeight(int h){}
+	public void getHeight(int h){}
+	public void setWidth (int w){}
+	public void getWidth (int w){}
+}
+\end{lstlisting}
+
+Og vi så vil lave en afledt klasse \textit{Square}. Så burde dette være ligetil, men er en Square i programmering det samme som en Rectangle?
+
+\begin{lstlisting}
+class  Square : Rectangle {
+	public void setHeight(int h){}
+	public void setWidth (int w){}
+}
+\end{lstlisting}
+
+Her vil vi få et program da højde og bredde vil blive sat til det samme. Men hvad så hvis clienten forventer føglende test kan gennemføres?
+
+\begin{lstlisting}
+class Client {
+	public void AreaVerifier(Rectangle r) {
+		r.setHeight(5);
+		r.setWidth(4);
+		
+		if(r.area() != 20) {
+			System.Console.WriteLine("FUCK!");
+		}
+	}
+}
+\end{lstlisting}
+
+
+
+\subsection{Dependency Inversion Principle (DIP)}
+
+\subsection{Hvordan fremmes godt SW design?}
+
+\subsection{Eksempel}
+
+\subsection{Redegør for ulemper}
