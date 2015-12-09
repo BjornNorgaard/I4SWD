@@ -3,3 +3,8 @@ C:\Users\Bjørn Nørgaard\documents\visual studio 2013\Projects\CardGame\CardGam
 C:\Users\Bjørn Nørgaard\documents\visual studio 2013\Projects\CardGame\CardGame\bin\Debug\CardGame.pdb
 C:\Users\Bjørn Nørgaard\documents\visual studio 2013\Projects\CardGame\CardGame\obj\Debug\CardGame.dll
 C:\Users\Bjørn Nørgaard\documents\visual studio 2013\Projects\CardGame\CardGame\obj\Debug\CardGame.pdb
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\CardGame\CardGame\bin\Debug\CardGame.dll
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\CardGame\CardGame\bin\Debug\CardGame.pdb
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\CardGame\CardGame\obj\Debug\CardGame.csprojResolveAssemblyReference.cache
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\CardGame\CardGame\obj\Debug\CardGame.dll
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\CardGame\CardGame\obj\Debug\CardGame.pdb

@@ -15,9 +15,22 @@
 \end{itemize}
 
 \subsection{Open-Closed Principle (OCP)}
+\textit{''Open for extension, closed for modification''}.
+
+
 
 \subsection{Lisskov's Substitution Principle (LSP)}
 \textit{''Subtypes must be substitutable for their base types''}.
+
+
+\begin{enumerate}
+	\item An overriding method may [only] weaken the precondition. This means
+	that the overriding precondition should be logically "or-ed" with the
+	overridden precondition.
+	\item An overriding method may [only] strengthen the postcondition. This
+	means that the overriding postcondition should be logically "and-ed" with
+	the overridden postcondition.
+\end{enumerate}
 
 \subsubsection{LSP overholdt}
 Hvis vi har følgende klasse Vehicle:
