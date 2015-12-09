@@ -1,0 +1,5 @@
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\MediatorPattern\MediatorPattern\bin\Debug\MediatorPattern.dll
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\MediatorPattern\MediatorPattern\bin\Debug\MediatorPattern.pdb
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\MediatorPattern\MediatorPattern\obj\Debug\MediatorPattern.csprojResolveAssemblyReference.cache
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\MediatorPattern\MediatorPattern\obj\Debug\MediatorPattern.dll
+C:\Users\Bjørn Nørgaard\Documents\GitHub\I4SWD\MediatorPattern\MediatorPattern\obj\Debug\MediatorPattern.pdb
