@@ -12,14 +12,16 @@
 \contentsline {subsection}{\numberline {2.1}Fokuspunkter}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Open-Closed Principle (OCP)}{4}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Lisskov's Substitution Principle (LSP)}{4}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}LSP overholdt}{4}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Brud p\IeC {\r a} LSP}{5}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.1}Pre -og postconditions}{4}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}LSP overholdt}{4}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Brud p\IeC {\r a} LSP}{5}{subsubsection.2.3.3}
 \contentsline {subsection}{\numberline {2.4}Dependency Inversion Principle (DIP)}{5}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Hvordan fremmes godt SW design?}{5}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Eksempel}{5}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}Redeg\IeC {\o }r for ulemper}{5}{subsection.2.7}
 \contentsline {section}{\numberline {3}Patterns 1 - GoF Strategy + GoF Template Method}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Fokuspunkter}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Hvad er et Software pattern?}{6}{subsection.3.2}
 \contentsline {section}{\numberline {4}Patterns 2 - GoF Observer}{7}{section.4}
 \contentsline {subsection}{\numberline {4.1}Fokuspunkter}{7}{subsection.4.1}
 \contentsline {section}{\numberline {5}Patterns 3 - GoF Singleton + Method/Abstract Factory}{8}{section.5}

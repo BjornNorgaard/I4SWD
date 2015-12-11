@@ -16,7 +16,7 @@
 
 
 \subsection{Single Responsibility Principle (SRP)}
-En klasse skal kun have ét ansvar. Derved undgår vi at skulle \textit{rebuild, retest and redeploy} funktionalitet, som ikke er ændret.\\
+En klasse skal kun have ét ansvar. Derved undgår vi at skulle \textit{rebuild, retest and redeploy} funktionalitet, som ikke er ændret. På samme tid skal det selvfølgelig heller ikke ''overgøres'' sådan at vi får \textit{needless complexity}.\\
 
 ''An axis of change is an axis of change, only if changes occur''\\
 
@@ -25,7 +25,7 @@ En klasse skal kun have ét ansvar. Derved undgår vi at skulle \textit{rebuild,
 %% side 118 i Agile derp
 Modem eksemplet fra hello: skal vi dele den op? Det kommer an på hvordan applikationen ændrer sig. Hvis connectiondelen ændres skal resten af klassen også rekompilere.
 
-\subsubsection{Brud på SRP}
+\subsubsection{Brud på SRP} \label{sec:brud_isp}
 Brud på SRP kan ses på figur~\ref{fig:ISP_bad}~og~\ref{fig:ISP_good} under ISP i section~\ref{sec:isp}. Hvis dette interface har grund til at blive opdelt så er ansvaret muligvis også så anderledes at det burde være i separate klasser.
 
 \subsection{Interface Segregation Principle (ISP)}\label{sec:isp}
@@ -49,9 +49,13 @@ Derfor kan vi ved hjælp af ISP princippet dele interfacet op i flere mindre int
 	\label{fig:ISP_good}
 \end{figure}
 
-Et eksempel kan være rectangle eksemplet på  \href{http://code.tutsplus.com/tutorials/solid-part-3-liskov-substitution-interface-segregation-principles--net-36710}{denne} side. Klassen bør ikke indeholde funktion til både draw() og calc(). Dette gør at at fx GUI includen skal bygges samtidig med calc.
+Et eksempel kan være rectangle eksemplet på  \href{http://code.tutsplus.com/tutorials/solid-part-3-liskov-substitution-interface-segregation-principles--net-36710}{denne} side. Klassen bør ikke indeholde funktion til både draw() og calc(). Dette gør at at fx GUI includen skal bygges samtidig med calc.\\
 
-\subsection{Dependency Inversion Principle (DIP)}
+Endeligt omkring brud på ISP skal section~\ref{sec:brud_isp} ses på side~\pageref{sec:brud_isp}.
+
+%\subsection{Dependency Inversion Principle (DIP)}
+\input{docs/repeated/dip}
+
 
 \subsection{Hvordan fremmes godt SW design?}
 

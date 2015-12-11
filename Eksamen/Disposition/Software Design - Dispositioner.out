@@ -11,25 +11,27 @@
 \BOOKMARK [2][-]{subsection.2.1}{Fokuspunkter}{section.2}% 11
 \BOOKMARK [2][-]{subsection.2.2}{Open-Closed Principle \(OCP\)}{section.2}% 12
 \BOOKMARK [2][-]{subsection.2.3}{Lisskov's Substitution Principle \(LSP\)}{section.2}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.1}{LSP overholdt}{subsection.2.3}% 14
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Brud p\345 LSP}{subsection.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.4}{Dependency Inversion Principle \(DIP\)}{section.2}% 16
-\BOOKMARK [2][-]{subsection.2.5}{Hvordan fremmes godt SW design?}{section.2}% 17
-\BOOKMARK [2][-]{subsection.2.6}{Eksempel}{section.2}% 18
-\BOOKMARK [2][-]{subsection.2.7}{Redeg\370r for ulemper}{section.2}% 19
-\BOOKMARK [1][-]{section.3}{Patterns 1 - GoF Strategy + GoF Template Method}{}% 20
-\BOOKMARK [2][-]{subsection.3.1}{Fokuspunkter}{section.3}% 21
-\BOOKMARK [1][-]{section.4}{Patterns 2 - GoF Observer}{}% 22
-\BOOKMARK [2][-]{subsection.4.1}{Fokuspunkter}{section.4}% 23
-\BOOKMARK [1][-]{section.5}{Patterns 3 - GoF Singleton + Method/Abstract Factory}{}% 24
-\BOOKMARK [2][-]{subsection.5.1}{Fokuspunkter}{section.5}% 25
-\BOOKMARK [1][-]{section.6}{Patterns 4 - State patterns}{}% 26
-\BOOKMARK [2][-]{subsection.6.1}{Fokuspunkter}{section.6}% 27
-\BOOKMARK [1][-]{section.7}{Patterns 5 - Model-View-Controller og Model-View-ViewModel}{}% 28
-\BOOKMARK [2][-]{subsection.7.1}{Fokuspunkter}{section.7}% 29
-\BOOKMARK [1][-]{section.8}{Patterns 6 - Redeg\370r for f\370lgende concurrency m\370nstre}{}% 30
-\BOOKMARK [2][-]{subsection.8.1}{Fokuspunkter}{section.8}% 31
-\BOOKMARK [1][-]{section.9}{Dom\346nemodeller og Domain Driven Design}{}% 32
-\BOOKMARK [2][-]{subsection.9.1}{Fokuspunkter}{section.9}% 33
-\BOOKMARK [1][-]{section.10}{Software arkitektur}{}% 34
-\BOOKMARK [2][-]{subsection.10.1}{Fokuspunkter}{section.10}% 35
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Pre -og postconditions}{subsection.2.3}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.2}{LSP overholdt}{subsection.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Brud p\345 LSP}{subsection.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.4}{Dependency Inversion Principle \(DIP\)}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.5}{Hvordan fremmes godt SW design?}{section.2}% 18
+\BOOKMARK [2][-]{subsection.2.6}{Eksempel}{section.2}% 19
+\BOOKMARK [2][-]{subsection.2.7}{Redeg\370r for ulemper}{section.2}% 20
+\BOOKMARK [1][-]{section.3}{Patterns 1 - GoF Strategy + GoF Template Method}{}% 21
+\BOOKMARK [2][-]{subsection.3.1}{Fokuspunkter}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.2}{Hvad er et Software pattern?}{section.3}% 23
+\BOOKMARK [1][-]{section.4}{Patterns 2 - GoF Observer}{}% 24
+\BOOKMARK [2][-]{subsection.4.1}{Fokuspunkter}{section.4}% 25
+\BOOKMARK [1][-]{section.5}{Patterns 3 - GoF Singleton + Method/Abstract Factory}{}% 26
+\BOOKMARK [2][-]{subsection.5.1}{Fokuspunkter}{section.5}% 27
+\BOOKMARK [1][-]{section.6}{Patterns 4 - State patterns}{}% 28
+\BOOKMARK [2][-]{subsection.6.1}{Fokuspunkter}{section.6}% 29
+\BOOKMARK [1][-]{section.7}{Patterns 5 - Model-View-Controller og Model-View-ViewModel}{}% 30
+\BOOKMARK [2][-]{subsection.7.1}{Fokuspunkter}{section.7}% 31
+\BOOKMARK [1][-]{section.8}{Patterns 6 - Redeg\370r for f\370lgende concurrency m\370nstre}{}% 32
+\BOOKMARK [2][-]{subsection.8.1}{Fokuspunkter}{section.8}% 33
+\BOOKMARK [1][-]{section.9}{Dom\346nemodeller og Domain Driven Design}{}% 34
+\BOOKMARK [2][-]{subsection.9.1}{Fokuspunkter}{section.9}% 35
+\BOOKMARK [1][-]{section.10}{Software arkitektur}{}% 36
+\BOOKMARK [2][-]{subsection.10.1}{Fokuspunkter}{section.10}% 37
