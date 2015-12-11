@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.8)  11 DEC 2015 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.8)  11 DEC 2015 20:35
 entering extended mode
 **"Software Design - Dispositioner.tex"
 ("Software Design - Dispositioner.tex"
@@ -931,6 +931,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip89
 )
+Package hyperref Info: Option `colorlinks' set `true' on input line 39.
+
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\footmisc\footmisc.sty"
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks43
@@ -946,42 +948,62 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 40.
+("S:\LaTeX\MiKTeX 2.9\tex\latex\todonotes\todonotes.sty"
+Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
+Package: todonotes 2012/07/25
 
+("S:\LaTeX\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryp
+ositioning.code.tex"
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+) ("S:\LaTeX\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count185
+\calc@Bcount=\count186
+\calc@Adimen=\dimen176
+\calc@Bdimen=\dimen177
+\calc@Askip=\skip90
+\calc@Bskip=\skip91
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count187
+\calc@Cskip=\skip92
+)
+\c@@todonotes@numberoftodonotes=\count188
+)
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count185
-\Gm@cntv=\count186
-\c@Gm@tempcnt=\count187
-\Gm@bindingoffset=\dimen176
-\Gm@wd@mp=\dimen177
-\Gm@odd@mp=\dimen178
-\Gm@even@mp=\dimen179
-\Gm@layoutwidth=\dimen180
-\Gm@layoutheight=\dimen181
-\Gm@layouthoffset=\dimen182
-\Gm@layoutvoffset=\dimen183
+\Gm@cnth=\count189
+\Gm@cntv=\count190
+\c@Gm@tempcnt=\count191
+\Gm@bindingoffset=\dimen178
+\Gm@wd@mp=\dimen179
+\Gm@odd@mp=\dimen180
+\Gm@even@mp=\dimen181
+\Gm@layoutwidth=\dimen182
+\Gm@layoutheight=\dimen183
+\Gm@layouthoffset=\dimen184
+\Gm@layoutvoffset=\dimen185
 \Gm@dimlist=\toks44
 
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count188
+\lst@mode=\count192
 \lst@gtempboxa=\box44
 \lst@token=\toks45
-\lst@length=\count189
-\lst@currlwidth=\dimen184
-\lst@column=\count190
-\lst@pos=\count191
-\lst@lostspace=\dimen185
-\lst@width=\dimen186
-\lst@newlines=\count192
-\lst@lineno=\count193
-\lst@maxwidth=\dimen187
+\lst@length=\count193
+\lst@currlwidth=\dimen186
+\lst@column=\count194
+\lst@pos=\count195
+\lst@lostspace=\dimen187
+\lst@width=\dimen188
+\lst@newlines=\count196
+\lst@lineno=\count197
+\lst@maxwidth=\dimen189
 
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count194
-\lst@skipnumbers=\count195
+\c@lstnumber=\count198
+\lst@skipnumbers=\count199
 \lst@framebox=\box45
 )
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\listings\listings.cfg"
@@ -1012,8 +1034,8 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 ("S:\LaTeX\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2015/08/03 3.9m Babel common definitions
-\babel@savecnt=\count196
-\U@D=\dimen188
+\babel@savecnt=\count266
+\U@D=\dimen190
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
@@ -1037,16 +1059,16 @@ LaTeX Font Info:    ... okay on input line 9.
 
 ("S:\LaTeX\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count197
-\scratchdimen=\dimen189
+\scratchcounter=\count267
+\scratchdimen=\dimen191
 \scratchbox=\box46
-\nofMPsegments=\count198
-\nofMParguments=\count199
+\nofMPsegments=\count268
+\nofMParguments=\count269
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count266
-\MPscratchDim=\dimen190
-\MPnumerator=\count267
-\makeMPintoPDFobject=\count268
+\MPscratchCnt=\count270
+\MPscratchDim=\dimen192
+\MPnumerator=\count271
+\makeMPintoPDFobject=\count272
 \everyMPtoPDFconversion=\toks47
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -1068,7 +1090,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("S:\LaTeX\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count269
+\c@section@level=\count273
 )
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
@@ -1110,7 +1132,7 @@ LaTeX Info: Redefining \nameref on input line 9.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count270
+\c@lstlisting=\count274
 (utils/titlepage.tex
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
@@ -1129,22 +1151,23 @@ Overfull \hbox (8.12933pt too wide) in paragraph at lines 39--40
 Package hyperref Warning: Option `colorlinks' has already been used,
 (hyperref)                setting the option has no effect on input line 8.
 
-("Software Design - Dispositioner.toc")
-\tf@toc=\write5
+("Software Design - Dispositioner.tdo")
+\tf@tdo=\write5
+ ("Software Design - Dispositioner.toc"pdfTeX warning (ext4): destination with 
+the same identifier (name{page.i}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.42 ...e {10}Software arkitektur}{13}{section.10}
+                                                   [1])
+\tf@toc=\write6
 
 
 Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 19.
+(hyperref)                setting the option has no effect on input line 20.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.22 \cleardoublepage
-                     		% rydder resten af siden [1]) (docs/spm1_solid_1.tex
+[2]) (docs/spm1_solid_1.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 6.
-
-("S:\LaTeX\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+ ("S:\LaTeX\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
@@ -1169,7 +1192,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-<figs/ISP/ISP_bad.png, id=236, 1105.88156pt x 663.22781pt>
+<figs/ISP/ISP_bad.png, id=248, 1105.88156pt x 663.22781pt>
 File: figs/ISP/ISP_bad.png Graphic file (type png)
 
 <use figs/ISP/ISP_bad.png>
@@ -1178,7 +1201,7 @@ Package pdftex.def Info: figs/ISP/ISP_bad.png used on input line 38.
  [1
 
 ]
-<figs/ISP/ISP_good.png, id=249, 782.17218pt x 715.92468pt>
+<figs/ISP/ISP_good.png, id=261, 782.17218pt x 715.92468pt>
 File: figs/ISP/ISP_good.png Graphic file (type png)
 
 <use figs/ISP/ISP_good.png>
@@ -1199,7 +1222,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-)) [3] (docs/spm2_solid_2.tex
+)
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 68.
+
+Overfull \hbox (0.9723pt too wide) in paragraph at lines 68--68
+\OT1/cmr/m/n/10 skrvende?  
+ []
+
+
+Overfull \hbox (0.9723pt too wide) in paragraph at lines 68--68
+\OT1/cmr/m/n/10 skrvende?  
+ []
+
+
+Overfull \hbox (0.9723pt too wide) in paragraph at lines 68--68
+\OT1/cmr/m/n/10 skrvende?  
+ []
+
+
+Overfull \hbox (0.9723pt too wide) in paragraph at lines 68--68
+\OT1/cmr/m/n/10 skrvende?  
+ []
+
+) [3] (docs/spm2_solid_2.tex
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
  [4]) [5] (docs/spm3_patterns_1.tex
@@ -1280,20 +1335,20 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 37.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 37.
 Package rerunfilecheck Info: File `"Software Design - Dispositioner".out' has n
 ot changed.
-(rerunfilecheck)             Checksum: 4C030CFC92A7EBB6B07E5F6EA6299F67;3034.
+(rerunfilecheck)             Checksum: 5D29BACE032EF312B071B2CD085BC1DA;3098.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 21986 strings out of 493636
- 382547 string characters out of 3146987
- 612949 words of memory out of 3000000
- 24793 multiletter control sequences out of 15000+200000
+ 22386 strings out of 493636
+ 391971 string characters out of 3146987
+ 621443 words of memory out of 3000000
+ 25176 multiletter control sequences out of 15000+200000
  9323 words of font info for 34 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 57i,12n,97p,1120b,1833s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,12n,97p,1120b,1836s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1325,10 +1380,10 @@ amsfonts/cm/cmr8.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
 .pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><S:/LaTeX/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><S:/LaTeX/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "Software Design - Dispositioner.pdf" (15 pages, 370436 bytes
+Output written on "Software Design - Dispositioner.pdf" (16 pages, 373447 bytes
 ).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
- 125 named destinations out of 1000 (max. 500000)
- 351 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 468 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
+ 359 words of extra memory for PDF output out of 10000 (max. 10000000)
 

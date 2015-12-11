@@ -58,6 +58,15 @@ Endeligt omkring brud på ISP skal section~\ref{sec:brud_isp} ses på side~\page
 
 
 \subsection{Hvordan fremmes godt SW design?}
+Alle tre design principper har deres fordele og nogen, deres ulemper.
+
+\subsubsection{SRP}
+At separere klassers ansvar kan være en god ide, idet ethvert ansvar har dets egen ''Axis of change''. Flere ansvar i klasser medfører høj kobling blandt dem. Hvis en enkelt af disse ansvar skal ændres kan det medføre at resten af klassen bliver negativt påvirket eller ''bare'' skal genkompileres, gentestes og genimplementeres.\\
+
+Man skal også passe på ikke at distribuere funktionalitet ud så meget at man får ”needless complexity”. Hvis en klasse ikke har ”brug” for at ændre sig, er der ingen grund til at bruge SRP.\\
+
+Et personligt eksempel \todo{skal med? måske for tidskrævende?} er i faget ISU, hvor vi distribuerede et parkeringssystems funktionalitet ud på enormt mange små klasser, med enkelte metoder/attributter. Dette medførte en meget uoverskuelig og kompleks kode, og det positive ved SRP opvejede ikke længere unødig kompleksitet.
+
 
 \subsection{Eksempel}
 
