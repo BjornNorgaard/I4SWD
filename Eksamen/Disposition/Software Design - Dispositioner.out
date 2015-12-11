@@ -23,15 +23,19 @@
 \BOOKMARK [2][-]{subsection.3.2}{Hvad er et Software pattern?}{section.3}% 23
 \BOOKMARK [1][-]{section.4}{Patterns 2 - GoF Observer}{}% 24
 \BOOKMARK [2][-]{subsection.4.1}{Fokuspunkter}{section.4}% 25
-\BOOKMARK [1][-]{section.5}{Patterns 3 - GoF Singleton + Method/Abstract Factory}{}% 26
-\BOOKMARK [2][-]{subsection.5.1}{Fokuspunkter}{section.5}% 27
-\BOOKMARK [1][-]{section.6}{Patterns 4 - State patterns}{}% 28
-\BOOKMARK [2][-]{subsection.6.1}{Fokuspunkter}{section.6}% 29
-\BOOKMARK [1][-]{section.7}{Patterns 5 - Model-View-Controller og Model-View-ViewModel}{}% 30
-\BOOKMARK [2][-]{subsection.7.1}{Fokuspunkter}{section.7}% 31
-\BOOKMARK [1][-]{section.8}{Patterns 6 - Redeg\370r for f\370lgende concurrency m\370nstre}{}% 32
-\BOOKMARK [2][-]{subsection.8.1}{Fokuspunkter}{section.8}% 33
-\BOOKMARK [1][-]{section.9}{Dom\346nemodeller og Domain Driven Design}{}% 34
-\BOOKMARK [2][-]{subsection.9.1}{Fokuspunkter}{section.9}% 35
-\BOOKMARK [1][-]{section.10}{Software arkitektur}{}% 36
-\BOOKMARK [2][-]{subsection.10.1}{Fokuspunkter}{section.10}% 37
+\BOOKMARK [2][-]{subsection.4.2}{Hvad er et Software pattern?}{section.4}% 26
+\BOOKMARK [1][-]{section.5}{Patterns 3 - GoF Singleton + Method/Abstract Factory}{}% 27
+\BOOKMARK [2][-]{subsection.5.1}{Fokuspunkter}{section.5}% 28
+\BOOKMARK [2][-]{subsection.5.2}{Hvad er et Software pattern?}{section.5}% 29
+\BOOKMARK [1][-]{section.6}{Patterns 4 - State patterns}{}% 30
+\BOOKMARK [2][-]{subsection.6.1}{Fokuspunkter}{section.6}% 31
+\BOOKMARK [2][-]{subsection.6.2}{Hvad er et Software pattern?}{section.6}% 32
+\BOOKMARK [1][-]{section.7}{Patterns 5 - Model-View-Controller og Model-View-ViewModel}{}% 33
+\BOOKMARK [2][-]{subsection.7.1}{Fokuspunkter}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.2}{Hvad er et Software pattern?}{section.7}% 35
+\BOOKMARK [1][-]{section.8}{Patterns 6 - Redeg\370r for f\370lgende concurrency m\370nstre}{}% 36
+\BOOKMARK [2][-]{subsection.8.1}{Fokuspunkter}{section.8}% 37
+\BOOKMARK [1][-]{section.9}{Dom\346nemodeller og Domain Driven Design}{}% 38
+\BOOKMARK [2][-]{subsection.9.1}{Fokuspunkter}{section.9}% 39
+\BOOKMARK [1][-]{section.10}{Software arkitektur}{}% 40
+\BOOKMARK [2][-]{subsection.10.1}{Fokuspunkter}{section.10}% 41
