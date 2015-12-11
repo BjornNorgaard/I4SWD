@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.8.22)  11 DEC 2015 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.8.22)  11 DEC 2015 15:47
 entering extended mode
 **"Software Design - Dispositioner.tex"
 ("Software Design - Dispositioner.tex"
@@ -1042,30 +1042,66 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
-) [1
 
-]
-(docs/spm2_solid_2.tex [2]) [3] [4] (docs/spm3_patterns_1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+<figs/ISP/ISP_bad.jpg, id=15, 567.62062pt x 339.51843pt>
+File: figs/ISP/ISP_bad.jpg Graphic file (type jpg)
+
+<use figs/ISP/ISP_bad.jpg>
+Package pdftex.def Info: figs/ISP/ISP_bad.jpg used on input line 28.
+(pdftex.def)             Requested size: 298.75264pt x 178.70055pt.
+
+<figs/ISP/ISP_good.jpg, id=16, 447.92343pt x 420.06938pt>
+File: figs/ISP/ISP_good.jpg Graphic file (type jpg)
+
+<use figs/ISP/ISP_good.jpg>
+Package pdftex.def Info: figs/ISP/ISP_good.jpg used on input line 37.
+(pdftex.def)             Requested size: 298.75264pt x 280.18231pt.
+ [1
+
+ <./figs/ISP/ISP_bad.jpg>]
+! Undefined control sequence.
+<argument> ...esep \ignorespaces Hjemmeside: \url 
+                                                  {http://code.tutsplus.com/...
+l.42 ...erface-segregation-principles--net-36710}}
+                                                   Klassen bør ikke indehol...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+[][]\OT1/cmr/m/n/8 Hjemmeside: http://code.tutsplus.com/tutorials/solid-part-3-
+liskov-substitution-interface-segregation-
+ []
+
+) [2 <./figs/ISP/ISP_good.jpg>] (docs/spm2_solid_2.tex [3]) [4] [5]
+(docs/spm3_patterns_1.tex
 Overfull \hbox (6.05557pt too wide) in paragraph at lines 10--11
 []\OT1/cmr/m/n/10 Redegr for, hvilke(t) SOLID-princip(per) du mener an-ven-del
 sen af GoF Strat-egy un-dersttter. 
  []
 
-) [5] (docs/spm4_patterns_2.tex
+) [6] (docs/spm4_patterns_2.tex
 Overfull \hbox (4.19441pt too wide) in paragraph at lines 11--12
 []\OT1/cmr/m/n/10 Redegr for, hvilke(t) SOLID-princip(per) du mener an-ven-del
 sen af GoF Ob-server un-derstter. 
  []
 
-) [6] (docs/spm5_patterns_3.tex) [7] (docs/spm6_patterns_4.tex) [8]
+) [7] (docs/spm5_patterns_3.tex) [8] (docs/spm6_patterns_4.tex) [9]
 (docs/spm7_patterns_5.tex
 Overfull \hbox (41.5732pt too wide) in paragraph at lines 1--1
 []\OT1/cmr/bx/n/14.4 Patterns 5 - Model-View-Controller og Model-View-ViewModel
  
  []
 
-) [9] (docs/spm8_patterns_6.tex) [10] (docs/spm9_domain.tex) [11]
-(docs/spm10_arkitektur.tex) [12] 
+) [10] (docs/spm8_patterns_6.tex) [11] (docs/spm9_domain.tex) [12]
+(docs/spm10_arkitektur.tex) [13] 
 AED: lastpage setting LastPage
 ("Software Design - Dispositioner.aux")
 
@@ -1073,24 +1109,26 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 18164 strings out of 493673
- 327151 string characters out of 3143925
+ 18205 strings out of 493673
+ 327692 string characters out of 3143925
  544813 words of memory out of 3000000
- 21101 multiletter control sequences out of 15000+200000
- 6740 words of font info for 25 fonts, out of 3000000 for 9000
+ 21130 multiletter control sequences out of 15000+200000
+ 9013 words of font info for 33 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  57i,12n,92p,1120b,1672s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmtt10.pfb>
-Output written on "Software Design - Dispositioner.pdf" (14 pages, 136711 bytes
+ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on "Software Design - Dispositioner.pdf" (15 pages, 252594 bytes
 ).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

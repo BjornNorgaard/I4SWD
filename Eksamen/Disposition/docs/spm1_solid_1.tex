@@ -19,7 +19,27 @@
 En klasse skal kun have ét ansvar. Derved undgår vi at skulle \textit{rebuild, retest and redeploy} funktionalitet, som ikke er ændret.
 
 \subsection{Interface Segregation Principle (ISP)}
-\textit{''No client should be forced to depend on methods it doesn't use''}.
+\textit{''No client should be forced to depend on methods it doesn't use''}.\\
+
+Når vi har flere klienter som alle bruger samme klasse gennem et interface \textit{IDoThings} som det kan ses på figur~\ref{fig:ISP_bad} vil nogle klienter blive afhængige af metoder som de ikke bruger.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/ISP/ISP_bad}
+	\caption{Flere klienter afhængige af samme ''store'' interface.}
+	\label{fig:ISP_bad}
+\end{figure}
+
+Derfor kan vi ved hjælp af ISP princippet dele interfacet op i flere mindre interfaces. Således undgår vi store og uoverskuelige interfaces, et eksempel er på figur~\ref{fig:ISP_good}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/ISP/ISP_good}
+	\caption{ISP anvendt på eksempel fra figur~\ref{fig:ISP_bad}.}
+	\label{fig:ISP_good}
+\end{figure}
+
+Et eksempel kan være Rectangel\footnote{Hjemmeside: \url{http://code.tutsplus.com/tutorials/solid-part-3-liskov-substitution-interface-segregation-principles--net-36710}} Klassen bør ikke indeholde funktion til både draw() og calc(). Dette gør at at fx GUI includen skal bygges samtidig med calc.
 
 \subsection{Dependency Inversion Principle (DIP)}
 
