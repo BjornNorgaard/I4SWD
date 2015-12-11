@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.8)  11 DEC 2015 19:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.8)  11 DEC 2015 19:39
 entering extended mode
 **"Software Design - Dispositioner.tex"
 ("Software Design - Dispositioner.tex"
@@ -931,42 +931,57 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip89
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 39.
+("S:\LaTeX\MiKTeX 2.9\tex\latex\footmisc\footmisc.sty"
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks43
+\footnotemargin=\dimen175
+\c@pp@next@reset=\count183
+\c@@fnserial=\count184
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 40.
 
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count183
-\Gm@cntv=\count184
-\c@Gm@tempcnt=\count185
-\Gm@bindingoffset=\dimen175
-\Gm@wd@mp=\dimen176
-\Gm@odd@mp=\dimen177
-\Gm@even@mp=\dimen178
-\Gm@layoutwidth=\dimen179
-\Gm@layoutheight=\dimen180
-\Gm@layouthoffset=\dimen181
-\Gm@layoutvoffset=\dimen182
-\Gm@dimlist=\toks43
+\Gm@cnth=\count185
+\Gm@cntv=\count186
+\c@Gm@tempcnt=\count187
+\Gm@bindingoffset=\dimen176
+\Gm@wd@mp=\dimen177
+\Gm@odd@mp=\dimen178
+\Gm@even@mp=\dimen179
+\Gm@layoutwidth=\dimen180
+\Gm@layoutheight=\dimen181
+\Gm@layouthoffset=\dimen182
+\Gm@layoutvoffset=\dimen183
+\Gm@dimlist=\toks44
 
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count186
+\lst@mode=\count188
 \lst@gtempboxa=\box44
-\lst@token=\toks44
-\lst@length=\count187
-\lst@currlwidth=\dimen183
-\lst@column=\count188
-\lst@pos=\count189
-\lst@lostspace=\dimen184
-\lst@width=\dimen185
-\lst@newlines=\count190
-\lst@lineno=\count191
-\lst@maxwidth=\dimen186
+\lst@token=\toks45
+\lst@length=\count189
+\lst@currlwidth=\dimen184
+\lst@column=\count190
+\lst@pos=\count191
+\lst@lostspace=\dimen185
+\lst@width=\dimen186
+\lst@newlines=\count192
+\lst@lineno=\count193
+\lst@maxwidth=\dimen187
 
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count192
-\lst@skipnumbers=\count193
+\c@lstnumber=\count194
+\lst@skipnumbers=\count195
 \lst@framebox=\box45
 )
 ("S:\LaTeX\MiKTeX 2.9\tex\latex\listings\listings.cfg"
@@ -997,8 +1012,8 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 ("S:\LaTeX\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2015/08/03 3.9m Babel common definitions
-\babel@savecnt=\count194
-\U@D=\dimen187
+\babel@savecnt=\count196
+\U@D=\dimen188
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
@@ -1022,17 +1037,17 @@ LaTeX Font Info:    ... okay on input line 9.
 
 ("S:\LaTeX\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count195
-\scratchdimen=\dimen188
+\scratchcounter=\count197
+\scratchdimen=\dimen189
 \scratchbox=\box46
-\nofMPsegments=\count196
-\nofMParguments=\count197
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count198
-\MPscratchDim=\dimen189
-\MPnumerator=\count199
-\makeMPintoPDFobject=\count266
-\everyMPtoPDFconversion=\toks46
+\nofMPsegments=\count198
+\nofMParguments=\count199
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count266
+\MPscratchDim=\dimen190
+\MPnumerator=\count267
+\makeMPintoPDFobject=\count268
+\everyMPtoPDFconversion=\toks47
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
@@ -1053,7 +1068,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("S:\LaTeX\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count267
+\c@section@level=\count269
 )
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
@@ -1095,7 +1110,7 @@ LaTeX Info: Redefining \nameref on input line 9.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count268
+\c@lstlisting=\count270
 (utils/titlepage.tex
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
@@ -1154,7 +1169,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-<figs/ISP/ISP_bad.png, id=235, 1105.88156pt x 663.22781pt>
+<figs/ISP/ISP_bad.png, id=236, 1105.88156pt x 663.22781pt>
 File: figs/ISP/ISP_bad.png Graphic file (type png)
 
 <use figs/ISP/ISP_bad.png>
@@ -1163,7 +1178,7 @@ Package pdftex.def Info: figs/ISP/ISP_bad.png used on input line 38.
  [1
 
 ]
-<figs/ISP/ISP_good.png, id=246, 782.17218pt x 715.92468pt>
+<figs/ISP/ISP_good.png, id=249, 782.17218pt x 715.92468pt>
 File: figs/ISP/ISP_good.png Graphic file (type png)
 
 <use figs/ISP/ISP_good.png>
@@ -1259,27 +1274,48 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 21859 strings out of 493636
- 380606 string characters out of 3146987
- 610926 words of memory out of 3000000
- 24671 multiletter control sequences out of 15000+200000
+ 21986 strings out of 493636
+ 382547 string characters out of 3146987
+ 612949 words of memory out of 3000000
+ 24793 multiletter control sequences out of 15000+200000
  9323 words of font info for 34 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  57i,12n,97p,1120b,1833s stack positions out of 5000i,500n,10000p,200000b,50000s
-<S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><S:/LaTeX/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><S:/LaTeX/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmbx7.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr10.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><S
-:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><S:/LaTeX/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr7.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><S:/LaTeX/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><S:/LaTeX/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "Software Design - Dispositioner.pdf" (15 pages, 370539 bytes
+pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+<S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><S:/LaTeX/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmbx7.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr10.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><S:/
+LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><S:/LaTeX/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr7.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr8.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><S:/LaTeX/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><S:/LaTeX/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmtt8.pfb>
+Output written on "Software Design - Dispositioner.pdf" (15 pages, 369476 bytes
 ).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 124 named destinations out of 1000 (max. 500000)
+ 454 PDF objects out of 1000 (max. 8388607)
+ 125 named destinations out of 1000 (max. 500000)
  351 words of extra memory for PDF output out of 10000 (max. 10000000)
 
