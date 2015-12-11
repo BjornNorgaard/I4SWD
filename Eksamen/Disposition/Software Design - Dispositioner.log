@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.8)  11 DEC 2015 19:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.8)  11 DEC 2015 20:02
 entering extended mode
 **"Software Design - Dispositioner.tex"
 ("Software Design - Dispositioner.tex"
@@ -1184,12 +1184,25 @@ File: figs/ISP/ISP_good.png Graphic file (type png)
 <use figs/ISP/ISP_good.png>
 Package pdftex.def Info: figs/ISP/ISP_good.png used on input line 47.
 (pdftex.def)             Requested size: 298.75264pt x 273.45248pt.
- (docs/repeated/dip.tex [2 <./figs/ISP/ISP_bad.png> <./figs/ISP/ISP_good.png>])
-) [3] (docs/spm2_solid_2.tex
+ (docs/repeated/dip.tex
+Underfull \hbox (badness 10000) in paragraph at lines 2--3
+
+ []
+
+[2 <./figs/ISP/ISP_bad.png> <./figs/ISP/ISP_good.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+)) [3] (docs/spm2_solid_2.tex
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
- [4]) [5]
-(docs/spm3_patterns_1.tex
+ [4]) [5] (docs/spm3_patterns_1.tex
 Overfull \hbox (6.05557pt too wide) in paragraph at lines 10--11
 []\OT1/cmr/m/n/10 Redegr for, hvilke(t) SOLID-princip(per) du mener an-ven-del
 sen af GoF Strat-egy un-dersttter. 
@@ -1274,10 +1287,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 21986 strings out of 493636
- 382547 string characters out of 3146987
+ 21987 strings out of 493636
+ 382586 string characters out of 3146987
  612949 words of memory out of 3000000
- 24793 multiletter control sequences out of 15000+200000
+ 24794 multiletter control sequences out of 15000+200000
  9323 words of font info for 34 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  57i,12n,97p,1120b,1833s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1312,7 +1325,7 @@ amsfonts/cm/cmr8.pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
 .pfb><S:/LaTeX/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><S:/LaTeX/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><S:/LaTeX/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "Software Design - Dispositioner.pdf" (15 pages, 369476 bytes
+Output written on "Software Design - Dispositioner.pdf" (15 pages, 370046 bytes
 ).
 PDF statistics:
  454 PDF objects out of 1000 (max. 8388607)
