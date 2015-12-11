@@ -16,9 +16,19 @@
 
 
 \subsection{Single Responsibility Principle (SRP)}
-En klasse skal kun have ét ansvar. Derved undgår vi at skulle \textit{rebuild, retest and redeploy} funktionalitet, som ikke er ændret.
+En klasse skal kun have ét ansvar. Derved undgår vi at skulle \textit{rebuild, retest and redeploy} funktionalitet, som ikke er ændret.\\
 
-\subsection{Interface Segregation Principle (ISP)}
+''An axis of change is an axis of change, only if changes occur''\\
+
+''Dont apply SRP if there is no symptom''\\
+
+%% side 118 i Agile derp
+Modem eksemplet fra hello: skal vi dele den op? Det kommer an på hvordan applikationen ændrer sig. Hvis connectiondelen ændres skal resten af klassen også rekompilere.
+
+\subsubsection{Brud på SRP}
+Brud på SRP kan ses på figur~\ref{fig:ISP_bad}~og~\ref{fig:ISP_good} under ISP i section~\ref{sec:isp}. Hvis dette interface har grund til at blive opdelt så er ansvaret muligvis også så anderledes at det burde være i separate klasser.
+
+\subsection{Interface Segregation Principle (ISP)}\label{sec:isp}
 \textit{''No client should be forced to depend on methods it doesn't use''}.\\
 
 Når vi har flere klienter som alle bruger samme klasse gennem et interface \textit{IDoThings} som det kan ses på figur~\ref{fig:ISP_bad} vil nogle klienter blive afhængige af metoder som de ikke bruger.
