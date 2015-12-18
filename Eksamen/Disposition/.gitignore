@@ -205,18 +205,8 @@ FakesAssemblies/
 *.aux 
 *.lof 
 *.lot
- *.toc 
+*.toc 
 *.tdo
- *.out
- *.pdf
- *.tdo 
-
-*.synctex.gz 
-*.aux 
-*.lof 
-*.lot
- *.toc
- *.tdo 
-*.out 
-*.pdf 
-*.tdo
+*.out
+*.pdf
+*.tdo 
