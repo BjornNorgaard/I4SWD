@@ -199,24 +199,24 @@ FakesAssemblies/
 *.pdb
 *.dll
 *.v12.suo
-*.csprojResolveAssemblyReference.cache
+*.csprojResolveAssemblyReference.cache 
 
-*.synctex.gz
-*.aux
-*.lof
+*.synctex.gz 
+*.aux 
+*.lof 
 *.lot
-*.toc
+ *.toc 
 *.tdo
-*.out
-*.pdf
-*.tdo
+ *.out
+ *.pdf
+ *.tdo 
 
-*.synctex.gz
-*.aux
-*.lof
+*.synctex.gz 
+*.aux 
+*.lof 
 *.lot
-*.toc
-*.tdo
-*.out
-*.pdf
+ *.toc
+ *.tdo 
+*.out 
+*.pdf 
 *.tdo
