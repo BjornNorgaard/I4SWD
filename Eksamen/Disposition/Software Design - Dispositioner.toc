@@ -38,7 +38,7 @@
 \contentsline {section}{\numberline {6}Patterns 4 - State patterns}{11}{section.6}
 \contentsline {subsection}{\numberline {6.1}Fokuspunkter}{11}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Hvad er et software pattern?}{11}{subsection.6.2}
-\contentsline {section}{\numberline {7}Patterns 5 - Model-View-Controller og Model-View-ViewModel}{12}{section.7}
+\contentsline {section}{\numberline {7}Patterns 5 - ModelViewController og ModelViewPresenter}{12}{section.7}
 \contentsline {subsection}{\numberline {7.1}Fokuspunkter}{12}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Hvad er et software pattern?}{12}{subsection.7.2}
 \contentsline {subsection}{\numberline {7.3}Redeg\IeC {\o }r for Model-View-Control m\IeC {\o }nstret og dets variationer}{12}{subsection.7.3}

@@ -35,7 +35,7 @@
 \BOOKMARK [1][-]{section.6}{Patterns 4 - State patterns}{}% 35
 \BOOKMARK [2][-]{subsection.6.1}{Fokuspunkter}{section.6}% 36
 \BOOKMARK [2][-]{subsection.6.2}{Hvad er et software pattern?}{section.6}% 37
-\BOOKMARK [1][-]{section.7}{Patterns 5 - Model-View-Controller og Model-View-ViewModel}{}% 38
+\BOOKMARK [1][-]{section.7}{Patterns 5 - ModelViewController og ModelViewPresenter}{}% 38
 \BOOKMARK [2][-]{subsection.7.1}{Fokuspunkter}{section.7}% 39
 \BOOKMARK [2][-]{subsection.7.2}{Hvad er et software pattern?}{section.7}% 40
 \BOOKMARK [2][-]{subsection.7.3}{Redeg\370r for Model-View-Control m\370nstret og dets variationer}{section.7}% 41
