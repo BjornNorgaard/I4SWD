@@ -210,13 +210,3 @@ FakesAssemblies/
 *.out
 *.pdf
 *.tdo
-
-*.synctex.gz
-*.aux
-*.lof
-*.lot
-*.toc
-*.tdo
-*.out
-*.pdf
-*.tdo
