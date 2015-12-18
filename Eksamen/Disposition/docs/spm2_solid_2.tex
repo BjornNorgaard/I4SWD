@@ -15,19 +15,47 @@
 \end{itemize}
 
 \subsection{Open-Closed Principle (OCP)}
-\textit{''Open for extension, closed for modification''}.
+\textit{''Open for extension, closed for modification''}\\
 
+OCP siger at man bør refaktorere således at yderligere ændringer ikke skaber problemer\footnote{rekompilering, retest, redeploy.} i resten af programmet.\\
 
+Når OCP er "well applied" betyder det at vi kan tilføje ny kode uden at behøve ændre i det gamle der i forvejen virker.
+
+\paragraph{De 2 primære attributter:}
+\begin{enumerate}
+	\item Open for extension - Modulet kan udvides i takt med at krav udvides.
+	\item Closed for modification - Ved kun at udvide programmet, behøves vi ikka at røre ved exekverbare filer, DLL'er og library filer.
+\end{enumerate}
+
+\subsubsection{HOW TO OCP}
+
+\begin{itemize}
+	\item Brug abstrakte \todo{hvorfor base?}base klasser.
+	\item Eksempel - Client der bruger Server.
+	\item To konkrete klasser er lort $\longrightarrow$ brug et interface \todo{why it says client?}(client).
+\end{itemize}
+
+\subsubsection{Perspektiver}
+
+\paragraph{Strategy pattern} 
+\todo{her skal stå mere...}Herp derp something something...
 
 \subsection{Lisskov's Substitution Principle (LSP)}
-\textit{''Subtypes must be substitutable for their base types''}.
+\textit{''Subtypes must be substitutable for their base types''}\\
 
+Hvis en Tesla er en specialisering af en bil, så bør jeg kunne bruge bilens drive() metode på teslaen.\\
+
+Lad os sige at en base klassen bil, har en \textit{drive()} og en \textit{shiftGearUp()} metode. Teslaen kan sagtens implementere \textit{drive()} metoden men fordi det er en Tesla får vi et problem med gearskiftet! \todo{hvorfor er dette i parentes?}(et \textbf{throwExeption}) vil bryde OCP! Et \textcolor{green!60!black}{//Do Nothing} er sikkert fint men ikke særligt sikkert. Altså er en Tesla ikke en bil i Barbara Liskovs optik.\\
+
+LSP handler dermed i bund og grund om ikke at bryde ”er en” kontrakten med klient koden, og altså lave et arvehieraki der opfylder en ægte specialisering.
+
+\subsubsection{Pre -og postconditions}
 
 \begin{enumerate}
-	\item An overriding method may [only] weaken the precondition. This means
+	\item An overriding method may [only] \textbf{weaken the precondition}. This means
 	that the overriding precondition should be logically "or-ed" with the
 	overridden precondition.
-	\item An overriding method may [only] strengthen the postcondition. This
+	\item An overriding method may [only] \textbf{strengthen the postcondition}. This
 	means that the overriding postcondition should be logically "and-ed" with
 	the overridden postcondition.
 \end{enumerate}
@@ -79,7 +107,7 @@ class Driver {
 }
 \end{lstlisting}
 
-\subsubsection{Brud på LSP}
+\subsubsection{Brud på LSP}\todo{ved ikke helt om vi kan beholde mit eksempel. for langt? dårligt?}
 Hvis vi allerede har lavet en klasse \textit{Rectangle}:
 
 \begin{lstlisting}
@@ -116,12 +144,12 @@ class Client {
 }
 \end{lstlisting}
 
-
-
-\subsection{Dependency Inversion Principle (DIP)}
+%\subsection{Dependency Inversion Principle (DIP)}
+\input{docs/repeated/dip}
 
 \subsection{Hvordan fremmes godt SW design?}
 
 \subsection{Eksempel}
+Gode SOLID eksempler på \href{http://blog.gauffin.org/2012/05/11/solid-principles-with-real-world-examples/}{blog.gauffin.org}.
 
 \subsection{Redegør for ulemper}
