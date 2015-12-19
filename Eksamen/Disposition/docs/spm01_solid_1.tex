@@ -36,7 +36,7 @@ Når vi har flere klienter som alle bruger samme klasse gennem et interface \tex
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/ISP/ISP_bad}
-	\caption{Flere klienter afhængige af samme ''store'' interface.}
+	\caption{Flere klienter afhængige af samme ''store'' interface}
 	\label{fig:ISP_bad}
 \end{figure}
 
@@ -45,7 +45,7 @@ Derfor kan vi ved hjælp af ISP princippet dele interfacet op i flere mindre int
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/ISP/ISP_good}
-	\caption{ISP anvendt på eksempel fra figur~\ref{fig:ISP_bad}.}
+	\caption{ISP anvendt på eksempel fra figur~\ref{fig:ISP_bad}}
 	\label{fig:ISP_good}
 \end{figure}
 
@@ -67,8 +67,17 @@ Man skal også passe på ikke at distribuere funktionalitet ud så meget at man 
 Et personligt eksempel \todo{skal med? måske for tidskrævende?} er i faget ISU, hvor vi distribuerede et parkeringssystems funktionalitet ud på enormt mange små klasser, med enkelte metoder/attributter. Dette medførte en meget uoverskuelig og kompleks kode, og det positive ved SRP opvejede ikke længere unødig kompleksitet.
 
 \subsubsection{ISP}
+Ved at gøre klasser uafhængige af metoder som de ikke bruger opnår vi en række fordele:
+
+\begin{itemize}
+	\item Øget sikkerhed.\\
+	Klassen \textit{DoesA} kan ikke længere kalde \textit{DoB()}.
+	\item Lavere kobling mellem klasserne.\\
+	Nemmere at vedligeholde og ændre.
+\end{itemize}
 
 \subsubsection{DIP}
+
 
 \subsection{Eksempel}
 Gode SOLID eksempler på \href{http://blog.gauffin.org/2012/05/11/solid-principles-with-real-world-examples/}{blog.gauffin.org}.
