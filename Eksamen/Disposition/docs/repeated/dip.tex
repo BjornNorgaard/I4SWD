@@ -5,8 +5,7 @@ DIP har følgende centrale punkter:\\
 
 \textit{''Abstractions should not depend upon details. Details should depend upon abstractions.''}\\
 
-Det hedder dependency inversion fordi vi invertere afhængigheden set på figur~\ref{fig:dipwrong} sådan at den bliver omvendt, som vist på figur~\ref{fig:dipright}.\\
-
+Det hedder dependency inversion fordi vi invertere afhængigheden for klasserne på figurene på side~\pageref{fig:dipright}. Sådan at afhængigheden fra figur~\ref{fig:dipwrong} bliver inverteret, som vist på figur~\ref{fig:dipright}.\\
 
 \begin{figure}[h]
 	\centering
@@ -22,7 +21,7 @@ Det hedder dependency inversion fordi vi invertere afhængigheden set på figur~
 	\label{fig:dipright}
 \end{figure}
 
-Det der menes med abstraktioner her, er \textbf{interfaces}. Et eksempel på DIP er vores øvelse med Compressions Stocking, hvor vi fx havde nogen knapper (high-level) der kaldte noget low-level funktionalitet (blinkende LED’er osv). I stedet for at gøre knappen afhængig af low-level funktionalitetet, lader vi den afhænge af et interface.\\
+%Det der menes med abstraktioner her, er \textbf{interfaces}. Et eksempel på DIP er vores øvelse med Compressions Stocking, hvor vi fx havde nogen knapper (high-level) der kaldte noget low-level funktionalitet (blinkende LED’er osv). I stedet for at gøre knappen afhængig af low-level funktionalitetet, lader vi den afhænge af et interface.\\
 
 Med andre ord så er det ikke vores high-level modul som opretter/indeholder low-level modulet. I stedet har den et interface, som dette low-level modul implementere.
 På denne måde kan den underliggende funktionalitet let ændres/skiftes ud senere fordi high-level modulet ikke længere siger: “tænd for lampe”, men i stedet siger “lav lys” og så er det nu vores implementering af dette interface som afgør om det er en lampe der tændes eller et stearinlys.\\ 
