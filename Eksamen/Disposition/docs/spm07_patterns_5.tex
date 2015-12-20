@@ -20,12 +20,14 @@ MVC er et populært software pattern brugt til GUI applikationer. Ifølge Fowler
 
 \paragraph{Controller} Bindeleddet mellem View og Model. Controlleren indeholder logik til at finde ud af, hvad der skal ske i modellen, når brugeren trykker på noget. \textbf{Nogen gange} kan controlleren bede viewet om at ændre sig når controlleren modtager en “action” fra viewet (Enable/disable knapper/menuer).\\	
 
-\begin{figure}[h]\todo{var den her ikke til at lukke op og skide i?}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/mvcFlow}
 	\caption[Illustration af flowet i en MVC applikation]{Illustration af flowet i en MVC applikation.}
 	\label{fig:mvcFlow}
 \end{figure}
+
+\todo{var den her ikke til at lukke op og skide i?}
 
 Brugeren trykker på en knap, som registreres af controlleren. Controlleren udfører de nødvendige handlinger på modellen, som har kontakt med evt. harddisk/database. Modellen sender svar tilbage og controlleren kalder det korrekte view, som viser dataen til brugeren.
 
