@@ -14,7 +14,7 @@
 MVC er et populært software pattern brugt til GUI applikationer. Ifølge Fowler er dette pattern tit misquoted. Dette skyldes at der er mange elementer i den klassiske MVC der ikke rigtig kan bruges i nutidens GUI applikationer.
 
 \subsubsection{MVC's opbygning}
-\paragraph{Model} Indeholder logik, data og states for programmet. Model kender intet til UI’et eller controller, og indeholder altså kun funktionalitet for selve business logikken. Model sørger for et interface således at dets \textbf{state} kan tilgås eller manipuleres. Kan sende notifikationer om dets state til \textbf{observere}. Model notifier viewet, når dets state ændres.
+\paragraph{Model} Indeholder logik, data og states for programmet. Model kender intet til UI’et eller controller, og indeholder altså kun funktionalitet for selve business\todo{hvad er det? beskrivelse, tak} logikken. Model har et interface således at dets \textbf{state} kan tilgås eller manipuleres. Kan sende notifikationer om dets state til \textbf{observer}. Model notifier viewet, når dets state ændres\todo{en reference til observer afsnittet kunne være smart at have et sted}.
 
 \paragraph{View} Indeholder præsentationslogik (knapper, tekstbokse, etc). Brugeren af applikationen interagerer med view, som fortæller controlleren om din “action”. View spørger model om at få fat i data fra modellen, når modellen har annonceret en ændring i sit state.
 
