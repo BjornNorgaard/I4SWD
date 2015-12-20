@@ -16,11 +16,11 @@ MVC er et populært software pattern brugt til GUI applikationer. Ifølge Fowler
 \subsubsection{MVC's opbygning}
 \paragraph{Model} Indeholder logik, data og states for programmet. Model kender intet til UI’et eller controller, og indeholder altså kun funktionalitet for selve business\todo{hvad er det? beskrivelse, tak} logikken. Model har et interface således at dets \textbf{state} kan tilgås eller manipuleres. Kan sende notifikationer om dets state til \textbf{observer}. Model notifier viewet, når dets state ændres\todo{en reference til observer afsnittet kunne være smart at have et sted}.
 
-\paragraph{View} Indeholder præsentationslogik (knapper, tekstbokse, etc). Brugeren af applikationen interagerer med view, som fortæller controlleren om din “action”. View spørger model om at få fat i data fra modellen, når modellen har annonceret en ændring i sit state.
+\paragraph{View} Indeholder præsentationslogik (knapper, tekstbokse, etc). Brugeren af applikationen interagerer med view, som fortæller controlleren om \textit{din} “action”. View spørger model om at få fat i data fra modellen, når modellen har annonceret en ændring i sit state.
 
 \paragraph{Controller} Bindeleddet mellem View og Model. Controlleren indeholder logik til at finde ud af, hvad der skal ske i modellen, når brugeren trykker på noget. \textbf{Nogen gange} kan controlleren bede viewet om at ændre sig når controlleren modtager en “action” fra viewet (Enable/disable knapper/menuer).\\	
 
-\begin{figure}[h]
+\begin{figure}[h]\todo{var den her ikke til at lukke op og skide i?}
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/mvcFlow}
 	\caption[Illustration af flowet i en MVC applikation]{Illustration af flowet i en MVC applikation.}
@@ -69,7 +69,7 @@ MVP er en videreudviklet version af MVC, der forsøger at forene Forms and Contr
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\linewidth]{figs/mvpFlow}
+	\includegraphics[width=0.7\linewidth]{figs/mvpFlow}
 	\caption{Programmets flow i en MVP applikation}
 	\label{fig:mvpFlow}
 \end{figure}
@@ -96,5 +96,3 @@ Som beskrevet ovenfor.\todo{ovenfor hvor? indsæt reference.}
 En variation af MVP hvor viewet er mere intelligent. I denne variation har view mulighed for at kommunikere \textbf{direkte} med model og requeste data.\\
 
 Presenter står her for at informere modellen om aktiviteter i view (der måske ændrer state). Presenter passer en reference til model så at view kan interacte med model når models state ændres. På denne måde minder MVP SC meget om MVC idet den totale de-coupling mellem view og model nu er blevet vag.
-
-
