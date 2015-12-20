@@ -39,7 +39,7 @@ Brugeren trykker på en knap, som registreres af controlleren. Controlleren udf�
 		\item Nemmere at teste.
 		\item Nemmere at vedligeholde.
 	\end{itemize}
-	\item Inddeler GUI widgets i en controller som reagerer på brugerinput og view der viser modellens state. View og controller skal som regel ikke kommunikere direkte, men gennem modellen
+	\item Inddeler GUI widgets i en controller som reagerer på brugerinput og view der viser modellens state. View og controller skal som regel ikke kommunikere direkte, men gennem modellen.
 	\item Views (og controllere) kan observere modellen, så det er muligt for \textbf{flere widgets at opdatere}, uden nødvendigvis at behøve at kommunikere direkte. (Observer synkronisering).
 \end{itemize}
 
@@ -54,7 +54,7 @@ Brugeren trykker på en knap, som registreres af controlleren. Controlleren udf�
 Brugeren af en media player ønsker at skifte til næste sang.
 
 \begin{itemize}
-	\item Bruger-input til view.
+	\item Bruger-input til view.\todo{skulle dette måske være en enumerate i stedet}
 	\item Controller behandler bruger input og beder model ændre sit state herefter (kalder fx play() funktionen. Hvis det er nødvendigt kan controlleren få viewet til at ændre sig (grey out button etc.).
 	\item Model annocerer at den har ændret sig.
 	\item View beder om data på ændringen (fx en string i form af navnet på sangen).
@@ -70,7 +70,7 @@ MVP er en videreudviklet version af MVC, der forsøger at forene Forms and Contr
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figs/mvpFlow}
-	\caption{Programmets flow i en MVP apllikation}
+	\caption{Programmets flow i en MVP applikation}
 	\label{fig:mvpFlow}
 \end{figure}
 
@@ -90,10 +90,10 @@ MVP er en videreudviklet version af MVC, der forsøger at forene Forms and Contr
 Der findes to primære variationer af MVP.
 
 \paragraph{Passive View}
-Som beskrevet ovenfor.
+Som beskrevet ovenfor.\todo{ovenfor hvor? indsæt reference.}
 
 \paragraph{Supervising Controller}
-En variation af MVP hvor viewet er mere intelligent. I denne variation har view mulighed for at kommunikere \textbf{direkte} med model og requeste data. \\
+En variation af MVP hvor viewet er mere intelligent. I denne variation har view mulighed for at kommunikere \textbf{direkte} med model og requeste data.\\
 
 Presenter står her for at informere modellen om aktiviteter i view (der måske ændrer state). Presenter passer en reference til model så at view kan interacte med model når models state ændres. På denne måde minder MVP SC meget om MVC idet den totale de-coupling mellem view og model nu er blevet vag.
 
