@@ -14,7 +14,9 @@
 \input{docs/repeated/designpattern}
 
 \subsection{Redegør for opbygningen af GoF Observer}
-Opbygningen kan ses på figur~\ref{fig:observer_classdiagram}, \pageref{fig:observer_classdiagram}, som viser et klassediagram for opbygning af dette pattern.
+\textit{"Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically"}\\
+
+Opbygningen kan ses på figur~\ref{fig:observer_classdiagram} side \pageref{fig:observer_classdiagram}, som viser et klassediagram for opbygning af dette pattern.
 
 \begin{figure}[h]
 	\centering
@@ -30,12 +32,18 @@ Opbygningen kan ses på figur~\ref{fig:observer_classdiagram}, \pageref{fig:obse
 
 \subsection{Redegør for fordele og ulemper ved anvendelsen af GoF Observer}
 
+
 \subsection{Redegør for, hvilke(t) SOLID-princip(per) du mener anvendelsen af GoF Observer undersøtter}
 
 \begin{itemize}
-	\item SRP.
-	\item OCP.
-	\item LSP.
-	\item ISP.
-	\item DIP.
+	\item SRP.\\
+	Ikke relevant. Alternativt er den overholdt da klasserne kun har én grund til at ændre sig.
+	\item OCP.\\
+	Overholdt da vi let vil kunne tilføje flere observers uden at skulle ændre i subject eller anden kode.
+	\item LSP.\\
+	Brud(?), da man ikke kan udskifte de nedarvede klasser med deres parent.\todo{relevant? Det er jo ikke meningen at dette overhovedet skal kunne gøres?}
+	\item ISP.\\
+	Overholdt(?), ikke lavet med interface i vores eksempel. Hvis det var gjort med interfaces ville disse være små og lette. 
+	\item DIP.\\
+	Ikke relevant, da \todo{how to explain?}
 \end{itemize}
