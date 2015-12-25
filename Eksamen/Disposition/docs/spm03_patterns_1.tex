@@ -121,7 +121,7 @@ abstract class Game {
 			MakePlay(j);
 			j = (j + 1) % PlayerCount;
 		}
-		PrintWinner();
+		AnnounceWinner();
 	}
 }
 \end{lstlisting}
@@ -131,18 +131,18 @@ Herunder ses så hvordan den specifikke implementering af den abstrakts klasse k
 \begin{lstlisting}
 class Monopoly : Game {
 	/* Implementation of necessary concrete methods */
-	void initializeGame() {
+	void InitializeGame() {
 		// Initialize players
 		// Initialize money
 	}
-	void makePlay(int player) {
+	void MakePlay(int player) {
 		// Process one turn of player
 	}
-	boolean endOfGame() {
+	boolean EndOfGame() {
 		// Return true if game is over 
 		// according to Monopoly rules
 	}
-	void printWinner() {
+	void PrintWinner() {
 		// Display who won
 	}
 	
