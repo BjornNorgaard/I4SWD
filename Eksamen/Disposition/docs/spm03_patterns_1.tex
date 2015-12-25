@@ -11,3 +11,49 @@
 \end{itemize}
 
 \input{docs/repeated/designpattern}
+
+\subsection{Sammenlign de to design patterns GoF Strategy og GoF Template Method - hvornår vil du anvende hvilket, og hvorfor?}
+
+\subsection{Vis et designeksempel på anvendelsen af GoF Strategy}
+
+\subsection{Redegør for, hvordan anvendelsen af GoF Templete fremmer godt SW design}
+Hvis man har et system bestående af nogle klasser, hvor disse klasse funktionalitet kun afviger lidt fra hinanden. Så kan \textit{Template pattern} bruges. Via dette pattern kan et fast ''programflow'' defineres. Når dette ''flow'' så er fastlagt skal klasserne bare implementere/ændre (nok via override) de metoder som de ikke er tilfredse med.
+
+\subsubsection{Eksempel på Template pattern}
+Herunder er en abstrakt klasse som har metoder som de mange spil bruger/følger:
+
+\begin{lstlisting}
+abstract class Game 
+{
+	// Hook methods. Concrete implementation may differ in each subclass
+	protected int PlayerCount;
+	abstract void InitializeGame();
+	abstract void MakePlay(int player);
+	abstract void EndOfGame();
+	abstract void AnnounceWinner();
+	
+	// A template method:
+	public final void PlayGame(int playerCount)
+	{
+		PlayerCount = playerCount;
+		InitializeGame();
+		int j = 0;
+		while(!EndOfGame())
+		{
+			MakePlay(j);
+			j = (j + 1) % PlayerCount;
+		}
+		PrintWinner();
+	}
+}
+\end{lstlisting}
+
+\subsection{Redegør for, hvilke(t) SOLID-princip(per) du mener anvendelsen af GoF Strategy understøtter}
+
+
+
+
+
+
+
+
