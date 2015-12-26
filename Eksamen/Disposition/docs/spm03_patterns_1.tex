@@ -94,8 +94,17 @@ int application(object sender, EventArgs e) {
 
 \subsection{Redegør for, hvilke(t) SOLID-princip(per) du mener anvendelsen af GoF Strategy understøtter}
 
-\paragraph{Strategy Mønstret og OCP}
+\paragraph{Overholdelse af OCP}
 Som det kan ses på figur \ref{fig:strategyPattern}, er context (Klienten) open og closed, og OCP er herved overholdt. Klassen i sig selv bruger interfacet IStrategy, imens objekter af klienten bruger interfacets afledte klasser. Dette betyder, at hvis vi ønsker at bruge en ConcreteStrategyC skal vi ikke ændre noget i klient klassen. Vi skal derimod blot sætte klient objektet til at bruge den nye strategy.
+
+\paragraph{Overholdelse af DIP}
+Overholdelse af DIP ligger implicit i brugen af dette mønster - Bedst eksemplificeret med CompressionStocking klassediagrammet, hvor dependencies mellem StockingController klassen og Lace/AirCompressionCtrl er inverterede - Vi bruger interfacet ICompressionCtrl.  
+
+\paragraph{Overholdelse af ISP}
+Strategy mønstret giver i dets beskrivelse udtryk for en opdeling af algoritmer i "familier" eg. interfaces).
+
+\paragraph{Overholdelse af LSP}
+Vi tager igen udgangspunkt i \textit{familiebeskrivelsen} af strategy mønstret - Per definition skal alle subtyperne af samme interface være \textit{interchangable}. Dette er mindre relevant for netop dette mønster idet man sjældent vil bevæge sig længere ned i et arvehieraki end første lag.
 
 \subsection{Redegør for, hvordan anvendelsen af GoF Templete fremmer godt SW design}
 Hvis man har et system bestående af nogle klasser, hvor disse klasse funktionalitet kun afviger lidt fra hinanden. Så kan \textit{Template pattern} bruges. Via dette pattern kan et fast ''programflow'' defineres. Når dette ''flow'' så er fastlagt skal klasserne bare implementere/ændre (nok via override) de metoder som de ikke er tilfredse med.
