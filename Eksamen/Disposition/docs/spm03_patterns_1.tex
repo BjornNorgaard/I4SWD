@@ -15,19 +15,23 @@
 \subsection{Sammenlign de to design patterns GoF Strategy og GoF Template Method - hvornår vil du anvende hvilket, og hvorfor?}
 De er begge herp derp noget gøgl.
 
-\subsubsection{Forskelle og ligheder}
-
 \subsubsection{GoF Strategy Pattern}
-GoF strategy pattern er et Design Pattern, der gør det mulgt at ændre en algoritmes opførsel, runtime.
+GoF strategy pattern er et Design Pattern, der gør det mulgt at ændre en algoritmes opførsel, \textbf{runtime}.
 
 \paragraph{Et strategy pattern}
 \begin{itemize}
 	\item Definerer en \textit{familie} af algoritmer.
-	\item Indkapsler hver algoritme. \todo{vil det sige i hver sin afledte klasse af interfacet??}
+	\item Indkapsler hver algoritme.
 	\item Gør algoritmerne \textbf{\textit{interchangable}} i dennes familie.
 \end{itemize}
 
 På denne måde lader dette mønster disse algoritmer varierere alt efter hvad dets klienter ønsker.
+
+\subsubsection{GoF Template}
+Se afsnit~\ref{sec:template} på side~\pageref{sec:template} om template pattern. Med template pattern kan opførsel ændres \textbf{compile-time} i modsætning til strategy pattern som kan gøre det på \textit{run-time}.
+
+\subsection{Hvornår vil du anvende hvilket, og hvorfor?}
+\derp
 
 \begin{figure}[h]
 	\centering
@@ -109,7 +113,7 @@ Vi tager igen udgangspunkt i \textit{familiebeskrivelsen} af strategy mønstret 
 \subsection{Redegør for, hvordan anvendelsen af GoF Templete fremmer godt SW design}
 Hvis man har et system bestående af nogle klasser, hvor disse klasse funktionalitet kun afviger lidt fra hinanden. Så kan \textit{Template pattern} bruges. Via dette pattern kan et fast ''programflow'' defineres. Når dette ''flow'' så er fastlagt skal klasserne bare implementere/ændre (nok via override) de metoder som de ikke er tilfredse med.
 
-\subsubsection{Eksempel på Template pattern}
+\subsubsection{Eksempel på Template pattern}\label{sec:template}
 Herunder er en abstrakt klasse der har metoder, som de mange spil bruger/følger. Eksemplet er taget fra \href{https://en.wikipedia.org/wiki/Template_method_pattern#Example_in_Java}{wikipedia} om template pattern
 
 \begin{lstlisting}
