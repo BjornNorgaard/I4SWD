@@ -13,7 +13,7 @@
 \input{docs/repeated/designpattern}
 
 \subsection{Sammenlign de to design patterns GoF Strategy og GoF Template Method - hvornår vil du anvende hvilket, og hvorfor?}
-De er begge herp derp noget gøgl.
+Sidste del om hvilket vi vil anvende og hvornår er beskrevet afslutningsvis i denne section i afsnit~\ref{sec:tempvsstra} på side~\pageref{sec:tempvsstra}.
 
 \subsubsection{GoF Strategy Pattern}
 GoF strategy pattern er et Design Pattern, der gør det mulgt at ændre en algoritmes opførsel, \textbf{runtime}.
@@ -108,10 +108,18 @@ Strategy mønstret giver i dets beskrivelse udtryk for en opdeling af algoritmer
 Vi tager igen udgangspunkt i \textit{familiebeskrivelsen} af strategy mønstret - Per definition skal alle subtyperne af samme interface være \textit{interchangable}. Dette er mindre relevant for netop dette mønster idet man sjældent vil bevæge sig længere ned i et arvehieraki end første lag.
 
 \subsection{Redegør for, hvordan anvendelsen af GoF Templete fremmer godt SW design}
-Hvis man har et system bestående af nogle klasser, hvor disse klasse funktionalitet kun afviger lidt fra hinanden. Så kan \textit{Template pattern} bruges. Via dette pattern kan et fast ''programflow'' defineres. Når dette ''flow'' så er fastlagt skal klasserne bare implementere/ændre (nok via override) de metoder som de ikke er tilfredse med.
+Hvis man har et system bestående af nogle klasser (eller én), hvor disse klasse funktionalitet kun afviger lidt fra hinanden. Så kan \textit{Template pattern} bruges. Via dette pattern kan et fast ''programflow'' defineres. Når dette ''flow'' så er fastlagt skal klasserne bare implementere/ændre (nok via override) de metoder som de ikke er tilfredse med. Et klassediagram kan ses på figur~\ref{fig:templateclassdia} på side~\pageref{fig:templateclassdia}.
 
 \subsubsection{Eksempel på Template pattern}\label{sec:template}
 Herunder er en abstrakt klasse der har metoder, som de mange spil bruger/følger. Eksemplet er taget fra \href{https://en.wikipedia.org/wiki/Template_method_pattern#Example_in_Java}{wikipedia} om template pattern
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{figs/template/templateclassdia}
+	\caption[Klassediagram for Template pattern]{Klassediagram for Template pattern. Viser hvordan arv bruges til at implementere de specifikke metoder i en klasse, men programflow overlades til en abstract klasse}
+	\label{fig:templateclassdia}
+\end{figure}
+
 
 \begin{lstlisting}
 abstract class Game {
@@ -161,7 +169,7 @@ class Monopoly : Game {
 }
 \end{lstlisting}
 
-\subsubsection{Hvornår vil du anvende hvilket, og hvorfor?}
+\subsubsection{Hvornår vil du anvende hvilket, og hvorfor?}\label{sec:tempvsstra}
 \paragraph{Strategy}
 Hvis man ikke har et fastlagt ''program-flow'' og har brug for at kunne skifte mellem flere implementeringer på \textit{run-time} vil strategy nok være den bedste løsning.
 
