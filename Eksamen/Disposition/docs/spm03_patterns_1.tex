@@ -30,13 +30,6 @@ På denne måde lader dette mønster disse algoritmer varierere alt efter hvad d
 \subsubsection{GoF Template}
 Se afsnit~\ref{sec:template} på side~\pageref{sec:template} om template pattern. Med template pattern kan opførsel ændres \textbf{compile-time} i modsætning til strategy pattern som kan gøre det på \textit{run-time}.
 
-\subsubsection{Hvornår vil du anvende hvilket, og hvorfor?}
-\paragraph{Strategy}
-Hvis man ikke har et fastlagt ''program-flow'' og har brug for at kunne skifte mellem flere implementeringer på \textit{run-time} vil strategy nok være den bedste løsning.
-
-\paragraph{Template}
-Har man et bestemt ''flow'' som alle klasserne i ens system skal følge, vil template pattern være en god løsning. Den gør det muligt at overlade den specifikke implementering af ''underfunktioner'' til andre klasser. Samtidigt vil måden disse funktioner bruges på være fast bestemt via den overliggende abstrakte klasse. Tilgengæld kan opførsel kun ændre på \textit{compile-time}.
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figs/strategyPattern.PNG}
@@ -168,7 +161,11 @@ class Monopoly : Game {
 }
 \end{lstlisting}
 
+\subsubsection{Hvornår vil du anvende hvilket, og hvorfor?}
+\paragraph{Strategy}
+Hvis man ikke har et fastlagt ''program-flow'' og har brug for at kunne skifte mellem flere implementeringer på \textit{run-time} vil strategy nok være den bedste løsning.
 
+Eksempel: Når man skal transmittere data over et netværk, kan det være en fordel at nogle gange gøre det med TCP og andre gange en UDP overførsel. Det er den samme data der sendes, men 2 forskellige "algoritmer" til at udføre transmissionen.
 
-
-
+\paragraph{Template}
+Har man et bestemt ''flow'' som alle klasserne i ens system skal følge, vil template pattern være en god løsning. Den gør det muligt at overlade den specifikke implementering af ''underfunktioner'' til andre klasser. Samtidigt vil måden disse funktioner bruges på være fast bestemt via den overliggende abstrakte klasse. Tilgengæld kan opførsel kun ændre på \textit{compile-time}.
