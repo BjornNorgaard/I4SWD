@@ -11,3 +11,169 @@
 \end{itemize}
 
 \input{docs/repeated/designpattern}
+
+\subsection{Sammenlign de to design patterns GoF Strategy og GoF Template Method - hvornår vil du anvende hvilket, og hvorfor?}
+Sidste del om hvilket vi vil anvende og hvornår er beskrevet afslutningsvis i denne section i afsnit~\ref{sec:tempvsstra} på side~\pageref{sec:tempvsstra}.
+
+\subsubsection{GoF Strategy Pattern}
+GoF strategy pattern er et Design Pattern, der gør det mulgt at ændre en algoritmes opførsel, \textbf{runtime}.
+
+\paragraph{Et strategy pattern}
+\begin{itemize}
+	\item Definerer en \textit{familie} af algoritmer.
+	\item Indkapsler hver algoritme.
+	\item Gør algoritmerne \textbf{\textit{interchangable}} i dennes familie.
+\end{itemize}
+
+På denne måde lader dette mønster disse algoritmer varierere alt efter hvad dets klienter ønsker.
+
+\subsubsection{GoF Template}
+Se afsnit~\ref{sec:template} på side~\pageref{sec:template} om template pattern. Med template pattern kan opførsel ændres \textbf{compile-time} i modsætning til strategy pattern som kan gøre det på \textit{run-time}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{figs/strategyPattern.PNG}
+	\caption[UML for et strategy pattern]{Simpel illustration af et strategy pattern}
+	\label{fig:strategyPattern}
+\end{figure}
+
+\subsection{Vis et designeksempel på anvendelsen af GoF Strategy}
+
+Lad os tage udgangspunkt i figur~\ref{fig:strategyPattern}. Vores kontekst (klient) er en calculator der opererer på 2 integers.
+Vi har da et ICalculator interface, med en enkelt virtuel metode, \textit{calculate()}.
+Herudover har vi de 2 afledte klasser \textbf{Plus} og \textbf{Minus}.
+
+Klientens constructor sætter det pågældende objekts strategy. Se main, hvor et client objekt oprettes og initialiseres.
+
+\begin{lstlisting}
+//Interface
+ public interface ICalculate {
+	 int Calculate(int value1, int value2);
+ }
+
+/*Concrete strategies*/
+
+// Strategy 1: Minus
+class Minus : ICalculate {
+	public int Calculate(int value1, int value2) {
+		return value1 - value2;
+	}
+}
+
+//Strategy 2: Plus
+class Plus : ICalculate {
+	public int Calculate(int value1, int value2) {
+		return value1 + value2;
+	}
+}
+
+//klienten
+class CalculateClient {
+	private ICalculate calculateStrategy;
+
+	//Constructor: assigns strategy to interface
+	public CalculateClient(ICalculate strategy) {
+		this.calculateStrategy = strategy;
+	}
+
+	//Executes the strategy
+	public int Calculate(int value1, int value2) {
+		return calculateStrategy.Calculate(value1, value2);
+	}
+}
+
+//Initialisering
+int application(object sender, EventArgs e) {
+	CalculateClient minusClient = new CalculateClient(new Minus());
+	Response.Write("<br />Minus: " + minusClient.Calculate(7, 1).ToString());
+
+	CalculateClient plusClient = new CalculateClient(new Plus());
+	Response.Write("<br />Plus: " + plusClient.Calculate(7, 1).ToString());
+}
+
+\end{lstlisting}
+
+\subsection{Redegør for, hvilke(t) SOLID-princip(per) du mener anvendelsen af GoF Strategy understøtter}
+
+\paragraph{Overholdelse af OCP}
+Som det kan ses på figur \ref{fig:strategyPattern}, er context (Klienten) open og closed, og OCP er herved overholdt. Klassen i sig selv bruger interfacet IStrategy, imens objekter af klienten bruger interfacets afledte klasser. Dette betyder, at hvis vi ønsker at bruge en ConcreteStrategyC skal vi ikke ændre noget i klient klassen. Vi skal derimod blot sætte klient objektet til at bruge den nye strategy.
+
+\paragraph{Overholdelse af DIP}
+Overholdelse af DIP ligger implicit i brugen af dette mønster - Bedst eksemplificeret med CompressionStocking klassediagrammet, hvor dependencies mellem StockingController klassen og Lace/AirCompressionCtrl er inverterede - Vi bruger interfacet ICompressionCtrl.  
+
+\paragraph{Overholdelse af ISP}
+Strategy mønstret giver i dets beskrivelse udtryk for en opdeling af algoritmer i "familier" eg. interfaces).
+
+\paragraph{Overholdelse af LSP}
+Vi tager igen udgangspunkt i \textit{familiebeskrivelsen} af strategy mønstret - Per definition skal alle subtyperne af samme interface være \textit{interchangable}. Dette er mindre relevant for netop dette mønster idet man sjældent vil bevæge sig længere ned i et arvehieraki end første lag.
+
+\subsection{Redegør for, hvordan anvendelsen af GoF Templete fremmer godt SW design}
+Hvis man har et system bestående af nogle klasser (eller én), hvor disse klasse funktionalitet kun afviger lidt fra hinanden. Så kan \textit{Template pattern} bruges. Via dette pattern kan et fast ''programflow'' defineres. Når dette ''flow'' så er fastlagt skal klasserne bare implementere/ændre (nok via override) de metoder som de ikke er tilfredse med. Et klassediagram kan ses på figur~\ref{fig:templateclassdia} på side~\pageref{fig:templateclassdia}.
+
+\subsubsection{Eksempel på Template pattern}\label{sec:template}
+Herunder er en abstrakt klasse der har metoder, som de mange spil bruger/følger. Eksemplet er taget fra \href{https://en.wikipedia.org/wiki/Template_method_pattern#Example_in_Java}{wikipedia} om template pattern
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{figs/template/templateclassdia}
+	\caption[Klassediagram for Template pattern]{Klassediagram for Template pattern. Viser hvordan arv bruges til at implementere de specifikke metoder i en klasse, men programflow overlades til en abstract klasse}
+	\label{fig:templateclassdia}
+\end{figure}
+
+
+\begin{lstlisting}
+abstract class Game {
+	// Hook methods. Concrete implementation may differ in each subclass
+	protected int PlayerCount;
+	abstract void InitializeGame();
+	abstract void MakePlay(int player);
+	abstract void EndOfGame();
+	abstract void AnnounceWinner();
+	
+	// A template method:
+	public final void PlayGame(int playerCount)	{
+		PlayerCount = playerCount;
+		InitializeGame();
+		int j = 0;
+		while(!EndOfGame()) {
+			MakePlay(j);
+			j = (j + 1) % PlayerCount;
+		}
+		AnnounceWinner();
+	}
+}
+\end{lstlisting}
+
+Herunder ses så hvordan den specifikke implementering af den abstrakts klasse kan laves.
+
+\begin{lstlisting}
+class Monopoly : Game {
+	/* Implementation of necessary concrete methods */
+	void InitializeGame() {
+		// Initialize players
+		// Initialize money
+	}
+	void MakePlay(int player) {
+		// Process one turn of player
+	}
+	boolean EndOfGame() {
+		// Return true if game is over 
+		// according to Monopoly rules
+	}
+	void PrintWinner() {
+		// Display who won
+	}
+	
+	/* Specific declarations for the Monopoly game. */
+	// ...
+}
+\end{lstlisting}
+
+\subsubsection{Hvornår vil du anvende hvilket, og hvorfor?}\label{sec:tempvsstra}
+\paragraph{Strategy}
+Hvis man ikke har et fastlagt ''program-flow'' og har brug for at kunne skifte mellem flere implementeringer på \textit{run-time} vil strategy nok være den bedste løsning.
+
+Eksempel: Når man skal transmittere data over et netværk, kan det være en fordel at nogle gange gøre det med TCP og andre gange en UDP overførsel. Det er den samme data der sendes, men 2 forskellige "algoritmer" til at udføre transmissionen.
+
+\paragraph{Template}
+Har man et bestemt ''flow'' som alle klasserne i ens system skal følge, vil template pattern være en god løsning. Den gør det muligt at overlade den specifikke implementering af ''underfunktioner'' til andre klasser. Samtidigt vil måden disse funktioner bruges på være fast bestemt via den overliggende abstrakte klasse. Tilgengæld kan opførsel kun ændre på \textit{compile-time}.
