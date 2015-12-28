@@ -14,7 +14,7 @@
 	\item Redegør for konsekvenserne ved anvendelsen af OCP, LSP og/eller DIP - har det nogle ulemper?
 \end{itemize}
 
-\subsection{Open-Closed Principle (OCP)}
+\subsection{Open-Closed Principle (OCP)}\label{sec:ocp}
 \textit{''Open for extension, closed for modification''}\\
 
 OCP siger at man bør refaktorere således at yderligere ændringer ikke skaber problemer\footnote{rekompilering, retest, redeploy.} i resten af programmet.\\
@@ -30,9 +30,9 @@ Når OCP er "well applied" betyder det at vi kan tilføje ny kode uden at behøv
 \subsubsection{HOW TO OCP}
 
 \begin{itemize}
-	\item Brug abstrakte \todo{hvorfor base?}base klasser.
+	\item Brug abstrakte klasser, som base.
 	\item Eksempel - Client der bruger Server.
-	\item To konkrete klasser er lort $\longrightarrow$ brug et interface \todo{why it says client?}(client).
+	\item To konkrete klasser er lort $\longrightarrow$ brug et interface.
 \end{itemize}
 
 \subsubsection{Perspektiver}
@@ -148,8 +148,9 @@ class Client {
 \input{docs/repeated/dip}
 
 \subsection{Hvordan fremmes godt SW design?}
-
+\todo{missing, basic stuff`?}
 \subsection{Eksempel}
 Gode SOLID eksempler på \href{http://blog.gauffin.org/2012/05/11/solid-principles-with-real-world-examples/}{blog.gauffin.org}.
 
 \subsection{Redegør for ulemper}
+\todo{missing}

@@ -18,18 +18,6 @@ Sidste del om hvilket vi vil anvende og hvornår er beskrevet afslutningsvis i d
 \subsubsection{GoF Strategy Pattern}
 GoF strategy pattern er et Design Pattern, der gør det mulgt at ændre en algoritmes opførsel, \textbf{runtime}.
 
-\paragraph{Et strategy pattern}
-\begin{itemize}
-	\item Definerer en \textit{familie} af algoritmer.
-	\item Indkapsler hver algoritme.
-	\item Gør algoritmerne \textbf{\textit{interchangable}} i dennes familie.
-\end{itemize}
-
-På denne måde lader dette mønster disse algoritmer varierere alt efter hvad dets klienter ønsker.
-
-\subsubsection{GoF Template}
-Se afsnit~\ref{sec:template} på side~\pageref{sec:template} om template pattern. Med template pattern kan opførsel ændres \textbf{compile-time} i modsætning til strategy pattern som kan gøre det på \textit{run-time}.
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{figs/strategyPattern.PNG}
@@ -37,11 +25,24 @@ Se afsnit~\ref{sec:template} på side~\pageref{sec:template} om template pattern
 	\label{fig:strategyPattern}
 \end{figure}
 
+\paragraph{Et strategy pattern}
+
+På denne måde lader dette mønster disse algoritmer varierere alt efter hvad dets klienter ønsker.
+
+\subsubsection{GoF Template}
+Se afsnit~\ref{sec:template} på side~\pageref{sec:template} om template pattern. Med template pattern kan opførsel ændres \textbf{compile-time} i modsætning til strategy pattern som kan gøre det på \textit{run-time}.
+
 \subsection{Vis et designeksempel på anvendelsen af GoF Strategy}
 
 Lad os tage udgangspunkt i figur~\ref{fig:strategyPattern}. Vores kontekst (klient) er en calculator der opererer på 2 integers.
 Vi har da et ICalculator interface, med en enkelt virtuel metode, \textit{calculate()}.
 Herudover har vi de 2 afledte klasser \textbf{Plus} og \textbf{Minus}.
+
+\begin{itemize}
+	\item Definerer en \textit{familie} af algoritmer.
+	\item Indkapsler hver algoritme.
+	\item Gør algoritmerne \textbf{\textit{interchangable}} i dennes familie.
+\end{itemize}
 
 Klientens constructor sætter det pågældende objekts strategy. Se main, hvor et client objekt oprettes og initialiseres.
 
