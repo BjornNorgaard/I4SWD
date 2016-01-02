@@ -27,8 +27,16 @@ Opbygningen kan ses på figur~\ref{fig:observer_classdiagram} side \pageref{fig:
 
 
 \subsection{Sammenlign de forskellige varianter, af GoF Observer - hvilken vil du anvende hvornår?}
-\todo{hvornår vi ville anvende de forskellige, hvad skriver vi til det?}
-\todo{push pull find ud af det}
+Der findes disse varianter:
+
+I de fleste systemer vil det ikke være tilstrækkeligt at blot notify observeren om en ændring, men derimod også fortælle hvad der konkret er sket.
+
+\subsubsection{Pull}
+I pull variationen er det observeren der står for at finde ud af hvilket state change der er sket. Her vil observeren have association med subjectet således at det er muligt for observen at få fat i det state som er ændret. Altså trækker den det ud af subjectet.
+
+\subsubsection{Push}
+I push variationen er det subjecten der i dens notify funktion, skal videregive dens state som parameter. Observerens Update() funktion skal da ogsåindrette sig derefter. 
+
 \subsubsection{Many observer to many subjects}
 Hvis vi har flere observers som vil observere mere end ét subject objekt, er det ikke nok at \textit{Notify()} om ændringen. I sådant et tilfælde vil det også være nødvendigt at gøre opmærksom på hvilket subject, som ændringen er sket i.
 
@@ -70,6 +78,7 @@ Kan give anledning til \textit{memory leaks}. Fordi den simple implementering kr
 Dette kan dog undgås ved at bruge en \textit{weak-reference}, således at Subject's reference til observeren ikke beskytter mod garbage collectoren hvis det er den eneste.
 
 \subsection{Redegør for, hvilke(t) SOLID-princip(per) du mener anvendelsen af GoF Observer undersøtter}
+
 \todo{hvilke er nødvendige (relevante?)}
 \begin{itemize}
 	\item SRP.\\
