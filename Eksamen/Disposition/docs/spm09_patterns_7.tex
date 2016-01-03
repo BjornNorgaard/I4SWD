@@ -155,21 +155,26 @@ TPL håndterer partitionering, thread scheduling af tråde i threadPool'en og ge
 
 En task er ikke en tråd! En task er en opgave som udføres \textbf{sekventielt}.\\
 
-Vi kan bruge \textbf{Task Parallel Library} biblioteket til at køre disse tasks parallelt. TPL kan selv dynamisk scale graden af parallelisme sådan at det mest effektict udnytter de kerner den har til rådighed.\\
+Vi kan bruge \textbf{Task Parallel Library} biblioteket til at køre disse tasks parallelt. TPL kan selv dynamisk scale graden af parallelisme sådan at det mest effektict udnytter de kerner den har til rådighed.
+
+\subsection{Kodeeksempler}
 
 I kode udsnit~\ref{code:tasknormal} udføres en opgave på gammel sekventiel vis, mens listing~\ref{code:taskparallel} viser bruges af \textit{Parallel.Invoke()}.
 
 \begin{lstlisting}[
 caption=Almindelig udførsel af opgave.,
 label=code:tasknormal]
+// Old sequencial way of doing things
 public void DoAll() {
 	DoLeft();
 	DoRight();
 }
 \end{lstlisting}
 
-\subsection{Kodeeksempler}
+\subsubsection{Invoke}
+I eksemplet eksisterer to funktioner: DoLeft() og DoRight(). De to funktioner bliver afviklet asynkront vha. TPL. Dette er den mest simple måde at starte tasks på.\\
 
+Invoke-metoden returnerer når alle tasks er afviklet.
 \begin{lstlisting}[
 caption=Parallel udførsel af opgave/task.,
 label=code:taskparallel,
@@ -180,22 +185,53 @@ public void DoAll() {
 }
 \end{lstlisting}
 
+\subsubsection{StartNew, Wait og WaitAll}
 Ligeledes kan funktionerne \textit{DoRight()} og \textit{DoLeft()} udføres med TaskFactory som i listing~\ref{code:taskfactory}.
 
 \begin{lstlisting}[
 caption=Brug af TaskFactory - gør det samme som listing~\ref{code:taskparallel},
 label=code:taskfactory,
-morekeywords={Task, Factory, StartNew}]
+morekeywords={Task, Factory, StartNew, Wait, WaitAll}]
 public void DoAll() {
 	Task t1 = Task.Factory.StartNew(DoLeft);
 	Task t2 = Task.Factory.StartNew(DoRight);
 	
-	// Enten det her
+	// Enten det her...
 	Task.WaitAll(t1, t2);
 	
-	// ELLER det her
+	// Eller det her
 	t1.Wait();
 	t2.Wait();
 }
 \end{lstlisting}
 
+\subsubsection{WaitAny}
+\textit{WaitAny()} afventer, at mindst én task er blevet afviklet. Det kan benyttes til at udføre arbejde, mens der stadig ventes på, at andre tasks er blevet afviklet færdigt.
+
+\begin{lstlisting}[
+caption=Brug af WaitAny.,
+label=code:taskfactory,
+morekeywords={Task, Factory, StartNew, Wait, WaitAll}]
+Task[] tasks = {
+	Task.Factory.StartNew(DoLeft),
+	Task.Factory.StartNew(DoCenter),
+	Task.Factory.StartNew(DoRight),
+};
+
+while(tasks.Length > 0) {
+	var taskIndex = Task.WaitAny(tasks);
+	
+	// Do meaningful work with task[taskIndex] here.
+	
+	// Update the set of tasks upon which we wait.
+	// Filter out the completed task (remove it from tasks-array).
+	tasks = tasks.Where((t) => t != tasks[taskIndex]).ToArray();
+}
+\end{lstlisting}
+
+\subsubsection{Giv en variable med til en \textit{task}}
+I eksemplet startes 4 tasks, som hver især udskriver deres index (0-3).
+
+i kan ikke benyttes direkte i lambda-udtrykket, da den er global mellem alle fire tasks. Inden den første task går i gang med at afvikle kan i have værdien 3.
+
+Løsning: Lav en midlertidig variabel, sæt den til at pege på i, og benyt den i stedet.
