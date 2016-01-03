@@ -29,6 +29,20 @@ Parallel.For (0, n, i =>
 });
 \end{lstlisting}
 
+Det er Task Parallel Library der står for at håndtere threading, og man skal derfor ikke selv sørge for at fordele opgaven til CPU'en. 
+
+\paragraph{Hvornår giver det mening med PL?}
+\begin{itemize}
+	\item Som sagt kan det kun bruges hvor iterationerne ikke er afhængige af hinanden!
+	\item Brug når iterationer ikke tilgår samme memory/filer
+	\item Brugbart hvor der laves blokerende kald (skriv/læs til fil)
+	\item Brugbart når beregninger kan spredes ud på flere kerner.
+\end{itemize}
+
+Trådhåndtering giver overhead på et parallelt loop, og derfor kan meget små iteraationer blive kvalt heri.
+
+
+
 \subsubsection{Parallel tasks}
 
 En task er ikke en tråd! En task er en opgave som udføres sekventielt.\\
