@@ -22,7 +22,8 @@ for (int i = 0; i < n; i++)
 
 Eksempel på parallelt for loop:
 
-\begin{lstlisting}[caption=Parallel for loop, label=code:paraLoop]
+\begin{lstlisting}[caption=Parallel for loop,  label=code:paraLoop,
+morekeywords={Parallel, For}]
 Parallel.For (0, n, i =>
 {
 	//Do stuff...
@@ -31,6 +32,27 @@ Parallel.For (0, n, i =>
 
 \subsubsection{Parallel tasks}
 
-En task er ikke en tråd! En task er en opgave som udføres sekventielt.\\
+En task er ikke en tråd! En task er en opgave som udføres \textbf{sekventielt}.\\
 
-Vi kan bruge TPL biblioteket til at køre disse tasks parallelt.
+Vi kan bruge Task Parallel Library biblioteket til at køre disse tasks parallelt. TPL kan selv dynamisk scale graden af parallelisme sådan at det mest effektict udnytter de kerner den har til rådighed.
+
+I kode udsnit~\ref{code:tasknormal} udføres en opgave på gammel sekventiel vis, mens listing\ref{code:taskparallel} viser bruges af \textit{Parallel.Invoke()}.
+
+\begin{lstlisting}[
+caption=Almindelig udførsel af opgave.,
+label=code:tasknormal]
+public void DoAll() {
+	DoLeft();
+	DoRight();
+}
+\end{lstlisting}
+
+\begin{lstlisting}[
+caption=Parallel udførsel af opgave/task.,
+label=code:taskparallel,
+morekeywords={Parallel, Invoke}]
+public void DoAll() {
+	Parallel.Invoke(DoLeft, DoRight);
+}
+\end{lstlisting}
+
