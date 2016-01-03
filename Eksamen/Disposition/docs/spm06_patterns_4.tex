@@ -151,7 +151,67 @@ Ortogonale og nestede states gennemgås i afsnittet om UML mapping.
 \todo{uløst problem med OnExit() Andreas??}
 
 \subsection{Redegør for, hvordan et UML (SysML) state machine diagram mapper til GoF State}
+\subsubsection{Simpel UML}
 
 Et simpelt STM UML Diagram:
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/state/Radio_STM_Simpel}
+	\caption{Et UML State Machine Diagram}
+	\label{fig:UMLState}
+\end{figure}
+
+Et tilsvarende GoF State Pattern klassediagram for en radioen:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/state/Radio_StatePattern}
+	\caption{Et UML Klassediagram for STD}
+	\label{fig:UMLclassState}
+\end{figure}
+
+\subsubsection{Nestede States}
+
+Et STM UML diagram med nested states:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/state/Radio[Modes]_STM}
+	\caption{Et UML State Machine Diagram for Nested states}
+	\label{fig:UMLNestedState}
+\end{figure}
+
+Et tilsvarende GoF State Pattern klassediagram med nested states:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/state/RadioNeted_SP}
+	\caption{Et UML Klassediagram for Nested states}
+	\label{fig:UMLClassNestedState}
+\end{figure}
+
+Vi kan her se i det tilsvarende State pattern, at den blot har to state klasser der hedder “FM” og “DAB” der nedarver fra ON klassen som set tidligere. og dertil mindre ændringer i Context klassens funktioner. \todo{bryder vi ikke ISP her?}
+
+\subsubsection{Ortogonale States}
+
+Et STM UML diagram med ortogonale states:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/state/RadioModesDisplayLight}
+	\caption{Et UML State Machine Diagram for ortogonale states}
+	\label{fig:umlOrtogonalState}
+\end{figure}
+
+Et tilsvarende GoF State Pattern klassediagram med ortogonale states:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/state/RadioOrthogonal_SP}
+	\caption{Et UML Klassediagram for Nested states}
+	\label{fig:UMLClassOrtogonalState}
+\end{figure}
+
+Læg her mærke til at Ortogonale statemachines, kræver blot en ekstra “superstate” med dertilhørende substates, denne superstate bliver en reference i contexten som dermed gør at de to forskellige superstates kan tilgå hinanden.
 
