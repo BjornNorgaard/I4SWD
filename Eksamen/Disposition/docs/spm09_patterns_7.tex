@@ -116,7 +116,7 @@ for (int i = 0; i < n; i++)
 }
 \end{lstlisting}
 
-Eksempel på parallelt for loop:
+Eksempel på parallelt for loop: lambda expression
 
 \begin{lstlisting}[caption=Parallel for loop,  label=code:paraLoop,
 morekeywords={Parallel, For}]
@@ -126,9 +126,9 @@ Parallel.For (0, n, i =>
 });
 \end{lstlisting}
 
-For Each løkken kan også køres parallelt:
+For Each løkken kan også køres parallelt: lambda expression
 
-\begin{lstlisting}[caption=Parallelt for each loop, label=paraForEach]
+\begin{lstlisting}[caption=Parallelt for each loop, label=paraForEach,morekeywords={string,Parallel, ForEach, WriteLine}]
 string[] navne = { "Torben", "Birger", "Niels" };
 
 Parallel.ForEach(navne, navn =>
@@ -142,8 +142,8 @@ Det er Task Parallel Library der står for at håndtere threading, og man skal d
 \subsubsection{Hvornår giver det mening med Parallel Loops?}
 \begin{itemize}
 	\item Som sagt kan det kun bruges hvor iterationerne ikke er afhængige af hinanden!
-	\item Brug når iterationer ikke tilgår samme memory/filer
-	\item Brugbart hvor der laves blokerende kald (skriv/læs til fil)
+	\item Brug når iterationer ikke tilgår samme memory/filer.
+	\item Brugbart hvor der laves blokerende kald (skriv/læs til fil).
 	\item Brugbart når beregninger kan spredes ud på flere kerner.
 \end{itemize}
 
