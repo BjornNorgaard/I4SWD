@@ -55,14 +55,9 @@ public class ConcreteCreator : Creator
 \end{lstlisting}
 
 \subsection{Redegør for opbygningen af GoF Abstract Factory}
-Hvis man har et klassediagram som ser ud noget i stil med det på figur~\ref{fig:compressionstockings_classdiagram} og en main ligner noget ala det i listing~\ref{code:compressionmain} så står det meget hurtigt en klart at dette er meget rodet og uoverskueligt. For at undgå disse babushka dukker bliver løsningen \textbf{Abstract Factory} og denne er beskrevet under figur og kode.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\linewidth]{figs/compressionstockings_classdiagram}
-	\caption{Klassediagram for compressionstocking systemet.}
-	\label{fig:compressionstockings_classdiagram}
-\end{figure}
+\subsubsection{Problem}
+Hvis man har et klassediagram som ser ud noget i stil med det på figur~\ref{fig:compressionstockings_classdiagram} og en main ligner noget ala det i listing~\ref{code:compressionmain} så står det meget hurtigt en klart at dette er meget rodet og uoverskueligt. For at undgå dette babushka helvede bliver løsningen \textbf{Abstract Factory} og dette er beskrevet i næste afsnit.
 
 \begin{lstlisting}[caption=Main for compressionstocking.application.,
 label=code:compressionmain,
@@ -80,7 +75,44 @@ IButtonHandler myStockingCtrl = new StockingCtrl(myCompressionCtrl, myNotificati
 myCompressionCtrl.AddNotificationCenter(myEventHandler);
 \end{lstlisting}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{figs/compressionstockings_classdiagram}
+	\caption{Klassediagram for compressionstocking systemet.}
+	\label{fig:compressionstockings_classdiagram}
+\end{figure}
 
+\subsubsection{Abstract Factory}
+
+Abstract Factory Pattern kan bruges til at ''hjælpe'' et object i dets constructor med at instantiere dets medlemmer, som det kan ses herunder:
+
+\begin{lstlisting}[caption=Abstract Factory brugt i Client Constructor().,
+label=code:af_clientctor,
+morekeywords={ContinentFactory, Herbivore, Carnivore}]
+public class AnimalWorld
+{
+	Herbivore _herbivore;
+	Carnivore _carnivore;
+	
+	public AnimalWorld(ContinentFactory factory)
+	{
+		_herbivore = factory.CreateHerbivore();
+		_carnivore = factory.CreateCarnivore();
+	}
+	// other functions
+}
+\end{lstlisting}
+
+På klassediagrammet på næste side kan opbygningen af abstract  factory ses.
 
 \subsection{Giv et designeksempel på anvendelsen af GoF Abstract Factory}
-\todo{classdia}
+Brug det store klassediagram og dets klasser som designeksempel. Drop muligvis enten plante eller kødæder klassen.
+
+\includepdf{figs/abstractfactory.png}\label{div:abstractfactoryclassdiagram}
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{figs/abstractfactory}
+%	\caption{Klassediagram for abstract factory.}
+%	\label{fig:abstractfactory}
+%\end{figure}
