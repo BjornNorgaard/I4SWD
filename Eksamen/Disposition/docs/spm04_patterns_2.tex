@@ -68,10 +68,10 @@ I dette tilfælde vil vores \textit{ConcreteSubject} bare skulle \textbf{overrid
 
 \subsection{Redegør for fordele og ulemper ved anvendelsen af GoF Observer}
 
-\paragraph{Fordele}
+\subsubsection{Fordele}
 Gør det muligt for klasser at reagere på ændringer i en anden klasse uden at koble dem for hoardt.
 
-\paragraph{Ulemper}
+\subsubsection{Ulemper}
 Kan give anledning til \textit{memory leaks}. Fordi den simple implementering kræver explicit \textit{registering} og \textit{\textbf{de}registering}. Dette koblet med at \textit{Subject}-klassen har en \textit{strong reference}\footnote{Se wiki om weak reference:\\ \url{https://en.wikipedia.org/wiki/Weak_reference}} til de observers, som kan holde dem unødigt i live.\\
 Dette kan dog undgås ved at bruge en \textit{weak-reference}, således at Subject's reference til observeren ikke beskytter mod garbage collectoren hvis det er den eneste.
 
