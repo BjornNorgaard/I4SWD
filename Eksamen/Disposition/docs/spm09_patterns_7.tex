@@ -52,7 +52,25 @@ caption=Parallel udførsel af opgave/task.,
 label=code:taskparallel,
 morekeywords={Parallel, Invoke}]
 public void DoAll() {
-	Parallel.Invoke(DoLeft, DoRight);
+	Parallel.Invoke(DoLeft, DoRight); // blocks till finished
 }
 \end{lstlisting}
+
+Ligeledes kan funktionerne \textit{DoRight()} og \textit{DoLeft()} udføres med TaskFactory som i listing~\ref{code:taskfactory}.
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[
+caption=Brug af TaskFactory,
+label=code:taskfactory,
+morekeywords={Task, Factory, StartNew}]
+public void DoAll() {
+	Task t1 = Task.Factory.StartNew(DoLeft);
+	Task t2 = Task.Factory.StartNew(DoRight);
+	
+	// task not started yet??
+	
+	Task.WaitAll(t1, t2);	// blocks till finished
+}
+\end{lstlisting}
+\end{minipage}
 
