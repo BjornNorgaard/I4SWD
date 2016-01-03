@@ -9,9 +9,86 @@
 	\item Hvordan dokumenteres en software arkitektur?
 \end{itemize}
 
-\subsection{Redegøre for begrebet softwarearkitektur}\todo{se keep med troels vise ord}
+\subsection{Redegør for begrebet softwarearkitektur}\todo{se keep med troels vise ord}
+
+\subsubsection{Hvad er en software arkitektur?}
+\begin{itemize}
+	\item Den højeste abstraktion.
+	\item Fokuserer på de større elementer og komponenter.
+	\begin{itemize}
+		\item Hvordan er de organiserede.
+		\item Hvordan interagerer de?
+		\item Er der nogle problematiske områder? (Areas of concern).
+	\end{itemize}
+	\item Software Design er det som realiserer arkitekturen bag.
+	\item Arkitekturen viser de elemter som er svære at ændre.
+	\item Viser også de elemter der er de vigtigste.
+\end{itemize}
+
+\subsubsection{Hvorfor er det vigtigt?}
+
+\begin{itemize}
+	\item Med komplekse systemer er det vigtigt at have et solidt fundament.
+	\item Der er følgende risici uden en arkitektur:
+	\begin{itemize}
+		\item Hovedscenarier kan overses.
+		\item Almindelige problemer bliver overset.
+		\item At værdsætte fremtidige konsekvenser på baggrund af afgørende beslutninger.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Generelle overvejselser}
+\begin{itemize}
+	\item \textbf{Applikationstype} - Mobile app, web app osv.
+	\item \textbf{Deployment strategi} - Distribueret/ikke distribueret, runtime kørsel, mnætværksinfrastruktur.
+	\item \textbf{Teknologier} - Hvilke skal i brug?
+	\item \textbf{Quality attributter} - Kvalitet af systemet.
+	\begin{itemize}
+		\item Conceptual integrity.
+		\item Maintainablity.
+		\item Reusability.
+		\item Performance.
+		\item Security.
+		\item Scalability.
+		\item Reliability.
+	\end{itemize}
+	\item \textbf{Design kvalitet}
+	\begin{itemize}
+		\item Supportability.
+		\item Testability.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Architectural Styles}
+En arkitektur stil definerer en familie af systemer med ens struktur, navne af komponenter og connectors og med restriktioner omkring hvordan disse kan forbindes. De blandes ofte (på sammen måde som design patterns) - der bruges næsten aldrig kun een style.
+
+\paragraph{Typer af styles (almindelige)}
+\begin{itemize}
+	\item Client/Server.
+	\item Component based.
+	\item Domain Driven Design.
+	\item Layered.
+	\item Message bus.
+	\item N-tier/3-Tier.
+	\item Object Oriented.
+	\item Service oriented.
+\end{itemize}
+
 
 \subsection{Giv et eksempel på en typisk softwarearkitektur og dens anvendelse}
+
+\subsubsection{Layer}
+\begin{itemize}
+	\item Et layer er en grovkornet gruppering af \textit{klasser, packages, og subsystemer}.
+	\item Sørger for koblingsgraden i et system.
+	\item Organisering af lag:
+	\begin{itemize}
+		\item Højere lag kalder på funktioner i lavere lag.
+		\item Lavere lag må ikke kalde på funktioner i højere lag. Lavere lag må dog godt notificere højere lag omkring hendelser med f.eks. observer pattern eller call-back funktions pointere (events).
+	\end{itemize}
+	\item Layer vs Tier - Layer er en logisk separering, hvorimod Tier er en repræsentation af den fysiske seaparering.
+	
+\end{itemize}
 
 \subsection{Hvordan udarbejdes en software arkitektur}
 
