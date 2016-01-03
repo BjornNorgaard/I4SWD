@@ -100,19 +100,58 @@ class ConcreteStateB
 
 I lærebogen erklæres alle states static inde i contexten idet der således ikke skal laves en ny, hver gang der skiftes state... Smart.
 
-
 \paragraph{State vs. Strategy.}
 Ser man på UML'en for et State Pattern, ligner det jo et strategy pattern. I et State  pattern eksisterer der dog et constraint idet hver ConcreteState klasse skal bruge en reference til en Context (den vælger og invoker contextens metoder igennem denne reference). Dette constraint eksisterer ikke i et strategy pattern:
 
 \begin{lstlisting}[caption=Klients brug af strategy pattern]
 IStrategy myStrategy = new s1();
-myStrategy .StragetyFunction();
+myStrategy.StragetyFunction();
 
 myStrategy = new s2();
-myStrategy .StragetyFunction();
+myStrategy.StragetyFunction();
 \end{lstlisting}
 
+Ortogonale og nestede states gennemgås i afsnittet om UML mapping.
 
 \subsection{Sammenlign switch/case-implementering med GoF State.}
+
+\subsubsection{Switch case implementering af STM}
+\begin{itemize}
+	\item En switch case implementering af en STM er det simple udgave.
+	\item Koden bliver meget hurtig uoverskulig.
+	\item Den er sværere at teste (Dårligt separeret)
+	\item Sværere at vedligereholde.
+\end{itemize}
+
+\subsubsection{GoF State implementering af STM}
+\begin{itemize}
+	\item Grundig implmentering af STM.
+	\item Alle states er inddelt i subclasser af en State baseklasse.
+	\item Derfor let at teste.
+	\item Og lettere at vedligeholde.
+\end{itemize}
+
+\subsection{Redegør for fordele og ulemper ved anvendelsen af GoF State.}
+
+\subsubsection{Fordele}
+\begin{itemize}
+	\item Let at teste - de mange klasser gør det enkelt at afgrænse tests.
+	\item Let at udvide - Skalerer nemt ved udvidelser af både states og transitions.
+	\item Kan lettere håndtere Nested States-
+	\item Forholdsvis simpelt at implementere Ortogonale states.
+\end{itemize}
+
+\subsubsection{Ulemper}
+\begin{itemize}
+	\item Class Explosion - ved et simpelt STM skal der oprettes mange klasser for meget simpel logik, der vil derfor være en nedre grænse for hvornår man vil implementere dette.
+	\item Memory - Flere klasser betyder mere memory allokering.
+	\item Readability - i mere komplekse programmer vil koden blive svær at overskue, men er dog stadig væsentligt nemmere end alternativerne.
+\end{itemize}
+
+\todo{uløst problem med OnExit() Andreas??}
+
+\subsection{Redegør for, hvordan et UML (SysML) state machine diagram mapper til GoF State}
+
+Et simpelt STM UML Diagram:
 
 
