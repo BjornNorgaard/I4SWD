@@ -1,3 +1,20 @@
+%% how to fig on same line
+%\newcommand{\si}{0.49} % picture width for pic below
+%\begin{figure}[h]
+%	\centering
+%	\begin{subfigure}{\si\textwidth}
+%		\includegraphics[width=\si\linewidth]{figs/dantresi}
+%		\caption{Residual graph.}
+%		\label{fig:dantResi}
+%	\end{subfigure}
+%	\begin{subfigure}{\si\textwidth} 	
+%		\includegraphics[width=\si\linewidth]{figs/dant}
+%		\caption{Ikke en residual graph.}
+%		\label{fig:dant}
+%	\end{subfigure}
+%	\caption{Dantzig's maximum flow graphs.}\label{fig:animals}
+%\end{figure}
+
 \section{Patterns 6 - Redegør for følgende concurrency mønstre}
 
 \subsection{Fokuspunkter}
@@ -7,7 +24,76 @@
 	\item Parallel Tasks.
 \end{itemize}
 
-\subsubsection{Parallel loops}
+\subsection{Task Parallel Library}
+\begin{itemize}
+	\item Bibliotek i .NET.
+	\item Man behøver ikke vide hvor mange kerner programmet skal køre på.
+	\begin{itemize}
+		\item På general-purpose platforme kan programmøren ikke forudsige hvor mange kerne/hvilken hardware der er til rådighed.
+	\end{itemize}
+	\item TPL sørger for Dynamisk Load Balancing.
+	\item Der er ikke garenti for hvilken rækkefølge tasks afvikles i. 
+\end{itemize}
+
+\subsection{Thread Pool}
+Måde at ''opbevare'' flere tasks, sådan at en færdig tråd altid kan hente nye opgaver.
+
+\subsubsection{Den simpel og dårlige løsning}
+Den simple \textbf{og dårlige(!)} løsning, som ikke benyttes af TPL. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/badthreadpool}
+	\caption{Simple implementering af threadpool}
+	\label{fig:badthreadpool}
+\end{figure}
+
+
+\begin{itemize}
+	\item Naiv og langsom.
+	\item Én global kø, som alle tråde henter jobs fra.
+	\item Betyder at kun én tråd kan hente et job af gangen.
+	\begin{itemize}
+		\item Køen bliver flaskehalsen.
+		\item Mange små tasks forværre problemet.
+		\item Køen bliver tilgået ofte, giver stort overhead.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Den gode}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{figs/goodthreadpool}
+	\caption{Faktisk implementering af threadpool, i .NET.}
+	\label{fig:goodthreadpool}
+\end{figure}
+
+\begin{itemize}
+	\item En global kø.
+	\begin{itemize}
+		\item Opbevare tasks som endnu ikke er delt ud på en tråd.
+	\end{itemize}
+	\item Hver tråd har sin egen kø.
+	\begin{itemize}
+		\item Tråde skal ikke vente på synkronisering med den globale kø.
+		\item Er LIFO i begge ender.
+		\item Har en privat og offentlig ende.
+		\item Når køen er tom, hentes tasks fra den globale kø.
+	\end{itemize}
+	\item Work stealing.
+	\begin{itemize}
+		\item Tråde kan ''stjæle'' hinandens tasks.
+		\item Det sker når egen og global kø er tomme.
+		\item Tråde tilgår kun den offentlige ende af andres køer.
+	\end{itemize}
+	\item Inline execution, hvis...
+	\begin{itemize}
+		\item \textit{task1} venter på \textit{task2}.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Parallel loops}
 
 Parallel loops pattern minder meget om et almindeligt loop. Der udføres samme operation hvor hvert element for et givet antal gange. Forskellen er dog at et almindeligt loop sker sekventielt, hvorimod et parallelt loop ofte udfører steps parallelt. Når man bruger parallelle loops er det derfor vigtigt at sikre sig at iterationerne ikke er afhængige af hinanden.
 
@@ -43,7 +129,7 @@ Parallel.ForEach(navne, navn =>
 
 Det er Task Parallel Library der står for at håndtere threading, og man skal derfor ikke selv sørge for at fordele opgaven til CPU'en. 
 
-\paragraph{Hvornår giver det mening med PL?}
+\subsubsection{Hvornår giver det mening med Parallel Loops?}
 \begin{itemize}
 	\item Som sagt kan det kun bruges hvor iterationerne ikke er afhængige af hinanden!
 	\item Brug når iterationer ikke tilgår samme memory/filer
@@ -55,7 +141,7 @@ Trådhåndtering giver overhead på et parallelt loop, og derfor kan meget små 
 
 TPL håndterer partitionering, thread scheduling af tråde i threadPool'en og generelt alle low-level details.
 
-\subsubsection{Parallel tasks}
+\subsection{Parallel tasks}
 
 En task er ikke en tråd! En task er en opgave som udføres \textbf{sekventielt}.\\
 
@@ -83,7 +169,6 @@ public void DoAll() {
 
 Ligeledes kan funktionerne \textit{DoRight()} og \textit{DoLeft()} udføres med TaskFactory som i listing~\ref{code:taskfactory}.
 
-\begin{minipage}{\linewidth}
 \begin{lstlisting}[
 caption=Brug af TaskFactory,
 label=code:taskfactory,
@@ -97,5 +182,4 @@ public void DoAll() {
 	Task.WaitAll(t1, t2);	// blocks till finished
 }
 \end{lstlisting}
-\end{minipage}
 
