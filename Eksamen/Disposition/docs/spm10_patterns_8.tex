@@ -10,4 +10,21 @@
 \subsection{Parallel Aggregation}
 
 \subsection{MapReduce}
-MapReduce er en måde at klare opgaver på i parallel. 
+MapReduce er en måde at arbejde på meget store datasæt. Der arbejdes med MapReduce parallelt på dataen.
+
+\subsubsection{4 steps}
+Vi kan opdele MapReduce modellen i 4 steps:
+
+Eksempel med spillekort:
+
+Vi ønsker at vide hvor mange af hver kulør der findes i vores stak.
+\begin{enumerate}
+	\item \textbf{Distribuer source data til forskellige nodes.}\\
+	Fordel stakken af kort ud på alle noder.
+	\item \textbf{Map data - Repræsenter data i key-value par.}\\
+	Hver node tæller hvor mange af hver kulør den har fået tildelt. Dette repræsenteres med key-value par. eg. Kulør (key) og kortværdi (value).
+	\item \textbf{Gruppér data.} \\
+	Grouperen har til ansvar at gruppere mappernes key-value par. Her tages alle klør par og sættes i samme gruppe, alle ruder par sættes sammen osv.
+	\item \textbf{Reducer eller merge  data fra grouperen.}\\
+	Her tælles sammen hvor mange af hver kulør der er i de grupperede data.
+\end{enumerate}
