@@ -29,6 +29,17 @@ Parallel.For (0, n, i =>
 });
 \end{lstlisting}
 
+For Each løkken kan også køres parallelt:
+
+\begin{lstlisting}[caption=Parallelt for each loop, label=paraForEach]
+string[] navne = { "Torben", "Birger", "Niels" };
+
+Parallel.ForEach(navne, navn =>
+{
+	Console.WriteLine(navn);
+});
+\end{lstlisting}
+
 Det er Task Parallel Library der står for at håndtere threading, og man skal derfor ikke selv sørge for at fordele opgaven til CPU'en. 
 
 \paragraph{Hvornår giver det mening med PL?}
@@ -41,7 +52,7 @@ Det er Task Parallel Library der står for at håndtere threading, og man skal d
 
 Trådhåndtering giver overhead på et parallelt loop, og derfor kan meget små iteraationer blive kvalt heri.
 
-
+TPL håndterer partitionering, thread scheduling af tråde i threadPool'en og generelt alle low-level details.
 
 \subsubsection{Parallel tasks}
 
