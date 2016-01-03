@@ -87,9 +87,19 @@ Den simple \textbf{og dårlige(!)} løsning, som ikke benyttes af TPL.
 		\item Det sker når egen og global kø er tomme.
 		\item Tråde tilgår kun den offentlige ende af andres køer.
 	\end{itemize}
-	\item Inline execution, hvis...
+	\item Inline execution
 	\begin{itemize}
-		\item \textit{task1} venter på \textit{task2}.
+		\item hvis...
+		\begin{itemize}
+			\item \textit{task1} venter på \textit{task2}.
+			\item \textit{task2} er ikke startet når \textit{task1} venter.
+			\item Begge tasks er placeret i samme kø.
+		\end{itemize}
+		\item ... kan scheduleren.
+		\begin{itemize}
+			\item Give \textit{task2} højere prioritet og afvikle den med samme.
+			\item Så \textit{task1} bliver hurtigere færdig.
+		\end{itemize}
 	\end{itemize}
 \end{itemize}
 
@@ -145,9 +155,9 @@ TPL håndterer partitionering, thread scheduling af tråde i threadPool'en og ge
 
 En task er ikke en tråd! En task er en opgave som udføres \textbf{sekventielt}.\\
 
-Vi kan bruge Task Parallel Library biblioteket til at køre disse tasks parallelt. TPL kan selv dynamisk scale graden af parallelisme sådan at det mest effektict udnytter de kerner den har til rådighed.
+Vi kan bruge \textbf{Task Parallel Library} biblioteket til at køre disse tasks parallelt. TPL kan selv dynamisk scale graden af parallelisme sådan at det mest effektict udnytter de kerner den har til rådighed.\\
 
-I kode udsnit~\ref{code:tasknormal} udføres en opgave på gammel sekventiel vis, mens listing\ref{code:taskparallel} viser bruges af \textit{Parallel.Invoke()}.
+I kode udsnit~\ref{code:tasknormal} udføres en opgave på gammel sekventiel vis, mens listing~\ref{code:taskparallel} viser bruges af \textit{Parallel.Invoke()}.
 
 \begin{lstlisting}[
 caption=Almindelig udførsel af opgave.,
@@ -158,10 +168,13 @@ public void DoAll() {
 }
 \end{lstlisting}
 
+\subsection{Kodeeksempler}
+
 \begin{lstlisting}[
 caption=Parallel udførsel af opgave/task.,
 label=code:taskparallel,
 morekeywords={Parallel, Invoke}]
+// Simplest start af threads, vha invoke
 public void DoAll() {
 	Parallel.Invoke(DoLeft, DoRight); // blocks till finished
 }
@@ -170,16 +183,19 @@ public void DoAll() {
 Ligeledes kan funktionerne \textit{DoRight()} og \textit{DoLeft()} udføres med TaskFactory som i listing~\ref{code:taskfactory}.
 
 \begin{lstlisting}[
-caption=Brug af TaskFactory,
+caption=Brug af TaskFactory - gør det samme som listing~\ref{code:taskparallel},
 label=code:taskfactory,
 morekeywords={Task, Factory, StartNew}]
 public void DoAll() {
 	Task t1 = Task.Factory.StartNew(DoLeft);
 	Task t2 = Task.Factory.StartNew(DoRight);
 	
-	// task not started yet??
+	// Enten det her
+	Task.WaitAll(t1, t2);
 	
-	Task.WaitAll(t1, t2);	// blocks till finished
+	// ELLER det her
+	t1.Wait();
+	t2.Wait();
 }
 \end{lstlisting}
 
