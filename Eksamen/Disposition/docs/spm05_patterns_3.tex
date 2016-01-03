@@ -84,7 +84,7 @@ myCompressionCtrl.AddNotificationCenter(myEventHandler);
 
 \subsubsection{Abstract Factory}
 
-Abstract Factory Pattern kan bruges til at ''hjælpe'' et object i dets constructor med at instantiere dets medlemmer, som det kan ses herunder:
+Abstract Factory Pattern kan bruges til at ''hjælpe'' et object i dets constructor med at instantiere dets medlemmer, som det kan ses herunder i listing~\ref{code:af_clientctor} og en implementering af \textit{CreateHerbivore()} kan også ses i listing~\ref{code:absfac_create}.
 
 \begin{lstlisting}[caption=Abstract Factory brugt i Client Constructor().,
 label=code:af_clientctor,
@@ -102,6 +102,17 @@ public class AnimalWorld
 	// other functions
 }
 \end{lstlisting}
+
+\begin{lstlisting}[caption=Eksempel på implementering af CreateHerbivore metode.,
+label=code:absfac_create,
+morekeywords={ContinentFactory, Herbivore, Carnivore,override}]
+public override Herbivore CreateHerbivore()
+{
+	return new Bison();
+}
+
+\end{lstlisting}
+
 
 På klassediagrammet på næste side kan opbygningen af abstract  factory ses.
 
