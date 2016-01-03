@@ -8,7 +8,6 @@ namespace FactoryMethod
         IProduct _myProduct;
 
         // ctor eller anden nyttig function?
-        // public Creator()
         public void DoSomething()
         {
             _myProduct = MakeProduct();
