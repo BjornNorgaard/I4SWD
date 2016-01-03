@@ -11,7 +11,23 @@
 
 Parallel loops pattern minder meget om et almindeligt loop. Der udføres samme operation hvor hvert element for et givet antal gange. Forskellen er dog at et almindeligt loop sker sekventielt, hvorimod et parallelt loop ofte udfører steps parallelt. Når man bruger parallelle loops er det derfor vigtigt at sikre sig at iterationerne ikke er afhængige af hinanden.
 
-Ekse
+Eksempel på almindeligt for loop:
+
+\begin{lstlisting}[caption=Normal for loop, label=code:normalLoop]
+for (int i = 0; i < n; i++)
+{
+	//Do stuff...
+}
+\end{lstlisting}
+
+Eksempel på parallelt for loop:
+
+\begin{lstlisting}[caption=Parallel for loop, label=code:paraLoop]
+Parallel.For (0, n, i =>
+{
+	//Do stuff...
+});
+\end{lstlisting}
 
 \subsubsection{Parallel tasks}
 
