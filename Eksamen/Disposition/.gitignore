@@ -208,5 +208,5 @@ FakesAssemblies/
 *.toc 
 *.tdo
 *.out
-*.pdf
+#*.pdf
 *.tdo 
