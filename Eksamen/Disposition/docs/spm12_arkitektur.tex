@@ -234,3 +234,59 @@ Ved dokumentering af software arkitektur taler vi om to ting:
 	\item UML.
 	\item n+1.
 \end{itemize}
+
+\subsubsection{UML}
+Ved design af arkitektur anvendes tre nye UML diagramtyper:
+
+\begin{itemize}
+	\item Package diagrammer.\\
+	Inderholder packages...\todo{som præcis er?}
+	\item Deployment diagrammer.\\
+	Indeholder Nodes...\todo{som er!?}
+	\item Komponent diagrammer.\\
+	Indeholder Komponenter...\todo{JESUS FUCK, HVAD ER DE HER TING!?}
+\end{itemize}
+
+Disse bruges sammen med de allerede kendt størrelser:
+
+\begin{itemize}
+	\item Task diagrammer, som udarbejdes vha. UML klassediagrammer.
+	\item Aktivitets diagrammer.
+	\item Klassediagrammer.
+	\item Sekvens diagrammer.
+\end{itemize}
+
+\subsubsection{N+1}
+Da der findes utallige måder at illustrere et system på, er n+1 (også kaldet 4+1), en bredspektret og mere struktureret måde at uddele forskellig funktionalitet i forskellige views.
+
+Man behøver dog ikke bruge/vise alle views!
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{figs/nplusoneview}
+	\caption{De forskellige N+1 views.}
+	\label{fig:nplusoneview}
+\end{figure}
+
+I forhold til hvilke diagrammer der bruges til de forskellige views, så viser figur~\ref{fig:nplusonedia} hvilke der kan bruges hvor.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{figs/nplusonedia}
+	\caption{De forskellige N+1 views.}
+	\label{fig:nplusonedia}
+\end{figure}
+
+De fire views designes ud fra forskellige scenarier der udgør de 5. view “Scenarier”. Disse er som regel systemets use cases.\\
+
+De fire views som er vist i figur~\ref{fig:nplusoneview} er så:
+\begin{itemize}
+	\item \textbf{Logical view}\\
+	Systemets logik - hvordan kommunikere de forskellige klasser og komponenter.
+	\item \textbf{Process view}\\
+	Systemets performance - forholder sig til concurrency problemer og viser hvor der kan opstå problemer med parallelitet.
+	\item \textbf{Development view}\\
+	Systemets afhængigheder - fortæller hvordan de forskellige pakker/komponenter i systemet bliver ramt af ændring fra hinanden.
+	\item \textbf{Physical view}\\
+	System lokalisering - hvor er de forskellige delsystemet og hvor skal der implementeres kommunikation.
+\end{itemize}
