@@ -148,7 +148,29 @@ class Client {
 \input{docs/repeated/dip}
 
 \subsection{Hvordan fremmes godt SW design?}
-Godt software design fremmes, ved at implementere sit program, med henblik på at overholde eks. SOLID principperne. Til dette kan der specialiseres generelle løsninger (Design Patterns). BAsically er keywords til godt software design: \textit{Lav kobling, høj samhørighed, stærk indkapsling Testability, Reuseabilty, Readability} osv.
+
+Alle tre design principper har deres fordele og nogen, deres ulemper.
+
+Undgå Design Smells:
+
+\begin{itemize}
+	\item Rigidity.\\
+	Svært at ændre i koden, simple ændring skaber kaskader af andre lndringer.
+	\item Fragility.\\
+	Programmet går i stykker, ved simple ændringer.
+	\item Immobility. \\
+	Immobil at overføre til nyt system.
+	\item Viscosity.\\
+	Hacking af løsninger.
+	\item Needless complexity.\\
+	Siger sig selv.
+	\item Needless repetition.\\
+	Genbrug af kode - hellere lav en abstraktion!
+	\item Opacity.\\
+	Opacity er når koden er svær at forstå.
+\end{itemize}
+
+Godt software design fremmes, ved at implementere sit program, med henblik på at overholde eks. SOLID principperne. Til dette kan der specialiseres generelle løsninger (Design Patterns). Basically er keywords til godt software design: \textit{Lav kobling, høj samhørighed, stærk indkapsling Testability, Reuseabilty, Readability} osv.
 \subsection{Eksempel}
 Gode SOLID eksempler på \href{http://blog.gauffin.org/2012/05/11/solid-principles-with-real-world-examples/}{blog.gauffin.org}.
 
