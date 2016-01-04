@@ -41,6 +41,12 @@ Vi laver en dependancy til en future! Altså et løfte om at den kommer!
 
 Forskellen mellem futures og parallel tasks er at \textbf{Futures} er asynkrone funktioner der \textbf{returnerer} en værdi, hvorimod Parallel tasks \textbf{ikke returnerer} en værdi.
 
+\subsubsection{Fordele og ulemper}
+
+Man undgår at en funktion får et forkert input fordi en anden funktion ikke er færdig.
+
+På den anden side er det den langsomste funktion der afgør hastigheden på den samlede udførselstid.
+
 \subsection{Pipelines}
 \begin{itemize}
 	\item Pipeline mønstret paralleliserer processeringen af en input sekvens.
@@ -78,3 +84,9 @@ Løsningen på dette problem er at tilføje en ekstra stage 3
 	\caption{Pipelining med uneven stages + Ekstra stage}
 	\label{fig:UnevenpipeliningWStage}
 \end{figure}
+
+\subsubsection{Fordele og ulemper}
+
+Pipelining kan fremskynde processering der har flere stages.
+
+Det er dog værd at bemærke  at pipelining ikke fremskynder den enkelte process, men derimod sikrer et større througput. Hvis pipelining ikke er nædbendigt, kræver det blot flere ressourcer.
