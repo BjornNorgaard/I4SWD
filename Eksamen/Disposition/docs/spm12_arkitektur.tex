@@ -156,7 +156,7 @@ Der findes flere værktøjer:
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{figs/arc_ite}
+	\includegraphics[width=0.35\linewidth]{figs/arc_ite}
 	\caption{Process for iterativ arkitekturudvikling.}
 	\label{fig:arc_ite}
 \end{figure}
@@ -167,15 +167,65 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 \paragraph{Identify Architecture Objectives}
 \begin{itemize}
 	\item Klare mål hjælper med at fokusere på arkitekturen og løse de konkrete probelmer i designet.
-	\item Identificer arkitektur
+	\item Identificer arkitektur mål fra start.
+	\item Identificer hvem der skal bruge arkitekturen.\todo{user bruger gui, tekniker bruger dab? like that?}
+	\item Identificer dine begrænsninger.
 \end{itemize}
 
 \paragraph{Identify Key Scenarios}
+\begin{itemize}
+	\item Brug hovedscenarier til at fokusere dit design på hvad der betyder mest, og evaluer arkitektur kandidater herpå når de er klar.
+	\item Hovedscenarier kan defineres som et scenarie der overholder en eller flere af følgende kriterier:
+	\begin{itemize}
+		\item Repræsenterer et betydeligt ukendt område eller et område af betydelig risiko.\todo{præcis mening?}
+		\item Referere til en arkitektonisk vigtig use case.\todo{præcisering, tak}
+		\item Repræsenterer bindeledet mellem en kvalitets attribut og funktionalitet.\todo{hvordan kommer kvalitet ind i use cases? accepttest lykkes?}
+		\item Repræsenterer et tradeoff mellem kvalitets attributter. \today{how?}
+	\end{itemize}
+\end{itemize}
 
 \paragraph{Create Application Overview}
+\begin{itemize}
+	\item Identificer:
+	\begin{itemize}
+		\item Applikations type.\todo{app, program console app what?}
+		\item Deployment arkitektur. \todo{hvordan vi distribuere systemet?}
+		\item Arkitektur style (type). \todo{means woot?}
+		\item Teknologier. \todo{det valg af protocol etc?}
+	\end{itemize}
+\end{itemize}
+
+Her forbindes dit design til den virkelige verden hvor applikationen operere. \todo{hvordan opstår denne forbindelse?}
 
 \paragraph{Identify Key Issues}
+Identificer de største problemer baseret på kvalitets attributter og crosscutting concerns. Begge nævn herunder.
+
+\begin{itemize}
+	\item \textbf{Kvalitets attributter}\\
+	repræsentere områder af bekymring der kan have potentielle følger på tværs af lag.
+	\begin{itemize}
+		\item System kvalitet.\\
+		Den generelle kvalitet for systemet som hvor godt/nemt er det at supporte/teste.
+		\item Run-time kvalitet.\\
+		Kvaliteten af systemet der gives til udtryk run-time, som performance og scalability.
+		\item Design kvalitet.\\
+		Kvaliteten der reflekteres i designet af systemet, som flexibilitet og genbrugelighed.
+		\item Bruger kvalitet.\\
+		Hvor godt/nemt systemet er at bruge.
+	\end{itemize}
+	\item \textbf{Crosscutting concerns}
+	\begin{itemize}
+		\item Grænseflader.
+		\item Valg af metoder til Authentication, Cacging, Communikation etc.
+	\end{itemize}
+\end{itemize}
 
 \paragraph{Define Candidate Solutions}
+Skab en prototype der udvikler og forbedre løsningen og evaluer denne mod hovedscenarierne, problemerne og deployment begrænsningerne, før næste iteration af arkitekturen begyndes.
+
+\begin{itemize}
+	\item Få de største risici af vejen først.
+	\item Lav iterative arkitekturelle tests der beviser at hver iteration er bedre end den forrige.
+\end{itemize}
 
 \subsection{Hvordan dokumenteres en software arkitektur}
