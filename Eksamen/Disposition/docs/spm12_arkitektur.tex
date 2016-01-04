@@ -36,6 +36,7 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 		\item Hovedscenarier kan overses.\todo{Defineres disse ikke FØR arkitekturen?}
 		\item Almindelige problemer bliver overset.\todo{igen, hvorfor?}
 		\item At værdsætte fremtidige konsekvenser på baggrund af afgørende beslutninger.\todo{føles som øregas}
+		\item Uden en arkitektur, står man let med et monolithic program (big ball of mud), dvs. uden egentlig struktur og under-elementer.
 	\end{itemize}
 \end{itemize}
 
@@ -62,20 +63,25 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 \end{itemize}
 
 \subsubsection{Architectural Styles}
-En arkitektur stil definerer en familie af systemer med ens struktur, navne af komponenter og connectors og med restriktioner omkring hvordan disse kan forbindes. De blandes ofte (på sammen måde som design patterns) - der bruges næsten aldrig kun een style.
+Ligesom design patterns, findes der også patterns af arkitekturer, eller styles.
+En arkitektur stil definerer en familie af systemer med ens struktur, navne af komponenter og connectors og med restriktioner omkring hvordan disse kan forbindes. De blandes ofte (på sammen måde som design patterns) - der bruges næsten aldrig kun én style.
 
 \paragraph{Typer af styles (almindelige)}
 
 \todo{savner forklaring af nogle de nedstående...}
 \begin{itemize}
-	\item Client/Server.
+	\item Client/Server.\\
+	Serveren kører et eller flere programmer, som deler deres ressourcer med klienter.
 	\item Component based.
 	\item Domain Driven Design.
-	\item Layered.
+	\item Layered - Den mest udbredte. Denne gives der eksempel på.
 	\item Message bus.
-	\item N-tier/3-Tier.
+	\item N-tier/3-Tier.\\
+	En Client/server arkitektur hvor presentation, apllikation og processering er separeret. Tier (lag) opdeling. Den mest bruger er 3-tier.
 	\item Object Oriented.
-	\item Service oriented.
+	\item Service oriented.\\
+	Det samme som Client/server blot med flere servers.
+	
 \end{itemize}
 
 
