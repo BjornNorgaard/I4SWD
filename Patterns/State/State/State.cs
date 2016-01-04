@@ -8,56 +8,55 @@ using System.Threading.Tasks;
 
 namespace State
 {
-    // Motherstate ///////////////////////////////////////////////
+    // MOTHERSTATE ///////////////////////////////////////////////
     public abstract class State
     {
         public abstract void PowerButton(Radio radio);
         public abstract void ModeButton(Radio radio);
     }
 
-    // Off ///////////////////////////////////////////////////////
+    // OFF ///////////////////////////////////////////////////////
     public class Off : State
     {
         public override void PowerButton(Radio radio)
         {
-            radio.State = new On();
+            radio.Power = new On();
         }
 
         public override void ModeButton(Radio radio)
         {
-            
+            Console.WriteLine("FUCK!");
         }
     }
 
-    // On /////////////////////////////////////////////////////////
+    // ON /////////////////////////////////////////////////////////
     public class On : State
     {
         public override void PowerButton(Radio radio)
         {
-            // On entry
-            radio.State = new Off();
+            radio.Power = new Off();
         }
 
         public override void ModeButton(Radio radio)
         {
-            radio.State = new FM();
-        }
-    }
-
-    // States nested in ON ////////////////////////////////////////
-    class DAB : On
-    {
-        public override void ModeButton(Radio radio)
-        {
-            radio.State = new FM();
+            radio.Mode = new FM();
         }
     }
 
-    class FM : On
+    // STATES NESTED IN ON ///////////////////////////////////////
+    public class DAB : On
     {
         public override void ModeButton(Radio radio)
         {
-            radio.State = new DAB();
+            radio.Mode = new FM();
+        }
+    }
+
+    public class FM : On
+    {
+        public override void ModeButton(Radio radio)
+        {
+            radio.Mode = new DAB();
         }
     }
 }

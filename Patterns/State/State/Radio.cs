@@ -1,40 +1,53 @@
 ﻿using System;
+using System.Data;
 
 namespace State
 {
     public class Radio
     {
-        //State _state;
-        internal static State OffState = new Off();
-        internal static State OnState = new On();
-        //internal State _state = new Off();
+        //power _power;
+        //internal static power OffState = new Off();
+        //internal static power OnState = new On();
+        ////internal power _power = new Off();
+        State _power = new Off();
+        State _mode = new FM();
 
         // Constructor
-        public Radio(State state)
+        public Radio(/*State power*/)
         {
-            _state = state;
+            //_power = power;
         }
 
-        // Get or Set the _state
-        public State State
+        // Get or Set the _power
+        public State Power
         {
-            get { return _state; }
+            get { return _power; }
             set
             {
-                _state = value;
-                Console.WriteLine("Radio power state is: " + _state.GetType().Name);
+                _power = value;
+                Console.WriteLine("Radio is: " + _power.GetType().Name);
             }
         }
-        
-        // Change state
+
+        public State Mode
+        {
+            get { return _mode; }
+            set
+            {
+                _mode = value;
+                Console.WriteLine("Radio is: " + _mode.GetType().Name);
+            }
+        }
+
+        // Change power
         public void ClickPWR()
         {
-            _state.PowerButton(this);
+            Power.PowerButton(this);
         }
 
         public void ClickMODE()
         {
-            _state.ModeButton(this);
+            Mode.ModeButton(this);
         }
     }
 }

@@ -10,8 +10,8 @@ namespace State.Application
     {
         static void Main(string[] args)
         {
-            State myState = new Off();
-            Radio myRadio = new Radio(myState);
+            //State myState = new Off();
+            Radio myRadio = new Radio(/*myState*/);
 
             ConsoleKeyInfo consoleKeyInfo;
             do
