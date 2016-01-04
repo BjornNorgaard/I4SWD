@@ -39,15 +39,42 @@ Vi laver en dependancy til en future! Altså et løfte om at den kommer!
 	\label{fig:FutureEx}
 \end{figure}
 
+Forskellen mellem futures og parallel tasks er at \textbf{Futures} er asynkrone funktioner der \textbf{returnerer} en værdi, hvorimod Parallel tasks \textbf{ikke returnerer} en værdi.
+
 \subsection{Pipelines}
 \begin{itemize}
 	\item Pipeline mønstret paralleliserer processeringen af en input sekvens.
 	\item Pipeline mønstret består af en serie af producer/consumere.
-	\item Opdeler processering i paralelliserbare stadier
+	\item Opdeler processering i paralelliserbare stadier.
 	\begin{itemize}
 		\item Output af stage i er indput i stage i + 1:
 		\item Andre stadier er uafhængige.
 	\end{itemize}
 \end{itemize}
 
+Som det kan ses på figur \ref{fig:pipelining} har vi pipelinet processeringen af $C_1, C_2, C_3$ og $C_4$ 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/pipeFut/stagees}
+	\caption{Brug af pipelining}
+	\label{fig:pipelining}
+\end{figure}
+
+Man kunne forestille sig at et enkelt stage vill tage længere tid end de andre (uneven stage duration).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/pipeFut/unevenStage}
+	\caption{Standard pipelining med uneven stages}
+	\label{fig:Unevenpipelining}
+\end{figure}
+
+Løsningen på dette problem er at tilføje en ekstra stage 3
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/pipeFut/ekstraFilter}
+	\caption{Pipelining med uneven stages + Ekstra stage}
+	\label{fig:UnevenpipeliningWStage}
+\end{figure}
