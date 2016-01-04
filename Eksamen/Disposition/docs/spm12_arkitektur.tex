@@ -68,7 +68,7 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 Ligesom design patterns, findes der også patterns af arkitekturer, eller styles.
 En arkitektur stil definerer en familie af systemer med ens struktur, navne af komponenter og connectors og med restriktioner omkring hvordan disse kan forbindes. De blandes ofte (på sammen måde som design patterns) - der bruges næsten aldrig kun én style.
 
-\paragraph{Typer af styles (almindelige)}
+\paragraph{Typer af Arkitektural styles (almindelige)}\label{sec:arcstyles}
 
 \begin{itemize}
 	\item \textbf{Client/Server}\\
@@ -185,8 +185,8 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 	\begin{itemize}
 		\item Repræsenterer et betydeligt ukendt område eller et område af betydelig risiko - bruges en ubekendt teknologi eller store ''fare'' forbundet med fejl på området.
 		\item Referere til en arkitektonisk vigtig use cases - de vigtigeste.
-		\item Repræsenterer bindeledet mellem en kvalitets attribut og funktionalitet.
-		\item Repræsenterer et tradeoff mellem kvalitets attributter. \todo{how?}
+		%\item Repræsenterer bindeledet mellem en kvalitets attribut og funktionalitet.
+		%\item Repræsenterer et tradeoff mellem kvalitets attributter. \todo{how?}
 	\end{itemize}
 \end{itemize}
 
@@ -194,14 +194,14 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 \begin{itemize}
 	\item Identificer:
 	\begin{itemize}
-		\item Applikations type.\todo{app, program console app what?}
-		\item Deployment arkitektur. \todo{hvordan vi distribuere systemet?}
-		\item Arkitektur style (type). \todo{means woot?}
-		\item Teknologier. \todo{det valg af protocol etc?}
+		\item Applikations type - app, web, etc.
+		\item Deployment arkitektur - firma procedure og hvordan vi deployer systemet.
+		\item Arkitektur style (type), findes i afsnit~\ref{sec:arcstyles}.
+		\item Teknologier - valg af framework etc.
 	\end{itemize}
 \end{itemize}
 
-Her forbindes dit design til den virkelige verden hvor applikationen operere. \todo{hvordan opstår denne forbindelse?}
+%Her forbindes dit design til den virkelige verden hvor applikationen operere. \todo{hvordan opstår denne forbindelse?}
 
 \paragraph{Identify Key Issues}
 Identificer de største problemer baseret på kvalitets attributter og crosscutting concerns. Begge nævn herunder.
