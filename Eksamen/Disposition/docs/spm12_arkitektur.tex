@@ -20,10 +20,10 @@ Den højeste abstraktion.
 	\begin{itemize}
 		\item Hvordan er de organiserede.
 		\item Hvordan interagerer de?
-		\item Er der nogle problematiske områder? (Areas of concern).\todo{nøjagtig formulering?}
+		\item Hvad er vores ''Areas of concern''.
 	\end{itemize}
 	\item Software Design er en realisering af arkitekturen bag.
-	\item Arkitekturen viser de elemter som er svære at ændre.\todo{svære hvordan?}
+	\item Arkitekturen viser de elementer som er svære at ændre.\todo{svære hvordan? - Andreas}
 	\item Viser også de elemter der er de vigtigste.
 \end{itemize}
 
@@ -33,9 +33,9 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 \begin{itemize}
 	\item Der er følgende risici uden en arkitektur:
 	\begin{itemize}
-		\item Hovedscenarier kan overses.\todo{Defineres disse ikke FØR arkitekturen?}
-		\item Almindelige problemer bliver overset.\todo{igen, hvorfor?}
-		\item At værdsætte fremtidige konsekvenser på baggrund af afgørende beslutninger.\todo{føles som øregas}
+		\item Hovedscenarier kan overses.
+		\item Almindelige problemer bliver overset.
+		\item At værdsætte fremtidige konsekvenser på baggrund af afgørende beslutninger.
 		\item Uden en arkitektur, står man let med et monolithic program (big ball of mud), dvs. uden egentlig struktur og under-elementer.
 	\end{itemize}
 \end{itemize}
@@ -44,10 +44,10 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 \begin{itemize}
 	\item \textbf{Applikationstype} - Mobile app, web app osv.
 	\item \textbf{Deployment strategi} - Distribueret/ikke distribueret, runtime kørsel, mnætværksinfrastruktur.
-	\item \textbf{Teknologier} - Protokoller, Sprog, etc - Hvilke skal i bruges?
-	\item \textbf{Quality attributter} - Kvalitet af systemet.
+	\item \textbf{Teknologier} - Protokoller, Sprog, hvilen server, etc - Hvilke skal i bruges?
+	\item \textbf{Quality attributes} - Kvalitet af systemet.
 	\begin{itemize}
-		\item Conceptual integrity.\todo{what is?}
+		\item Conceptual integrity.
 		\item Maintainablity.
 		\item Reusability.
 		\item Performance.
@@ -68,29 +68,27 @@ En arkitektur stil definerer en familie af systemer med ens struktur, navne af k
 
 \paragraph{Typer af styles (almindelige)}
 
-\todo{savner forklaring af nogle de nedstående...}
 \begin{itemize}
-	\item Client/Server.\\
+	\item \textbf{Client/Server}\\
 	Serveren kører et eller flere programmer, som deler deres ressourcer med klienter.
+	\item \textbf{Service oriented}\\
+	Det samme som Client/server blot med flere servers.
+	\item \textbf{N-tier/3-Tier}\\
+	En Client/server arkitektur hvor presentation, apllikation og processering er separeret. Tier (lag) opdeling. Den mest bruger er 3-tier.
+	\item \textbf{Layered}\\
+	Den mest udbredte. Denne gives der eksempel på.
 	\item Component based.
 	\item Domain Driven Design.
-	\item Layered - Den mest udbredte. Denne gives der eksempel på.
 	\item Message bus.
-	\item N-tier/3-Tier.\\
-	En Client/server arkitektur hvor presentation, apllikation og processering er separeret. Tier (lag) opdeling. Den mest bruger er 3-tier.
 	\item Object Oriented.
-	\item Service oriented.\\
-	Det samme som Client/server blot med flere servers.
-	
 \end{itemize}
-
 
 \subsection{Giv et eksempel på en typisk softwarearkitektur og dens anvendelse}
 
 \subsubsection{Layer}
 \begin{itemize}
 	\item Et layer er en grovkornet gruppering af: \textit{klasser, packages, og subsystemer}.
-	\item Sørger for koblingsgraden i et system.\todo{hvordan ''sørger'' den for det?}
+	\item Giver en forståelse af koblingsgraden i et system.
 	\item Organisering af lag:
 	\begin{itemize}
 		\item Højere lag kalder funktioner i lavere lag.
@@ -174,7 +172,7 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 \begin{itemize}
 	\item Klare mål hjælper med at fokusere på arkitekturen og løse de konkrete probelmer i designet.
 	\item Identificer arkitektur mål fra start.
-	\item Identificer hvem der skal bruge arkitekturen.\todo{user bruger gui, tekniker bruger dab? like that?}
+	\item Identificer hvem der skal bruge arkitekturen, andre arkitekter eller udviklere og testere?
 	\item Identificer dine begrænsninger.
 \end{itemize}
 
@@ -183,10 +181,10 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 	\item Brug hovedscenarier til at fokusere dit design på hvad der betyder mest, og evaluer arkitektur kandidater herpå når de er klar.
 	\item Hovedscenarier kan defineres som et scenarie der overholder en eller flere af følgende kriterier:
 	\begin{itemize}
-		\item Repræsenterer et betydeligt ukendt område eller et område af betydelig risiko.\todo{præcis mening?}
-		\item Referere til en arkitektonisk vigtig use case.\todo{præcisering, tak}
-		\item Repræsenterer bindeledet mellem en kvalitets attribut og funktionalitet.\todo{hvordan kommer kvalitet ind i use cases? accepttest lykkes?}
-		\item Repræsenterer et tradeoff mellem kvalitets attributter. \today{how?}
+		\item Repræsenterer et betydeligt ukendt område eller et område af betydelig risiko - bruges en ubekendt teknologi eller store ''fare'' forbundet med fejl på området.
+		\item Referere til en arkitektonisk vigtig use cases - de vigtigeste.
+		\item Repræsenterer bindeledet mellem en kvalitets attribut og funktionalitet.
+		\item Repræsenterer et tradeoff mellem kvalitets attributter. \todo{how?}
 	\end{itemize}
 \end{itemize}
 
