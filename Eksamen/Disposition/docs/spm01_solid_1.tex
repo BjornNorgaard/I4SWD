@@ -59,6 +59,25 @@ Endeligt omkring brud på ISP skal section~\ref{sec:brud_isp} ses på side~\page
 \subsection{Hvordan fremmes godt SW design?}
 Alle tre design principper har deres fordele og nogen, deres ulemper.
 
+Undgå Design Smells:
+
+\begin{itemize}
+	\item Rigidity.\\
+	Svært at ændre i koden, simple ændring skaber kaskader af andre lndringer.
+	\item Fragility.\\
+	Programmet går i stykker, ved simple ændringer.
+	\item Immobility. \\
+	Immobil at overføre til nyt system.
+	\item Viscosity.\\
+	Hacking af løsninger.
+	\item Needless complexity.\\
+	Siger sig selv.
+	\item Needless repetition.\\
+	Genbrug af kode - hellere lav en abstraktion!
+	\item Opacity.\\
+	Opacity er når koden er svær at forstå.
+\end{itemize}
+
 \subsubsection{SRP}
 At separere klassers ansvar kan være en god ide, idet ethvert ansvar har dets egen ''Axis of change''. Flere ansvar i klasser medfører høj kobling blandt dem. Hvis en enkelt af disse ansvar skal ændres kan det medføre at resten af klassen bliver negativt påvirket eller ''bare'' skal genkompileres, gentestes og genimplementeres.\\
 

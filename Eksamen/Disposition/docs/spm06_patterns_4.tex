@@ -46,7 +46,7 @@ abstract class State
 Som det ses på klassen StateBase implementering, har den blot en abstrakt metode der tager mod en Context
 
 \begin{lstlisting}[caption=ConcreteStateA klassen - Switcher til State B]
-class ConcreteStateA
+class ConcreteStateA : State
 {
 	public override void Handle(Context context)
 	{
@@ -56,7 +56,7 @@ class ConcreteStateA
 \end{lstlisting}
 
 \begin{lstlisting}[caption=StateBase klassen - Switcher til state A]
-class ConcreteStateB
+class ConcreteStateB : State
 {
 	public override void Handle(Context context)
 	{
