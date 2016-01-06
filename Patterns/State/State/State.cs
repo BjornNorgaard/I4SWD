@@ -9,6 +9,7 @@ namespace State
         public virtual void OnEnter(Radio radio) { }
         public virtual void PowerButton(Radio radio) { }
         public virtual void ModeButton(Radio radio) { }
+        public VolumeState VolumeState;
     }
 
     public abstract class VolumeState
@@ -18,7 +19,7 @@ namespace State
     }
     #endregion
 
-    #region Powerstates -> normal
+    #region Powerstates -> ON & OFF
     public class On : PowerState
     {
         public override void OnEnter(Radio radio)
