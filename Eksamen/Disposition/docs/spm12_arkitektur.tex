@@ -13,17 +13,19 @@
 \textit{''The highest-level breakdown of a system into its parts; the decisions that are hard to change; ...  and, in the end, architecture boils down to whatever the important stuff is.''}
 
 \subsubsection{Hvad er en software arkitektur?}
-Den højeste abstraktion.
+Software arkitektur er processen hvor der defineres en struktureret løsning der imødekommer tekniske og operationelle krav, og samtidig optimerer kvalitet som performance, security, manageability osv.
+
+Man kan sige at en SW arkitektur er den højeste abstraktion i et system.
 
 \begin{itemize}
 	\item Fokuserer på de større elementer og komponenter.
 	\begin{itemize}
 		\item Hvordan er de organiserede.
 		\item Hvordan interagerer de?
-		\item Er der nogle problematiske områder? (Areas of concern).\todo{nøjagtig formulering?}
+		\item Hvad er vores ''Areas of concern''.
 	\end{itemize}
 	\item Software Design er en realisering af arkitekturen bag.
-	\item Arkitekturen viser de elemter som er svære at ændre.\todo{svære hvordan?}
+	\item Arkitekturen viser de elementer som er svære at ændre.
 	\item Viser også de elemter der er de vigtigste.
 \end{itemize}
 
@@ -33,9 +35,9 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 \begin{itemize}
 	\item Der er følgende risici uden en arkitektur:
 	\begin{itemize}
-		\item Hovedscenarier kan overses.\todo{Defineres disse ikke FØR arkitekturen?}
-		\item Almindelige problemer bliver overset.\todo{igen, hvorfor?}
-		\item At værdsætte fremtidige konsekvenser på baggrund af afgørende beslutninger.\todo{føles som øregas}
+		\item Hovedscenarier kan overses.
+		\item Almindelige problemer bliver overset.
+		\item At værdsætte fremtidige konsekvenser på baggrund af afgørende beslutninger.
 		\item Uden en arkitektur, står man let med et monolithic program (big ball of mud), dvs. uden egentlig struktur og under-elementer.
 	\end{itemize}
 \end{itemize}
@@ -44,10 +46,10 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 \begin{itemize}
 	\item \textbf{Applikationstype} - Mobile app, web app osv.
 	\item \textbf{Deployment strategi} - Distribueret/ikke distribueret, runtime kørsel, mnætværksinfrastruktur.
-	\item \textbf{Teknologier} - Protokoller, Sprog, etc - Hvilke skal i bruges?
-	\item \textbf{Quality attributter} - Kvalitet af systemet.
+	\item \textbf{Teknologier} - Protokoller, Sprog, hvilen server, etc - Hvilke skal i bruges?
+	\item \textbf{Quality attributes} - Kvalitet af systemet.
 	\begin{itemize}
-		\item Conceptual integrity.\todo{what is?}
+		\item Conceptual integrity.
 		\item Maintainablity.
 		\item Reusability.
 		\item Performance.
@@ -66,31 +68,29 @@ Med komplekse systemer er det vigtigt at have et solidt fundament.
 Ligesom design patterns, findes der også patterns af arkitekturer, eller styles.
 En arkitektur stil definerer en familie af systemer med ens struktur, navne af komponenter og connectors og med restriktioner omkring hvordan disse kan forbindes. De blandes ofte (på sammen måde som design patterns) - der bruges næsten aldrig kun én style.
 
-\paragraph{Typer af styles (almindelige)}
+\paragraph{Typer af Arkitektural styles (almindelige)}\label{sec:arcstyles}
 
-\todo{savner forklaring af nogle de nedstående...}
 \begin{itemize}
-	\item Client/Server.\\
+	\item \textbf{Client/Server}\\
 	Serveren kører et eller flere programmer, som deler deres ressourcer med klienter.
+	\item \textbf{Service oriented}\\
+	Det samme som Client/server blot med flere servers.
+	\item \textbf{N-tier/3-Tier}\\
+	En Client/server arkitektur hvor presentation, apllikation og processering er separeret. Tier (lag) opdeling. Den mest bruger er 3-tier.
+	\item \textbf{Layered}\\
+	Den mest udbredte. Denne gives der eksempel på.
 	\item Component based.
 	\item Domain Driven Design.
-	\item Layered - Den mest udbredte. Denne gives der eksempel på.
 	\item Message bus.
-	\item N-tier/3-Tier.\\
-	En Client/server arkitektur hvor presentation, apllikation og processering er separeret. Tier (lag) opdeling. Den mest bruger er 3-tier.
 	\item Object Oriented.
-	\item Service oriented.\\
-	Det samme som Client/server blot med flere servers.
-	
 \end{itemize}
-
 
 \subsection{Giv et eksempel på en typisk softwarearkitektur og dens anvendelse}
 
 \subsubsection{Layer}
 \begin{itemize}
 	\item Et layer er en grovkornet gruppering af: \textit{klasser, packages, og subsystemer}.
-	\item Sørger for koblingsgraden i et system.\todo{hvordan ''sørger'' den for det?}
+	\item Giver en forståelse af koblingsgraden i et system.
 	\item Organisering af lag:
 	\begin{itemize}
 		\item Højere lag kalder funktioner i lavere lag.
@@ -174,7 +174,7 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 \begin{itemize}
 	\item Klare mål hjælper med at fokusere på arkitekturen og løse de konkrete probelmer i designet.
 	\item Identificer arkitektur mål fra start.
-	\item Identificer hvem der skal bruge arkitekturen.\todo{user bruger gui, tekniker bruger dab? like that?}
+	\item Identificer hvem der skal bruge arkitekturen, andre arkitekter eller udviklere og testere?
 	\item Identificer dine begrænsninger.
 \end{itemize}
 
@@ -183,10 +183,10 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 	\item Brug hovedscenarier til at fokusere dit design på hvad der betyder mest, og evaluer arkitektur kandidater herpå når de er klar.
 	\item Hovedscenarier kan defineres som et scenarie der overholder en eller flere af følgende kriterier:
 	\begin{itemize}
-		\item Repræsenterer et betydeligt ukendt område eller et område af betydelig risiko.\todo{præcis mening?}
-		\item Referere til en arkitektonisk vigtig use case.\todo{præcisering, tak}
-		\item Repræsenterer bindeledet mellem en kvalitets attribut og funktionalitet.\todo{hvordan kommer kvalitet ind i use cases? accepttest lykkes?}
-		\item Repræsenterer et tradeoff mellem kvalitets attributter. \today{how?}
+		\item Repræsenterer et betydeligt ukendt område eller et område af betydelig risiko - bruges en ubekendt teknologi eller store ''fare'' forbundet med fejl på området.
+		\item Referere til en arkitektonisk vigtig use cases - de vigtigeste.
+		%\item Repræsenterer bindeledet mellem en kvalitets attribut og funktionalitet.
+		%\item Repræsenterer et tradeoff mellem kvalitets attributter. \todo{how?}
 	\end{itemize}
 \end{itemize}
 
@@ -194,14 +194,14 @@ Følgende trin anvendes i udvikling af produkt med iterativ projekt.
 \begin{itemize}
 	\item Identificer:
 	\begin{itemize}
-		\item Applikations type.\todo{app, program console app what?}
-		\item Deployment arkitektur. \todo{hvordan vi distribuere systemet?}
-		\item Arkitektur style (type). \todo{means woot?}
-		\item Teknologier. \todo{det valg af protocol etc?}
+		\item Applikations type - app, web, etc.
+		\item Deployment arkitektur - firma procedure og hvordan vi deployer systemet.
+		\item Arkitektur style (type), findes i afsnit~\ref{sec:arcstyles}.
+		\item Teknologier - valg af framework etc.
 	\end{itemize}
 \end{itemize}
 
-Her forbindes dit design til den virkelige verden hvor applikationen operere. \todo{hvordan opstår denne forbindelse?}
+%Her forbindes dit design til den virkelige verden hvor applikationen operere. \todo{hvordan opstår denne forbindelse?}
 
 \paragraph{Identify Key Issues}
 Identificer de største problemer baseret på kvalitets attributter og crosscutting concerns. Begge nævn herunder.
@@ -241,28 +241,15 @@ Ved dokumentering af software arkitektur taler vi om to ting:
 	\item n+1.
 \end{itemize}
 
-\subsubsection{UML}
-Ved design af arkitektur anvendes tre nye UML diagramtyper:
+Vi bruger disse værktøjer til at analysere vores system, samt reducere risiko.
 
-\begin{itemize}
-	\item Package diagrammer.\\
-	Inderholder packages...\todo{som præcis er?}
-	\item Deployment diagrammer.\\
-	Indeholder Nodes...\todo{som er!?}
-	\item Komponent diagrammer.\\
-	Indeholder Komponenter...\todo{JESUS FUCK, HVAD ER DE HER TING!?}
-\end{itemize}
-
-Disse bruges sammen med de allerede kendt størrelser:
+\subsubsection{UML og N+1}
+Ved design af arkitektur kan der anvendes N+1 og UML
 
 \begin{itemize}
 	\item Task diagrammer, som udarbejdes vha. UML klassediagrammer.
-	\item Aktivitets diagrammer.
-	\item Klassediagrammer.
-	\item Sekvens diagrammer.
 \end{itemize}
 
-\subsubsection{N+1}
 Da der findes utallige måder at illustrere et system på, er n+1 (også kaldet 4+1), en bredspektret og mere struktureret måde at uddele forskellig funktionalitet i forskellige views.
 
 Man behøver dog ikke bruge/vise alle views!
@@ -287,12 +274,22 @@ De fire views designes ud fra forskellige scenarier der udgør de 5. view “Sce
 
 De fire views som er vist i figur~\ref{fig:nplusoneview} er så:
 \begin{itemize}
-	\item \textbf{Logical view}\\
-	Systemets logik - hvordan kommunikere de forskellige klasser og komponenter.
-	\item \textbf{Process view}\\
-	Systemets performance - forholder sig til concurrency problemer og viser hvor der kan opstå problemer med parallelitet.
-	\item \textbf{Development view}\\
-	Systemets afhængigheder - fortæller hvordan de forskellige pakker/komponenter i systemet bliver ramt af ændring fra hinanden.
-	\item \textbf{Physical view}\\
-	System lokalisering - hvor er de forskellige delsystemet og hvor skal der implementeres kommunikation.
+	\item \textbf{Logical view} Systemets logik - hvordan kommunikere de forskellige klasser og komponenter.
+	\begin{itemize}
+		\item Klassediagrammer.
+		\item Sekvensdiagrammer.
+	\end{itemize}
+	\item \textbf{Process view} Systemets performance - forholder sig til concurrency problemer og viser hvor der kan opstå problemer med parallelitet.
+	\begin{itemize}
+		\item Activity Diagrammer.
+	\end{itemize}
+	\item \textbf{Development view}	Systemets afhængigheder - fortæller hvordan de forskellige pakker/komponenter i systemet bliver ramt af ændring fra hinanden.
+	\begin{itemize}
+		\item Komponent diagrammer (Systemets hovedkomponenter, Ordre, Account, Product, Customer osv).
+		\item Package Diagrammer.
+	\end{itemize}
+	\item \textbf{Physical view} System lokalisering - hvor er de forskellige delsystemet og hvor skal der implementeres kommunikation.
+	\begin{itemize}
+		\item Deployment diagrammer (Databaser, Servere osv. - nodes).
+	\end{itemize}
 \end{itemize}

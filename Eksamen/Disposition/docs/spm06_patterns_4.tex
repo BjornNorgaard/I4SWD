@@ -148,7 +148,7 @@ Ortogonale og nestede states gennemgås i afsnittet om UML mapping.
 	\item Readability - i mere komplekse programmer vil koden blive svær at overskue, men er dog stadig væsentligt nemmere end alternativerne.
 \end{itemize}
 
-\todo{uløst problem med OnExit() Andreas??}
+\todo{uløst problem med OnExit() Andreas/Denned??}
 
 \subsection{Redegør for, hvordan et UML (SysML) state machine diagram mapper til GoF State}
 \subsubsection{Simpel UML}
@@ -191,7 +191,7 @@ Et tilsvarende GoF State Pattern klassediagram med nested states:
 	\label{fig:UMLClassNestedState}
 \end{figure}
 
-Vi kan her se i det tilsvarende State pattern, at den blot har to state klasser der hedder “FM” og “DAB” der nedarver fra ON klassen som set tidligere. og dertil mindre ændringer i Context klassens funktioner. \todo{bryder vi ikke ISP her?}
+Vi kan her se i det tilsvarende State pattern, at den blot har to state klasser der hedder “FM” og “DAB” der nedarver fra ON klassen som set tidligere. og dertil mindre ændringer i Context klassens funktioner. \todo{bryder vi ikke ISP her? Vi bryder i hvert fald LSP.}
 
 \subsubsection{Ortogonale States}
 
