@@ -24,12 +24,12 @@ namespace State
         public override void OnEnter(Radio radio)
         {
             radio.Power = new FM();
+            //radio.Volume = new LowVolume();
         }
 
         public override void PowerButton(Radio radio)
         {
             radio.Power = new Off();
-            radio.Volume = new LowVolume();
         }
     }
     
@@ -38,6 +38,7 @@ namespace State
         public override void OnEnter(Radio radio)
         {
             radio.Action_OFF();
+            //radio.Volume = new LowVolume();
         }
 
         public override void PowerButton(Radio radio)

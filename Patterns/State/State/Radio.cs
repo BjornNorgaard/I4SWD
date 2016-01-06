@@ -33,6 +33,7 @@ namespace State
         public Radio()
         {
             Power = new Off();
+            Volume = new LowVolume();
         }
         #endregion
 
