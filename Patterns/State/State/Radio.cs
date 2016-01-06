@@ -33,7 +33,7 @@ namespace State
         public Radio()
         {
             Power = new Off();
-            //Volume = new LowVolume();
+            //Volume = new LowVolume();/*if this is not present, the program will crash if: 1. Before entering ON 2. While in OFF 3. Press 'V'.*/
         }
         #endregion
 
