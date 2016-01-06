@@ -14,9 +14,9 @@ namespace State.Application
                 consoleKeyInfo = Console.ReadKey(true);
                 if (consoleKeyInfo.Key == ConsoleKey.P)
                     myRadio.ClickPWR();
-                if (consoleKeyInfo.Key == ConsoleKey.M)
+                else if (consoleKeyInfo.Key == ConsoleKey.M)
                     myRadio.ClickMODE();
-                if (consoleKeyInfo.Key == ConsoleKey.V)
+                else if (consoleKeyInfo.Key == ConsoleKey.V)
                     myRadio.ClickVOLUME();
             } while (consoleKeyInfo.Key != ConsoleKey.Escape);
         }
