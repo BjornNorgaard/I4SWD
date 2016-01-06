@@ -1,62 +1,100 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace State
 {
     // MOTHERSTATE ///////////////////////////////////////////////
-    public abstract class State
+    public abstract class PowerState
     {
-        public abstract void PowerButton(Radio radio);
-        public abstract void ModeButton(Radio radio);
+        public virtual void OnEnter(Radio radio) { }
+        public virtual void PowerButton(Radio radio) { }
+        public virtual void ModeButton(Radio radio) { }
+    }
+
+    public abstract class VolumeState
+    {
+        public virtual void OnEnter(Radio radio) { }
+        public virtual void VolumeBotton(Radio radio) { }
+    }
+
+    // VOLUME CONTROLS ///////////////////////////////////////////
+    public class LowVolume : VolumeState
+    {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Action_QUIET();
+        }
+
+        public override void VolumeBotton(Radio radio)
+        {
+            radio.Volume = new HighVolume();
+        }
+    }
+
+    public class HighVolume : VolumeState
+    {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Action_LOUD();
+        }
+
+        public override void VolumeBotton(Radio radio)
+        {
+            radio.Volume = new LowVolume();
+        }
     }
 
     // OFF ///////////////////////////////////////////////////////
-    public class Off : State
+    public class Off : PowerState
     {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Action_OFF();
+        }
+
         public override void PowerButton(Radio radio)
         {
             radio.Power = new On();
         }
-
-        public override void ModeButton(Radio radio)
-        {
-            Console.WriteLine("FUCK!");
-        }
     }
 
     // ON /////////////////////////////////////////////////////////
-    public class On : State
+    public class On : PowerState
     {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Power = new FM();
+            radio.Volume = new LowVolume();
+        }
+
         public override void PowerButton(Radio radio)
         {
             radio.Power = new Off();
-        }
-
-        public override void ModeButton(Radio radio)
-        {
-            radio.Mode = new FM();
         }
     }
 
     // STATES NESTED IN ON ///////////////////////////////////////
     public class DAB : On
     {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Action_DAB();
+        }
+
         public override void ModeButton(Radio radio)
         {
-            radio.Mode = new FM();
+            radio.Power = new FM();
         }
     }
 
     public class FM : On
     {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Action_FM();
+        }
+
         public override void ModeButton(Radio radio)
         {
-            radio.Mode = new DAB();
+            radio.Power = new DAB();
         }
     }
 }

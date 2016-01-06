@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace State.Application
 {
@@ -10,8 +6,7 @@ namespace State.Application
     {
         static void Main(string[] args)
         {
-            //State myState = new Off();
-            Radio myRadio = new Radio(/*myState*/);
+            Radio myRadio = new Radio();
 
             ConsoleKeyInfo consoleKeyInfo;
             do
@@ -21,6 +16,8 @@ namespace State.Application
                     myRadio.ClickPWR();
                 if (consoleKeyInfo.Key == ConsoleKey.M)
                     myRadio.ClickMODE();
+                if (consoleKeyInfo.Key == ConsoleKey.V)
+                    myRadio.ClickVOLUME();
             } while (consoleKeyInfo.Key != ConsoleKey.Escape);
         }
     }

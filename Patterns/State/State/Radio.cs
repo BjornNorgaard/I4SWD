@@ -1,45 +1,43 @@
-﻿using System;
-using System.Data;
+﻿
+
+using System;
 
 namespace State
 {
     public class Radio
     {
-        //power _power;
-        //internal static power OffState = new Off();
-        //internal static power OnState = new On();
-        ////internal power _power = new Off();
-        State _power = new Off();
-        State _mode = new FM();
+        // Get or Set the _power
+        private PowerState _power;
+        private VolumeState _volume;
 
-        // Constructor
-        public Radio(/*State power*/)
+        public VolumeState Volume
         {
-            //_power = power;
+            get { return _volume; }
+            set
+            {
+                _volume = value;
+                _volume.OnEnter(this);
+            }
         }
 
-        // Get or Set the _power
-        public State Power
+        public PowerState Power
         {
             get { return _power; }
             set
             {
                 _power = value;
-                Console.WriteLine("Radio is: " + _power.GetType().Name);
+                _power.OnEnter(this);
             }
         }
 
-        public State Mode
+        // Constructor
+        public Radio()
         {
-            get { return _mode; }
-            set
-            {
-                _mode = value;
-                Console.WriteLine("Radio is: " + _mode.GetType().Name);
-            }
+            Power = new Off();
+            //Volume = new LowVolume();
         }
 
-        // Change power
+        // Change _power
         public void ClickPWR()
         {
             Power.PowerButton(this);
@@ -47,7 +45,37 @@ namespace State
 
         public void ClickMODE()
         {
-            Mode.ModeButton(this);
+            Power.ModeButton(this);
+        }
+
+        public void ClickVOLUME()
+        {
+            Volume.VolumeBotton(this);
+        }
+
+        public void Action_OFF()
+        {
+            Console.WriteLine("I is OFF");
+        }
+
+        public void Action_FM()
+        {
+            Console.WriteLine("I is FM");
+        }
+
+        public void Action_DAB()
+        {
+            Console.WriteLine("I is DAB");
+        }
+
+        public void Action_LOUD()
+        {
+            Console.WriteLine("I is LOUD");
+        }
+
+        public void Action_QUIET()
+        {
+            Console.WriteLine("I is QUIET");
         }
     }
 }
