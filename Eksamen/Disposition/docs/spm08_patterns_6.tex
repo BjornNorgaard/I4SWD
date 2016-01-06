@@ -65,6 +65,12 @@ Data binding af View til Properties i ViewModel fungerer ganske fint og kan sagt
 For at kunne data binde til en funktion kan der bruges ”RelayCommand”. RelayCommand er udviklet af Josh Smith. Et alternativ kan være ”DelegateCommand” fra Prism frameworket. RelayCommand er brugt i GUI-kurset.
 RelayCommand fungerer således, at der laves en Command property, som View kan data binde til. Commanden ”relayer” til en metode, og når en knap der er data bindet til en command bliver trykket på, så vil den pågældende metode blive kaldt. På denne måde kan der data bindes til metoder.
 
+\subsubsection{Oprettelse af Views og ViewModels}
+\textbf{To måder}:
+\begin{enumerate}
+	\item \textbf{View First} - Viewet laves først og en ViewModel kobles efterfølgende på, ved at denne oprettes fra viewet. Dette kan gøres på forskellige måder – eksempler følger.
+	\item \textbf{ViewModel First} - ViewModel laves først, og det view der hører til ViewModel findes efterfølgende og vises til brugeren. Denne metode er lidt mere kompliceret. Eksempel følger.
+\end{enumerate}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\linewidth]{figs/MVVM/mvvmPatternComplex}
