@@ -16,7 +16,7 @@ Dette design pattern, er et GUI architecture pattern, som er en specaialisering 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figs/MVVM/MVVMPattern.png}
-	\caption{Sammenhæng mellem Model-View-ViewModel.}
+	\caption[Sammenhæng mellem Model-View-ViewModel]{}
 	\label{fig:MVVMPattern}
 \end{figure}
 
@@ -59,6 +59,11 @@ Dette design pattern, er et GUI architecture pattern, som er en specaialisering 
 	\item \textbf{Kender ikke til ViewModel}\todo{GUIPERSON: hvordan sender den events?}
 	\item Sender evnets til ViewModel
 \end{enumerate}
+
+\subsubsection{Commands}
+Data binding af View til Properties i ViewModel fungerer ganske fint og kan sagtens lade sig gøre. Data binding til funktioner er dog ikke muligt, selvom det ofte er til nytte. Data binding til funktionskald er f.eks. brugbart til en ”Gem”-knap, som skal gemme en række data, når brugeren trykker på knappen.
+For at kunne data binde til en funktion kan der bruges ”RelayCommand”. RelayCommand er udviklet af Josh Smith. Et alternativ kan være ”DelegateCommand” fra Prism frameworket. RelayCommand er brugt i GUI-kurset.
+RelayCommand fungerer således, at der laves en Command property, som View kan data binde til. Commanden ”relayer” til en metode, og når en knap der er data bindet til en command bliver trykket på, så vil den pågældende metode blive kaldt. På denne måde kan der data bindes til metoder.
 
 \begin{figure}[H]
 \centering
