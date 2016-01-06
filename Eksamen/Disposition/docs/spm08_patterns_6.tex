@@ -61,9 +61,9 @@ Dette design pattern, er et GUI architecture pattern, som er en specaialisering 
 \end{enumerate}
 
 \subsubsection{Commands}
-Data binding af View til Properties i ViewModel fungerer ganske fint og kan sagtens lade sig gøre. Data binding til funktioner er dog ikke muligt, selvom det ofte er til nytte. Data binding til funktionskald er f.eks. brugbart til en ”Gem”-knap, som skal gemme en række data, når brugeren trykker på knappen.
+Data binding\todo{er databinging ikke ét ord?} af View til Properties i ViewModel fungerer ganske fint og kan sagtens lade sig gøre. Data binding til funktioner er dog ikke muligt, selvom det ofte er til nytte\todo{hvordan kan noget være til nytte hvis det ikke er muligt?}. Data binding til funktionskald er f.eks. brugbart til en ”Gem”-knap, som skal gemme en række data, når brugeren trykker på knappen.
 For at kunne data binde til en funktion kan der bruges ”RelayCommand”. RelayCommand er udviklet af Josh Smith. Et alternativ kan være ”DelegateCommand” fra Prism frameworket. RelayCommand er brugt i GUI-kurset.
-RelayCommand fungerer således, at der laves en Command property, som View kan data binde til. Commanden ”relayer” til en metode, og når en knap der er data bindet til en command bliver trykket på, så vil den pågældende metode blive kaldt. På denne måde kan der data bindes til metoder.
+RelayCommand fungerer således, at der laves en Command property\todo{en ordforklaring til dette afsnit ville være nice til os uden GUI.}, som View kan data binde til. Commanden ”relayer”\todo{”” antyder indforstået betydning, det kender vi andre ikke noget til.} til en metode, og når en knap der er data bindet til en command bliver trykket på, så vil den pågældende metode blive kaldt. På denne måde kan der data bindes til metoder.
 
 \begin{figure}[H]
 \centering
