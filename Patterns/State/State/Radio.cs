@@ -1,12 +1,11 @@
-﻿
-
-using System;
+﻿using System;
 
 namespace State
 {
     public class Radio
     {
-        // Get or Set the _power
+        #region States with getter and settter
+        // States
         private PowerState _power;
         private VolumeState _volume;
 
@@ -29,14 +28,18 @@ namespace State
                 _power.OnEnter(this);
             }
         }
+        #endregion
 
+        #region Constructor
         // Constructor
         public Radio()
         {
             Power = new Off();
             //Volume = new LowVolume();
-        }
+        } 
+        #endregion
 
+        #region Triggers
         // Change _power
         public void ClickPWR()
         {
@@ -52,7 +55,9 @@ namespace State
         {
             Volume.VolumeBotton(this);
         }
+        #endregion
 
+        #region Actions
         public void Action_OFF()
         {
             Console.WriteLine("I is OFF");
@@ -77,5 +82,6 @@ namespace State
         {
             Console.WriteLine("I is QUIET");
         }
+        #endregion
     }
 }

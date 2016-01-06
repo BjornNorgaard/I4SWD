@@ -1,7 +1,7 @@
 ﻿
 namespace State
 {
-    // MOTHERSTATE ///////////////////////////////////////////////
+    #region Motherstates
     public abstract class PowerState
     {
         public virtual void OnEnter(Radio radio) { }
@@ -14,35 +14,9 @@ namespace State
         public virtual void OnEnter(Radio radio) { }
         public virtual void VolumeBotton(Radio radio) { }
     }
+    #endregion
 
-    // VOLUME CONTROLS ///////////////////////////////////////////
-    public class LowVolume : VolumeState
-    {
-        public override void OnEnter(Radio radio)
-        {
-            radio.Action_QUIET();
-        }
-
-        public override void VolumeBotton(Radio radio)
-        {
-            radio.Volume = new HighVolume();
-        }
-    }
-
-    public class HighVolume : VolumeState
-    {
-        public override void OnEnter(Radio radio)
-        {
-            radio.Action_LOUD();
-        }
-
-        public override void VolumeBotton(Radio radio)
-        {
-            radio.Volume = new LowVolume();
-        }
-    }
-
-    // OFF ///////////////////////////////////////////////////////
+    #region Powerstates -> normal
     public class Off : PowerState
     {
         public override void OnEnter(Radio radio)
@@ -56,7 +30,6 @@ namespace State
         }
     }
 
-    // ON /////////////////////////////////////////////////////////
     public class On : PowerState
     {
         public override void OnEnter(Radio radio)
@@ -70,8 +43,9 @@ namespace State
             radio.Power = new Off();
         }
     }
+    #endregion
 
-    // STATES NESTED IN ON ///////////////////////////////////////
+    #region Power states -> nested in PowerState::ON state
     public class DAB : On
     {
         public override void OnEnter(Radio radio)
@@ -97,4 +71,33 @@ namespace State
             radio.Power = new DAB();
         }
     }
+    #endregion
+
+    #region Volumestates -> ortogonal
+    public class LowVolume : VolumeState
+    {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Action_QUIET();
+        }
+
+        public override void VolumeBotton(Radio radio)
+        {
+            radio.Volume = new HighVolume();
+        }
+    }
+
+    public class HighVolume : VolumeState
+    {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Action_LOUD();
+        }
+
+        public override void VolumeBotton(Radio radio)
+        {
+            radio.Volume = new LowVolume();
+        }
+    }
+    #endregion
 }
