@@ -65,13 +65,30 @@ Data binding\todo{er databinging ikke ét ord?} af View til Properties i ViewMod
 For at kunne data binde til en funktion kan der bruges ”RelayCommand”. RelayCommand er udviklet af Josh Smith. Et alternativ kan være ”DelegateCommand” fra Prism frameworket. RelayCommand er brugt i GUI-kurset.
 RelayCommand fungerer således, at der laves en Command property\todo{en ordforklaring til dette afsnit ville være nice til os uden GUI.}, som View kan data binde til. Commanden ”relayer”\todo{”” antyder indforstået betydning, kender vi andre ikke noget til.} til en metode, og når en knap der er data bindet til en command bliver trykket på, så vil den pågældende metode blive kaldt. På denne måde kan der data bindes til metoder.
 
+\subsubsection{Oprettelse af Views og ViewModels}
+\textbf{To måder}:
+\begin{enumerate}
+	\item \textbf{View First} - Viewet laves først og en ViewModel kobles efterfølgende på, ved at denne oprettes fra viewet. Dette kan gøres på forskellige måder – eksempler følger.
+	\item \textbf{ViewModel First} - ViewModel laves først, og det view der hører til ViewModel findes efterfølgende og vises til brugeren. Denne metode er lidt mere kompliceret. Eksempel følger.
+\end{enumerate}
+
+\paragraph{View first - ViewModel oprettes i codeBehind}
+
+\begin{lstlisting}[caption=ViewModel oprettes i views codeBehind]
+public MainWindow()
+{
+	InitializeComponent();
+	DataContext = new ViewModel(new Model)
+}
+\end{lstlisting}
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\linewidth]{figs/MVVM/mvvmPatternComplex}
 \caption{Intern adfærd i MVVM pattern}
 \label{fig:mvvmPatternComplex}
 \end{figure}
-
 
 \subsubsection{Hvorfor er det smart?}
 
