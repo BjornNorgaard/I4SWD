@@ -29,7 +29,7 @@ Dette design pattern, er et GUI architecture pattern, som er en specaialisering 
 	\item Kan være en subcomponent af et andet view.
 	\item Kan have sin egen ViewModel eller arve dens parents.
 	\item Viewet får data fra ViewModel gennem \textbf{\textit{databinding}} eller metodekald på ViewModel
-	\item View ændres \textbf{\textit{run-time}} når UI controls\todo{what is dis?}, agerer efter ændringer i ViewModels properties.
+	\item View ændres \textbf{\textit{run-time}} når UI controls\todo{GUIPERSON: what is dis?}, agerer efter ændringer i ViewModels properties.
 	\item Hvad sker der der laves User Input på View?
 	\begin{itemize}
 		\item Hvis control er en \textbf{\textit{Command Source}} kan control's Command property være data bound til en ICommand property på view model.
@@ -56,7 +56,7 @@ Dette design pattern, er et GUI architecture pattern, som er en specaialisering 
 		\item Object-model, der repræsenterer state content.
 		\item Data Access layer der repræsenterer indhold.
 	\end{itemize}
-	\item \textbf{Kender ikke til ViewModel}\todo{hvordan sender den events?}
+	\item \textbf{Kender ikke til ViewModel}\todo{GUIPERSON: hvordan sender den events?}
 	\item Sender evnets til ViewModel
 \end{enumerate}
 
