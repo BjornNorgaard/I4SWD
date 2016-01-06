@@ -33,7 +33,7 @@ namespace State
         public Radio()
         {
             Power = new Off();
-            Volume = new LowVolume();
+            //Volume = new LowVolume();/*if this is not present, the program will crash if: 1. Before entering ON 2. While in OFF 3. Press 'V'.*/
         }
         #endregion
 
@@ -57,27 +57,32 @@ namespace State
         #region Actions
         public void Action_OFF()
         {
-            Console.WriteLine("OFF");
+            Console.WriteLine("Radio is: OFF\n");
+        }
+
+        public void Action_ON()
+        {
+            Console.WriteLine("\nRadio is: ON");
         }
 
         public void Action_FM()
         {
-            Console.WriteLine("FM");
+            Console.WriteLine("Mode: FM");
         }
 
         public void Action_DAB()
         {
-            Console.WriteLine("DAB");
+            Console.WriteLine("Mode: DAB");
         }
 
         public void Action_LOUD()
         {
-            Console.WriteLine("LOUD");
+            Console.WriteLine("Volume: LOUD");
         }
 
         public void Action_QUIET()
         {
-            Console.WriteLine("QUIET");
+            Console.WriteLine("Volume: QUIET");
         }
         #endregion
     }

@@ -8,6 +8,11 @@ namespace State.Application
         {
             Radio myRadio = new Radio();
 
+            Console.WriteLine("Controls:\n" +
+                              "  Power :  P\n" +
+                              "  Mode  :  M\n" +
+                              "  Volume:  V\n");
+
             ConsoleKeyInfo consoleKeyInfo;
             do
             {
