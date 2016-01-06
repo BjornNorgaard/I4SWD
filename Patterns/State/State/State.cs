@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace State
 {
     #region Motherstates
@@ -17,6 +19,20 @@ namespace State
     #endregion
 
     #region Powerstates -> normal
+    public class On : PowerState
+    {
+        public override void OnEnter(Radio radio)
+        {
+            radio.Power = new FM();
+        }
+
+        public override void PowerButton(Radio radio)
+        {
+            radio.Power = new Off();
+            radio.Volume = new LowVolume();
+        }
+    }
+    
     public class Off : PowerState
     {
         public override void OnEnter(Radio radio)
@@ -27,20 +43,6 @@ namespace State
         public override void PowerButton(Radio radio)
         {
             radio.Power = new On();
-        }
-    }
-
-    public class On : PowerState
-    {
-        public override void OnEnter(Radio radio)
-        {
-            radio.Power = new FM();
-            radio.Volume = new LowVolume();
-        }
-
-        public override void PowerButton(Radio radio)
-        {
-            radio.Power = new Off();
         }
     }
     #endregion
