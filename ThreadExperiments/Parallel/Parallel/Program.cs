@@ -7,8 +7,14 @@ namespace derpspace
 {
     internal class Program
     {
+        public static void DoStuff()
+        {
+            Console.WriteLine("æorgijagoij");
+        }
+
         private static void Main(string[] args)
         {
+            Parallel.Invoke(DoStuff);
             //// Parallel For
             //Parallel.For(0, 10, i =>
             //{

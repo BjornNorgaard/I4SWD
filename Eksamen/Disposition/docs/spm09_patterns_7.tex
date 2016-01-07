@@ -33,11 +33,31 @@ Det er rigtig dyrt at oprette og nedlægge tråde! \textbf{1MB Stack, 100.000 ti
 
 Trådhåndtering giver overhead på et parallelt loop, og derfor kan meget små iteraationer blive kvalt heri. TPL håndterer partitionering, thread scheduling af tråde i threadPool'en og generelt alle low-level details.
 
-\subsubsection{Oversubscribtion}
+\paragraph{Hvad man ikke skal bruge Parallel til}
+\begin{lstlisting}[caption=Hvad Parallel.For ikke kan bruges til.,
+morekeywords={Parallel}]
+// Dont use Parallel for this!
+Parallel.For(0, n, i => {
+	a[i] = a[i-1] + a[i-2];	// Oh the pain!
+});
+\end{lstlisting}
+\subsubsection{Oversubscription}
+Oversubscription er når vi opretter flere tråde end der er fysiske tråde tilgængelig. Dette leder til at OS bruger lang til på at Context-Switche (takes time, kill caches).
 
+\subsubsection{Partitinering}
+Partitionering er fordelingen af Tasks ud på trådene. 
+
+\paragraph{Statisk}
+Trådene får et bestemt antal Tasks tildelt. Trådene kan ikke hjælpe hinanden. Hvis hver iteration har forskellig størrelse vil opgaverne blive ulige fordelt og vi kan risikere at en tråd bliver færdig lang tid før en anden, men ikke er i stand til at ''hjælpe'' den anden tråd. Kræver ikke synkronisering.
+
+Hvis vi skal balancere belastningen skal vi kende til opgavernes størrelse før ''execution''.
+
+\paragraph{Dynamic}
+Ved dynamisk load balancing kan en ''færdig'' tråd hjælpe en stadig arbejdende tråd ved at tage nogle af dens opgaver. Dette \textbf{kræver dog synkronisering}.
+
+Her behøver vi dog intet kendskab til eksekverings-tid.
 
 \subsubsection{Kodeeksempler}
-
 \paragraph{Almindeligt loop}
 \begin{lstlisting}[caption=Normal for loop, label=code:normalLoop]
 for (int i = 0; i < n; i++)
@@ -45,7 +65,6 @@ for (int i = 0; i < n; i++)
 	//Do stuff...
 }
 \end{lstlisting}
-
 \paragraph{Parallelt Loop}
 Eksempel på parallelt for loop: lambda expression
 \begin{lstlisting}[caption=Parallel for loop,  label=code:paraLoop,
@@ -55,10 +74,8 @@ Parallel.For (0, EndValue, iterator =>
 	//Do stuff with 'i' ...
 });
 \end{lstlisting}
-
 \paragraph{Parallel ForEach-Loop}
 For Each løkken kan også køres parallelt: lambda expression.
-
 \begin{lstlisting}[caption=Parallelt for each loop, label=paraForEach,morekeywords={string,Parallel, ForEach, WriteLine}]
 string[] navne = { "Torben", "Birger", "Niels" };
 
@@ -67,12 +84,15 @@ Parallel.ForEach(navne, navn =>
 	Console.WriteLine(navn);
 });
 \end{lstlisting}
-
 Det er Task Parallel Library der står for at håndtere threading, og man skal derfor ikke selv sørge for at fordele opgaven til CPU'en. 
 
 \subsection{Parallel tasks}
 
 En task er ikke en tråd! En task er en opgave som udføres \textbf{sekventielt}.\\
+
+Findes i $System.Threading.Tasks$.\\
+
+TPL sørger automatisk for at scale graden af parallisering så det er mest effektivt. Hjælper også til med scheduling af Thread Pool.\\
 
 Vi kan bruge \textbf{Task Parallel Library} biblioteket til at køre disse tasks parallelt. TPL kan selv dynamisk scale graden af parallelisme sådan at det mest effektict udnytter de kerner den har til rådighed.
 
@@ -91,7 +111,7 @@ public void DoAll() {
 \end{lstlisting}
 
 \paragraph{Invoke}
-I eksemplet eksisterer to funktioner: DoLeft() og DoRight(). De to funktioner bliver afviklet asynkront vha. TPL. Dette er den mest simple måde at starte tasks på.\\
+I eksemplet eksisterer to funktioner: DoLeft() og DoRight(). De to funktioner bliver afviklet asynkront vha. TPL. Dette er den mest simple måde at starte tasks på.
 
 Invoke-metoden returnerer når alle tasks er afviklet.
 \begin{lstlisting}[
@@ -114,6 +134,8 @@ morekeywords={Task, Factory, StartNew, Wait, WaitAll}]
 public void DoAll() {
 	Task t1 = Task.Factory.StartNew(DoLeft);
 	Task t2 = Task.Factory.StartNew(DoRight);
+	
+	Task t3 = Task.Run(DoStuff); // Simplere udgave af ovenstaende.
 	
 	// Enten det her...
 	Task.WaitAll(t1, t2);
@@ -222,7 +244,7 @@ Den simple \textbf{og dårlige(!)} løsning, som ikke benyttes af TPL.
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Den gode}
+\subsubsection{Default Task Scheduler}
 
 \begin{figure}[h]
 	\centering
@@ -239,7 +261,7 @@ Den simple \textbf{og dårlige(!)} løsning, som ikke benyttes af TPL.
 	\item Hver tråd har sin egen kø.
 	\begin{itemize}
 		\item Tråde skal ikke vente på synkronisering med den globale kø.
-		\item Er LIFO i begge ender.
+		\item Er LIFO i private ende og FIFO i offentlig ende.
 		\item Har en privat og offentlig ende.
 		\item Når køen er tom, hentes tasks fra den globale kø.
 	\end{itemize}
