@@ -45,10 +45,37 @@ mediatoren centraliserer funktionalitet der ellers ville være spredt ud på man
 pakke objekters interkonnektivitet ind i et mediator pattern, får man samtidig skabt et ekstra
 abtraktionsniveau der gør funktionalitet mere overskuelig.
 
-\subsection{Sammenlign de forskellige variationer af GoF Mediator - hvilke bør anvendes hvornår?}
+%\subsection{Sammenlign de forskellige variationer af GoF Mediator - hvilke bør anvendes hvornår?}
 
 \subsection{Sammenlign de to Design Patterns GoF Observer og GoF Mediator - hvornår vil du anvende hvilket og hvorfor?}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{figs/observer_classdiagram}
+	\caption[GoF Observer klassediagram]{Klassediagram som viser GoF Observers opbygning.}
+	\label{fig:observer_classdiagram}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Observer}: Flere observers der gerne vil subscribe på et subject.
+	\item \textbf{Mediator}: Når klasser gerne vil kommunikere med hinanden.
+\end{itemize}
+
 \subsection{Redegør for fordele og ulemper ved anvendelsen af GoF Mediator}
 
+\subsubsection{Fordele}
+\begin{itemize}
+	\item Mindre kobling mellem participants.
+	\item Simplificerede protokoller - simpelt at kommunikere med mediator.
+\end{itemize}
+
+\subsubsection{Ulemper}
+\begin{itemize}
+	\item Mediatoren kan hurtigt blive kompleks. Det er derfor vigtigt at holde sig til mediatoren som besked interface.
+\end{itemize}
+
 \subsection{Redegør for hvilke(t) SOLID-princip(per) du mener anvendelsen af GoF Mediator understøtter}
+
+\begin{itemize}
+	\item \textbf{OCP} - Let at tilføje participants og lave andre mediators.
+\end{itemize}
