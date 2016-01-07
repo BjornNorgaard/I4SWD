@@ -23,7 +23,7 @@ En klasse skal kun have ét ansvar. Derved undgår vi at skulle \textit{rebuild,
 ''Dont apply SRP if there is no symptom''\\
 
 %% side 118 i Agile derp
-Modem eksemplet fra side~118 i bogen\footnote{Bogen til kurset: Agile Principles, Patterns, and Practices in C\#}. Skal vi dele modem klassen op? Det kommer an på hvordan applikationen ændrer sig. Hvis connection-delen ændres skal resten af klassen også rekompilere.
+Modem eksemplet fra side~118 i bogen\footnote{Bogen til kurset: Agile Principles, Patterns, and Practices in C\#}. Skal vi dele modem klassen op? Det kommer an på hvordan applikationen ændrer sig. Hvis connection-delen ændres skal resten af klassen (data-transfer) også rekompilere.
 
 \subsubsection{Brud på SRP} \label{sec:brud_isp}
 Brud på SRP kan ses på figur~\ref{fig:ISP_bad}~og~\ref{fig:ISP_good} under ISP i section~\ref{sec:isp}. Hvis dette interface har grund til at blive opdelt så er ansvaret muligvis også så anderledes at det burde være i separate klasser.
@@ -104,4 +104,4 @@ Ulig OCP går DIP ikke ud på at gøre softwaren “udvidbar”, men løsere kob
 Gode SOLID eksempler på \href{http://blog.gauffin.org/2012/05/11/solid-principles-with-real-world-examples/}{blog.gauffin.org}.
 
 \subsection{Redegør for ulemper}
-Alting er ikke et søm, bare fordi man har en hammer! Forkert og eller overdrevet brug af SOLID principperne, kan føre til needless complexity. Eksempelvis kan overdrevet klasseinddeling (SRP) give anledning til unødvendig kompleksitet - An axis of change is only an axis of change, if change occurs.
+Alting er ikke et søm, bare fordi man har en hammer! Forkert og/eller overdrevet brug af SOLID principperne, kan føre til needless complexity. Eksempelvis kan overdrevet klasseinddeling (SRP) give anledning til unødvendig kompleksitet - An axis of change is only an axis of change, if change occurs.
