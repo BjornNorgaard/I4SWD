@@ -12,37 +12,70 @@
 	\item Bibliotek i .NET.
 	\item Man behøver ikke vide hvor mange kerner programmet skal køre på.
 	\begin{itemize}
-		\item På general-purpose platforme kan programmøren ikke forudsige hvor mange kerne/hvilken hardware der er til rådighed.
+		\item På general-purpose platforme kan programøren ikke forudsige hvor mange kerne/hvilken hardware der er til rådighed.
 	\end{itemize}
-	\item TPL sørger for Dynamisk Load Balancing.
+	\item TPL sørger for Dynamic Load Balancing.
 	\item Der er ikke garenti for hvilken rækkefølge tasks afvikles i. 
 \end{itemize}
 
 \subsection{Parallel loops}
+Parallel loops pattern minder meget om et almindeligt loop. Der udføres samme operation på hvert element for et givet antal iterationer. Forskellen er dog at et almindeligt loop sker \textbf{sekventielt}, hvorimod et parallelt loop ofte udfører steps \textbf{parallelt}. Når man bruger parallelle loops er det derfor vigtigt at sikre sig at iterationerne ikke er afhængige af hinanden.
 
-Parallel loops pattern minder meget om et almindeligt loop. Der udføres samme operation hvor hvert element for et givet antal gange. Forskellen er dog at et almindeligt loop sker sekventielt, hvorimod et parallelt loop ofte udfører steps parallelt. Når man bruger parallelle loops er det derfor vigtigt at sikre sig at iterationerne ikke er afhængige af hinanden.
+\subsubsection{Hvornår giver det mening med Parallel Loops?}
+Det er rigtig dyrt at oprette og nedlægge tråde! \textbf{1MB Stack, 100.000 til 200.000 cycles} for construction/teardown(!).
 
-Eksempel på almindeligt for loop:
+\begin{itemize}
+	\item Som sagt kan det kun bruges hvor iterationerne ikke er afhængige af hinanden!
+	\item Brug når iterationer ikke tilgår samme memory/filer.
+	\item Brugbart hvor der laves blokerende kald (skriv/læs til fil).
+	\item Brugbart når beregninger kan spredes ud på flere kerner.
+\end{itemize}
 
+Trådhåndtering giver overhead på et parallelt loop, og derfor kan meget små iteraationer blive kvalt heri. TPL håndterer partitionering, thread scheduling af tråde i threadPool'en og generelt alle low-level details.
+
+\paragraph{Hvad man ikke skal bruge Parallel til}
+\begin{lstlisting}[caption=Hvad Parallel.For ikke kan bruges til.,
+morekeywords={Parallel}]
+// Dont use Parallel for this!
+Parallel.For(0, n, i => {
+	a[i] = a[i-1] + a[i-2];	// Oh the pain!
+});
+\end{lstlisting}
+\subsubsection{Oversubscription}
+Oversubscription er når vi opretter flere tråde end der er fysiske tråde tilgængelig. Dette leder til at OS bruger lang til på at Context-Switche (takes time, kill caches).
+
+\subsubsection{Partitinering}
+Partitionering er fordelingen af Tasks ud på trådene. 
+
+\paragraph{Statisk}
+Trådene får et bestemt antal Tasks tildelt. Trådene kan ikke hjælpe hinanden. Hvis hver iteration har forskellig størrelse vil opgaverne blive ulige fordelt og vi kan risikere at en tråd bliver færdig lang tid før en anden, men ikke er i stand til at ''hjælpe'' den anden tråd. Kræver ikke synkronisering.
+
+Hvis vi skal balancere belastningen skal vi kende til opgavernes størrelse før ''execution''.
+
+\paragraph{Dynamic}
+Ved dynamisk load balancing kan en ''færdig'' tråd hjælpe en stadig arbejdende tråd ved at tage nogle af dens opgaver. Dette \textbf{kræver dog synkronisering}.
+
+Her behøver vi dog intet kendskab til eksekverings-tid.
+
+\subsubsection{Kodeeksempler}
+\paragraph{Almindeligt loop}
 \begin{lstlisting}[caption=Normal for loop, label=code:normalLoop]
 for (int i = 0; i < n; i++)
 {
 	//Do stuff...
 }
 \end{lstlisting}
-
+\paragraph{Parallelt Loop}
 Eksempel på parallelt for loop: lambda expression
-
 \begin{lstlisting}[caption=Parallel for loop,  label=code:paraLoop,
 morekeywords={Parallel, For}]
-Parallel.For (0, n, i =>
+Parallel.For (0, EndValue, iterator =>
 {
-	//Do stuff...
+	//Do stuff with 'i' ...
 });
 \end{lstlisting}
-
-For Each løkken kan også køres parallelt: lambda expression
-
+\paragraph{Parallel ForEach-Loop}
+For Each løkken kan også køres parallelt: lambda expression.
 \begin{lstlisting}[caption=Parallelt for each loop, label=paraForEach,morekeywords={string,Parallel, ForEach, WriteLine}]
 string[] navne = { "Torben", "Birger", "Niels" };
 
@@ -51,96 +84,19 @@ Parallel.ForEach(navne, navn =>
 	Console.WriteLine(navn);
 });
 \end{lstlisting}
-
 Det er Task Parallel Library der står for at håndtere threading, og man skal derfor ikke selv sørge for at fordele opgaven til CPU'en. 
-
-\subsubsection{Hvornår giver det mening med Parallel Loops?}
-\begin{itemize}
-	\item Som sagt kan det kun bruges hvor iterationerne ikke er afhængige af hinanden!
-	\item Brug når iterationer ikke tilgår samme memory/filer.
-	\item Brugbart hvor der laves blokerende kald (skriv/læs til fil).
-	\item Brugbart når beregninger kan spredes ud på flere kerner.
-\end{itemize}
-
-Trådhåndtering giver overhead på et parallelt loop, og derfor kan meget små iteraationer blive kvalt heri.
-
-TPL håndterer partitionering, thread scheduling af tråde i threadPool'en og generelt alle low-level details.
 
 \subsection{Parallel tasks}
 
 En task er ikke en tråd! En task er en opgave som udføres \textbf{sekventielt}.\\
 
+Findes i $System.Threading.Tasks$.\\
+
+TPL sørger automatisk for at scale graden af parallisering så det er mest effektivt. Hjælper også til med scheduling af Thread Pool.\\
+
 Vi kan bruge \textbf{Task Parallel Library} biblioteket til at køre disse tasks parallelt. TPL kan selv dynamisk scale graden af parallelisme sådan at det mest effektict udnytter de kerner den har til rådighed.
 
-\subsection{Thread Pool}
-Måde at ''opbevare'' flere tasks, sådan at en færdig tråd altid kan hente nye opgaver.
-
-\subsubsection{Den simpel og dårlige løsning}
-Den simple \textbf{og dårlige(!)} løsning, som ikke benyttes af TPL. 
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figs/badthreadpool}
-	\caption{Simple implementering af threadpool}
-	\label{fig:badthreadpool}
-\end{figure}
-
-
-\begin{itemize}
-	\item Naiv og langsom.
-	\item Én global kø, som alle tråde henter jobs fra.
-	\item Betyder at kun én tråd kan hente et job af gangen.
-	\begin{itemize}
-		\item Køen bliver flaskehalsen.
-		\item Mange små tasks forværre problemet.
-		\item Køen bliver tilgået ofte, giver stort overhead.
-	\end{itemize}
-\end{itemize}
-
-\subsubsection{Den gode}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{figs/goodthreadpool}
-	\caption{Faktisk implementering af threadpool, i .NET.}
-	\label{fig:goodthreadpool}
-\end{figure}
-
-\begin{itemize}
-	\item En global kø.
-	\begin{itemize}
-		\item Opbevare tasks som endnu ikke er delt ud på en tråd.
-	\end{itemize}
-	\item Hver tråd har sin egen kø.
-	\begin{itemize}
-		\item Tråde skal ikke vente på synkronisering med den globale kø.
-		\item Er LIFO i begge ender.
-		\item Har en privat og offentlig ende.
-		\item Når køen er tom, hentes tasks fra den globale kø.
-	\end{itemize}
-	\item Work stealing.
-	\begin{itemize}
-		\item Tråde kan ''stjæle'' hinandens tasks.
-		\item Det sker når egen og global kø er tomme.
-		\item Tråde tilgår kun den offentlige ende af andres køer.
-	\end{itemize}
-	\item Inline execution
-	\begin{itemize}
-		\item hvis...
-		\begin{itemize}
-			\item \textit{task1} venter på \textit{task2}.
-			\item \textit{task2} er ikke startet når \textit{task1} venter.
-			\item Begge tasks er placeret i samme kø.
-		\end{itemize}
-		\item ... kan scheduleren.
-		\begin{itemize}
-			\item Give \textit{task2} højere prioritet og afvikle den med samme.
-			\item Så \textit{task1} bliver hurtigere færdig.
-		\end{itemize}
-	\end{itemize}
-\end{itemize}
-
-\subsection{Kodeeksempler}
+\subsubsection{Kodeeksempler}
 
 I kode udsnit~\ref{code:tasknormal} udføres en opgave på gammel sekventiel vis, mens listing~\ref{code:taskparallel} viser bruges af \textit{Parallel.Invoke()}.
 
@@ -154,8 +110,8 @@ public void DoAll() {
 }
 \end{lstlisting}
 
-\subsubsection{Invoke}
-I eksemplet eksisterer to funktioner: DoLeft() og DoRight(). De to funktioner bliver afviklet asynkront vha. TPL. Dette er den mest simple måde at starte tasks på.\\
+\paragraph{Invoke}
+I eksemplet eksisterer to funktioner: DoLeft() og DoRight(). De to funktioner bliver afviklet asynkront vha. TPL. Dette er den mest simple måde at starte tasks på.
 
 Invoke-metoden returnerer når alle tasks er afviklet.
 \begin{lstlisting}[
@@ -168,7 +124,7 @@ public void DoAll() {
 }
 \end{lstlisting}
 
-\subsubsection{StartNew, Wait og WaitAll}
+\paragraph{StartNew, Wait og WaitAll}
 Ligeledes kan funktionerne \textit{DoRight()} og \textit{DoLeft()} udføres med TaskFactory som i listing~\ref{code:taskfactory}.
 
 \begin{lstlisting}[
@@ -179,6 +135,8 @@ public void DoAll() {
 	Task t1 = Task.Factory.StartNew(DoLeft);
 	Task t2 = Task.Factory.StartNew(DoRight);
 	
+	Task t3 = Task.Run(DoStuff); // Simplere udgave af ovenstaende.
+	
 	// Enten det her...
 	Task.WaitAll(t1, t2);
 	
@@ -188,7 +146,7 @@ public void DoAll() {
 }
 \end{lstlisting}
 
-\subsubsection{WaitAny}
+\paragraph{WaitAny}
 \textit{WaitAny()} afventer, at mindst én task er blevet afviklet. Det kan benyttes til at udføre arbejde, mens der stadig ventes på, at andre tasks er blevet afviklet færdigt.
 
 \todo{forstår ikke helt linje 14 i det nedenstående..}
@@ -213,7 +171,7 @@ while(tasks.Length > 0) {
 }
 \end{lstlisting}
 
-\subsubsection{Giv en variable med til en \textit{task}}
+\paragraph{Giv en variable med til en \textit{task}}
 I eksemplet startes 4 tasks, som hver især udskriver deres index (0-3).\\
 
 \textit{i} kan ikke benyttes direkte i lambda-udtrykket, da den er global mellem alle fire tasks. Inden den første task går i gang med at afvikle kan i have værdien 3.
@@ -233,7 +191,7 @@ for (int i = 0; i< 4; i++)
 
 Bemærk: Hvis der IKKE laves en midlertidig variabel, vil i være delt mellem alle tasks. Det kan i nogle tilfælde være nødvendigt.
 
-\subsubsection{Kør en \textit{task} på et objekt}
+\paragraph{Kør en \textit{task} på et objekt}
 Dette er en anden måde at give data med til en task.\\
 
 Der afvikles en metode på et objekt. Metoden har adgang til alle attributter på objektet.
@@ -260,3 +218,71 @@ public static void Main()
 	Task.Factory.StartNew(w.Run);
 }
 \end{lstlisting}
+
+\subsection{Thread Pool}
+Måde at ''opbevare'' flere tasks, sådan at en færdig tråd altid kan hente nye opgaver.
+
+\subsubsection{Den simpel og dårlige løsning}
+Den simple \textbf{og dårlige(!)} løsning, som ikke benyttes af TPL. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/badthreadpool}
+	\caption{Simple implementering af threadpool}
+	\label{fig:badthreadpool}
+\end{figure}
+
+
+\begin{itemize}
+	\item Naiv og langsom.
+	\item Én global kø, som alle tråde henter jobs fra.
+	\item Betyder at kun én tråd kan hente et job af gangen.
+	\begin{itemize}
+		\item Køen bliver flaskehalsen.
+		\item Mange små tasks forværre problemet.
+		\item Køen bliver tilgået ofte, giver stort overhead.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Default Task Scheduler}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{figs/goodthreadpool}
+	\caption{Faktisk implementering af threadpool, i .NET.}
+	\label{fig:goodthreadpool}
+\end{figure}
+
+\begin{itemize}
+	\item En global kø.
+	\begin{itemize}
+		\item Opbevare tasks som endnu ikke er delt ud på en tråd.
+	\end{itemize}
+	\item Hver tråd har sin egen kø.
+	\begin{itemize}
+		\item Tråde skal ikke vente på synkronisering med den globale kø.
+		\item Er LIFO i private ende og FIFO i offentlig ende.
+		\item Har en privat og offentlig ende.
+		\item Når køen er tom, hentes tasks fra den globale kø.
+	\end{itemize}
+	\item Work stealing.
+	\begin{itemize}
+		\item Tråde kan ''stjæle'' hinandens tasks.
+		\item Det sker når egen og global kø er tomme.
+		\item Tråde tilgår kun den offentlige ende af andres køer.
+	\end{itemize}
+	\item Inline execution
+	\begin{itemize}
+		\item hvis...
+		\begin{itemize}
+			\item \textit{task1} venter på \textit{task2}.
+			\item \textit{task2} er ikke startet når \textit{task1} venter.
+			\item Begge tasks er placeret i samme kø.
+		\end{itemize}
+		\item ... kan scheduleren.
+		\begin{itemize}
+			\item Give \textit{task2} højere prioritet og afvikle den med samme.
+			\item Så \textit{task1} bliver hurtigere færdig.
+		\end{itemize}
+	\end{itemize}
+\end{itemize}

@@ -1,4 +1,4 @@
-\section{Patterns 2 - GoF Observer}
+\section{Patterns 2 - GoF Observer}\label{sec:observerpattern}
 
 \subsection{Fokuspunkter}
 
@@ -35,11 +35,20 @@ I pull variationen er det observeren der står for at finde ud af hvilket state 
 \subsubsection{Push}
 I push variationen er det subjecten der i dens notify funktion, skal videregive dens state som parameter. Observerens Update() funktion skal da ogsåindrette sig derefter. 
 
-\subsubsection{Many observer to many subjects}
+\subsubsection{Many observers to many subjects}
 Hvis vi har flere observers som vil observere mere end ét subject objekt, er det ikke nok at \textit{Notify()} om ændringen. I sådant et tilfælde vil det også være nødvendigt at gøre opmærksom på hvilket subject, som ændringen er sket i.
 
 \subsection{Who triggers the update?}
 Hvis subjectet opdateres meget ofte og vil resultere i unødvendige ændringer af observeren, vil det være bedre om observeren stod for at \textit{trigge} opdateringen.
+
+\subsection{Redegør for fordele og ulemper ved anvendelsen af GoF Observer}
+
+\subsubsection{Fordele}
+Gør det muligt for klasser at reagere på ændringer i en anden klasse uden at koble dem for hoardt.
+
+\subsubsection{Ulemper}
+Kan give anledning til \textit{memory leaks}. Fordi den simple implementering kræver explicit \textit{registering} og \textit{\textbf{de}registering}. Dette koblet med at \textit{Subject}-klassen har en \textit{strong reference}\footnote{Se wiki om weak reference:\\ \url{https://en.wikipedia.org/wiki/Weak_reference}} til de observers, som kan holde dem unødigt i live.\\
+Dette kan dog undgås ved at bruge en \textit{weak-reference}, således at Subject's reference til observeren ikke beskytter mod garbage collectoren hvis det er den eneste.
 
 \subsubsection{Making sure the subject state is self-consistent}
 Det er vigtigt at vi ikke kalder \textit{Notify()} funktionen før vores \textit{state} faktisk er opdateret. En løsning er beskrevet på denne side \url{http://www.oodesign.com/observer-pattern.html} og går ud på at lave en template for kaldet, som også kan ses herunder:
@@ -47,13 +56,13 @@ Det er vigtigt at vi ikke kalder \textit{Notify()} funktionen før vores \textit
 \begin{lstlisting}
 public void final updateState(int increment)
 {
-	doUpdateState(increment);
-	notifyObservers();
+doUpdateState(increment);
+notifyObservers();
 }
 
 public void doUpdateState(int increment)
 {
-	state = state + increment;		
+state = state + increment;		
 }
 \end{lstlisting}
 
@@ -66,26 +75,19 @@ I dette tilfælde vil vores \textit{ConcreteSubject} bare skulle \textbf{overrid
 	\item Let at udvide.
 \end{itemize}
 
-\subsection{Redegør for fordele og ulemper ved anvendelsen af GoF Observer}
-
-\subsubsection{Fordele}
-Gør det muligt for klasser at reagere på ændringer i en anden klasse uden at koble dem for hoardt.
-
-\subsubsection{Ulemper}
-Kan give anledning til \textit{memory leaks}. Fordi den simple implementering kræver explicit \textit{registering} og \textit{\textbf{de}registering}. Dette koblet med at \textit{Subject}-klassen har en \textit{strong reference}\footnote{Se wiki om weak reference:\\ \url{https://en.wikipedia.org/wiki/Weak_reference}} til de observers, som kan holde dem unødigt i live.\\
-Dette kan dog undgås ved at bruge en \textit{weak-reference}, således at Subject's reference til observeren ikke beskytter mod garbage collectoren hvis det er den eneste.
-
 \subsection{Redegør for, hvilke(t) SOLID-princip(per) du mener anvendelsen af GoF Observer undersøtter}
 
-\begin{itemize}
+\paragraph{OCP} 
+Vi kan let tilføje flere observers uden at skulle ændre i subject eller anden kode.
+%\begin{itemize}
 %	\item SRP.\\
 %	Ikke relevant. Alternativt er den overholdt da klasserne kun har én grund til at ændre sig.
-	\item OCP.\\
-	Vi kan let tilføje flere observers uden at skulle ændre i subject eller anden kode.
+%	\item \textbf{OCP}.\\
+%	Vi kan let tilføje flere observers uden at skulle ændre i subject eller anden kode.
 %	\item LSP.\\
 %	Brud(?), da man ikke kan udskifte de nedarvede klasser med deres parent.\todo{relevant? Det er jo ikke meningen at dette overhovedet skal kunne gøres?}
 %	\item ISP.\\
 %	Overholdt(?), ikke lavet med interface i vores eksempel. Hvis det var gjort med interfaces ville disse være små og lette. 
 %	\item DIP.\\
 %	Ikke relevant, da \todo{how to explain?}
-\end{itemize}
+%\end{itemize}

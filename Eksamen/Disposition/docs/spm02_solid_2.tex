@@ -19,7 +19,7 @@
 
 OCP siger at man bør refaktorere således at yderligere ændringer ikke skaber problemer\footnote{rekompilering, retest, redeploy.} i resten af programmet.\\
 
-Når OCP er "well applied" betyder det at vi kan tilføje ny kode uden at behøve ændre i det gamle der i forvejen virker.
+Når OCP er "well applied" betyder det at vi kan tilføje ny kode uden at behøve ændre i eksisterende kode, som er testet og virker.
 
 \paragraph{De 2 primære attributter:}
 \begin{enumerate}
@@ -34,6 +34,14 @@ Når OCP er "well applied" betyder det at vi kan tilføje ny kode uden at behøv
 	\item Eksempel - Client der bruger Server.
 	\item To konkrete klasser er lort $\longrightarrow$ brug et interface.
 \end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\linewidth]{figs/OCP/clientServer.PNG}
+\caption{OCP brudt.}
+\label{fig:clientServer}
+\end{figure}
+
 
 \subsubsection{Perspektiver}
 

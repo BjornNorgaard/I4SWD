@@ -16,7 +16,7 @@
 \subsection{Redegør for strukturen i et state pattern}
 Et state pattern er et behavioral pattern, og er en måde at implementere en state machine på.
 
-State mønstret definerer en mpde hvorpå vi kan ændre et objekts opførsel eftersom dens interne state ændres (run-time).
+State mønstret definerer en måde hvorpå vi kan ændre et objekts opførsel eftersom dens interne state ændres (run-time).
 State mønstret giver mulighed for at implementere store forskelle i opførslen uden brug af masser af Switches of if sætninger.
 
 \begin{figure}[h]
@@ -27,9 +27,22 @@ State mønstret giver mulighed for at implementere store forskelle i opførslen 
 \end{figure}
 
 \begin{enumerate}
-	\item Context klassen - Definerer et interface der bruges af klienter. Indeholder en instans af en ConreteState subclass, der kan definere en Current State.
-	\item StateBase klassen - Et interface til indkapsling af ConcreteStates adfærd
-	\item Concrete State - Hver ConcreteState implementerer den adfærd der associeres til i Context klassen.
+	\item Context klassen
+	\begin{itemize}
+		\item Definerer et interface der bruges af klienter.
+		\item Indeholder en instans af en ConreteState subclass, der kan definere en Current State.
+		\item Indeholder Actions.
+	\end{itemize}
+	\item StateBase klassen
+	\begin{itemize}
+		\item Et interface til indkapsling af ConcreteStates adfærd
+		\item Indeholder virtuelle handles.
+		\item 
+	\end{itemize}
+	\item Concrete State
+	\begin{itemize}
+		\item  Hver ConcreteState implementerer den adfærd der associeres til i Context klassen (handle til hver action).
+	\end{itemize}
 \end{enumerate}
 
 \subsubsection{Kodeeksempel}
@@ -141,7 +154,7 @@ Ortogonale og nestede states gennemgås i afsnittet om UML mapping.
 \begin{itemize}
 	\item Let at teste - de mange klasser gør det enkelt at afgrænse tests.
 	\item Let at udvide - Skalerer nemt ved udvidelser af både states og transitions.
-	\item Kan lettere håndtere Nested States-
+	\item Kan lettere håndtere Nested States.
 	\item Forholdsvis simpelt at implementere Ortogonale states.
 \end{itemize}
 
@@ -170,7 +183,7 @@ Et tilsvarende GoF State Pattern klassediagram for en radioen:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{figs/state/Radio_StatePattern}
+	\includegraphics[width=0.9\linewidth]{figs/state/Radio_StatePattern}
 	\caption{Et UML Klassediagram for STD}
 	\label{fig:UMLclassState}
 \end{figure}
