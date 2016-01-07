@@ -53,7 +53,7 @@ Den aktive model virker som ved et Observer pattern (illustreret i figur~\ref{fi
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\linewidth]{figs/MVC/mvc_observer}
+	\includegraphics[width=0.7\linewidth]{figs/MVC/mvc_observer}
 	\caption{MVC active, observer pattern.}
 	\label{fig:mvc_observer}
 \end{figure}
@@ -109,29 +109,41 @@ MVP er en videreudviklet version af MVC, der forsøger at forene Forms and Contr
 \end{figure}
 
 \subsubsection{MVP's opbygning}
+
 \paragraph{Model} Indeholder logic til at interface med programmets data.
+
 \paragraph{View} Modtager som i MVC UI actions og kalder derved presenters funktionalitet. View indeholder typisk eventhandler og logic til at kalde presenters funktionalitet.
+
 \paragraph{Presenter} Binder model til view (de-coupling). Har ansvaret for at opdatere view når ny data fra model. Al business logic der bruges til at behandle user inputs skrives i presenter. Presenter skal indhente data fra model, og behandle så det er klar til brug i view uden overhead.
 
 \subsubsection{Fordele ved MVP}
+
 \begin{itemize}
-	\item I og med vi har frataget view alt dens “myndighed” og gjort den passiv. Kan vi skifte views (ændre hvordan vi ønsker at repræsentere modellen).
+	\item I og med vi har frataget View alt dens “myndighed” og gjort den passiv. Kan vi skifte views (ændre hvordan vi ønsker at repræsentere modellen).
 	\item Stærkere \textbf{separation of concerns} - view står KUN for rendering.
 	\item Lettere at teste.
 \end{itemize}
 
 \subsubsection{Variationer af MVP}
-Der findes to primære variationer af MVP.
+Der findes to primære variationer af MVP, begge illustreret i figur~\ref{fig:mvp_variations}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{figs/MVC/mvp_variations}
+\caption{Variationer af MVP.}
+\label{fig:mvp_variations}
+\end{figure}
+
 
 \paragraph{Passive View}
-Se MVP's opbygning.
+Se MVP's opbygning i figur~\ref{fig:mvpFlow} på side \pageref{fig:mvpFlow}.
 
 \paragraph{Supervising Controller}
-En variation af MVP hvor viewet er mere intelligent. I denne variation har view mulighed for at kommunikere \textbf{direkte} med model og requeste data.\\
+En variation af MVP hvor viewet er mere intelligent. I denne variation har View mulighed for at kommunikere \textbf{direkte} med model og requeste data.\\
 
-Presenter står her for at informere modellen om aktiviteter i view (der måske ændrer state). Presenter passer en reference til model så at view kan interacte med model når models state ændres. På denne måde minder MVP SC meget om MVC idet den totale de-coupling mellem view og model nu er blevet vag.
+Presenter står her for at informere Modellen om aktiviteter i view (der måske ændrer state). Presenter passer en reference til model så at View kan interacte med Model når dens state ændres. På denne måde minder MVP SC meget om MVC Aktiv idet den totale de-coupling mellem view og model nu er blevet vag.\\
 
-Hvorfor bruge MVP SC? SC kræver mindre kode end passive view idet presenteren ikke laver simple view update. Dette er dog på bekostning af testability - Dårligere separation.
+Hvorfor bruge MVP SC? SC kræver mindre kode end Passive View idet Presenteren ikke laver simple view update. Dette er dog på bekostning af testability - Dårligere separation.
 
 \begin{figure}[h]
 	\centering
