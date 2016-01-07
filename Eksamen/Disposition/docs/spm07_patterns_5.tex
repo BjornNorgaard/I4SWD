@@ -30,6 +30,38 @@ MVC er et populært software pattern brugt til GUI applikationer. Ifølge Fowler
 
 Brugeren kan fx trykke på en knap, som registreres af controlleren. Controlleren udfører de nødvendige handlinger på modellen, som har kontakt med evt. harddisk/database. Modellen sender svar tilbage og controlleren kalder det korrekte view, som viser dataen til brugeren.
 
+\subsubsection{Passive model}
+\textit{''The passive model is employed when one controller manipulates the model exclusively''}\\
+
+The controller modifies the model and then informs the view that the model has changed and should be refreshed (se figur~\ref{fig:mvc_passive}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{figs/MVC/mvc_passive}
+	\caption{Passiv variation af MVC.}
+	\label{fig:mvc_passive}
+\end{figure}
+
+Modellen i dette scenarie er uafhængig af View og Controller. Altså er der ingen måde hvorpå Modellen kan rapportere ændringer i sig selv.\\
+
+Følgende forklaring er taget fra \url{https://msdn.microsoft.com/en-us/library/ff649643.aspx}:\\
+
+\textit{''The HTTP protocol is an example of this. There is no simple way in the browser to get asynchronous updates from the server. The browser displays the view and responds to user input, but it does not detect changes in the data on the server. Only when the user explicitly requests a refresh is the server interrogated for changes''}
+
+\subsubsection{Active model}
+Den aktive model virker som ved et Observer pattern hvorved View subscriber på events fra Model og derpå selv hente opdateringen fra Model.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{figs/MVC/mvc_active}
+	\caption{Aktiv variation af MVC.}
+	\label{fig:mvc_active}
+\end{figure}
+
+Følgende forklaring er taget fra \url{https://msdn.microsoft.com/en-us/library/ff649643.aspx}:\\
+
+\textit{''The active model is used when the model changes state without the controller's involvement. This can happen when other sources are changing the data and the changes must be reflected in the views. Consider a stock-ticker display. You receive stock data from an external source and want to update the views (for example, a ticker band and an alert window) when the stock data changes. Because only the model detects changes to its internal state when they occur, the model must notify the views to refresh the display''}
+
 \subsubsection{Fordele ved MVC}
 \begin{itemize}
 	\item Skaber høj separation mellem præsentationen (view og controller) og domænet (model).
@@ -54,9 +86,6 @@ Brugeren af en media player ønsker at skifte til næste sang.
 	\item View beder om data på ændringen (fx en string i form af navnet på sangen).
 	\item View opdateres.
 \end{enumerate}
-
-\subsubsection{Variationer af MVC}
-MVC er ved at være et gammelt mønster, og egner sig ikke altid til brug i nyere systemer. Der findes utallige fortolkninger af MVC.
 
 \subsection{Redegør for Model-View-Presenter mønstret og dets variationer}
 MVP er en videreudviklet version af MVC, der forsøger at forene Forms and Controls med MVC.
