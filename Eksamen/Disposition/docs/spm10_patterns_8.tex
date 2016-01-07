@@ -8,11 +8,36 @@
 \end{itemize}
 
 \subsection{Parallel Aggregation}
-I forlængelse af parallelle loop kan det sige at ikke alle PL's iterationer eksekveres uafhængigt. Fx et loop der udregner en sum, bruger hver iterations resultat til at akkumulere en enkelt variabel der indeholder den udregnede sum op til det iterationsniveua vi er på. Denne akkumulerede værdi er en aggregation.
+I forlængelse af parallelle loop kan det sige at ikke alle PL's iterationer eksekveres uafhængigt. Fx. et loop der udregner en sum, bruger hver iterations resultat til at akkumulere en enkelt variabel der indeholder den udregnede sum op til det iterationsniveua vi er på. Denne akkumulerede værdi er en aggregation.
 
-Man Skulle dermed tro at at aggregation operation ikke kan forenees med \textit{parallel loops}. Dog findes der en vej! Parallell aggregation pattern!
+Man skulle dermed tro at at aggregation operation ikke kan forenees med \textit{parallel loops}. Dog findes der en vej! Parallell Aggregation Pattern!
 
-Dette pattern benytter \textit{unshared} lokale variabler som merges til slut for at give det endelige resultat. PA kaldes også parallel reduction pattern, idet den kombinerer flere inputs til et enkelt output.\\
+Dette pattern benytter \textit{unshared} lokale variabler som merges til slut for at give det endelige resultat. PA kaldes også Parallel Reduction Pattern, idet den kombinerer flere inputs til et enkelt output.
+
+\subsubsection{Concurrent Collection in .NET 4.0}
+Vi får problemer hvis vi forsøger at tilgå en standard $List<Derp>$ unden at bruge en locking-mechanisme. Se eksemplerne herunder:
+
+\begin{lstlisting}[caption=Brug af ikke-trådsikker List,
+morekeywords={var, Parallel, lock}]
+// NO THREAD SAFE!
+var output = new List<TOutput>();
+Parallel.ForEach(input, item => 
+{
+	var result = Compute(item);
+	lock(output) output.Add(result);
+});
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Brug af trådsikker List,
+morekeywords={var, Parallel, lock}]
+// ThreadSafe, Yay!
+var output = new ConcurrentBag<TOutput>();
+Parallel.ForEach(input, item => 
+{
+	var result = Compute(item);
+	output.Add(result);
+});
+\end{lstlisting}
 
 \subsubsection{Eksempel med summering}
 Tag eksempelvis summeringen af nogle tal vist i ligning~\ref{eq:pl1}:
@@ -58,6 +83,13 @@ MapReduce er en måde at arbejde på meget store datasæt. Der arbejdes med MapR
 
 \subsubsection{4 steps}
 Vi kan opdele MapReduce modellen i 4 steps som for vores eksempel bruges til at finde ud af hvor mange af hver kulør der findes i vores stak med spillekort.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/reduce}
+\caption{MapReduce illustreret.}
+\label{fig:reduce}
+\end{figure}
 
 \begin{enumerate}
 	\item \textbf{Distribuer source data til forskellige nodes.}\\
