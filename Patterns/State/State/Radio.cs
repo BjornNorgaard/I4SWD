@@ -26,7 +26,7 @@ namespace State
                 _power = value;
                 _power.OnEnter(this);
             }
-        }
+        }  
         #endregion
 
         #region Constructor
