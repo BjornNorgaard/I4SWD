@@ -16,7 +16,7 @@ MVC er et populært software pattern brugt til GUI applikationer. Ifølge Fowler
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{figs/mvcExample}
-	\caption{MVC eksemplificeret med en musik afspiller.}
+	\caption{MVC Passiv variation, eksemplificeret med en musik afspiller.}
 	\label{fig:mvcExample}
 \end{figure}
 
@@ -49,7 +49,16 @@ Følgende forklaring er taget fra \url{https://msdn.microsoft.com/en-us/library/
 \textit{''The HTTP protocol is an example of this. There is no simple way in the browser to get asynchronous updates from the server. The browser displays the view and responds to user input, but it does not detect changes in the data on the server. Only when the user explicitly requests a refresh is the server interrogated for changes''}
 
 \subsubsection{Active model}
-Den aktive model virker som ved et Observer pattern hvorved View subscriber på events fra Model og derpå selv hente opdateringen fra Model.
+Den aktive model virker som ved et Observer pattern (illustreret i figur~\ref{fig:mvc_observer}) hvorved View subscriber på events fra Model og derpå selv hente opdateringen fra Model.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{figs/MVC/mvc_observer}
+	\caption{MVC active, observer pattern.}
+	\label{fig:mvc_observer}
+\end{figure}
+
+Hvis et givet View kun er interesseret i nogle bestemte oplysninger fra Model (altså IKKE alle mulige tilstande) så vil det være en god ide at lave flere Subjects\footnote{jf. emne~\ref{sec:observerpattern} om Observer Pattern og Subject.} for så derved at lade hvert View ''subscribe'' på de events som den selv er interesseret i.
 
 \begin{figure}[H]
 	\centering
@@ -60,7 +69,9 @@ Den aktive model virker som ved et Observer pattern hvorved View subscriber på 
 
 Følgende forklaring er taget fra \url{https://msdn.microsoft.com/en-us/library/ff649643.aspx}:\\
 
-\textit{''The active model is used when the model changes state without the controller's involvement. This can happen when other sources are changing the data and the changes must be reflected in the views. Consider a stock-ticker display. You receive stock data from an external source and want to update the views (for example, a ticker band and an alert window) when the stock data changes. Because only the model detects changes to its internal state when they occur, the model must notify the views to refresh the display''}
+\textit{''The active model is used when the model changes state without the controller's involvement. This can happen when other sources are changing the data and the changes must be reflected in the views.}
+
+\textit{Consider a stock-ticker display. You receive stock data from an external source and want to update the views (for example, a ticker band and an alert window) when the stock data changes. Because only the model detects changes to its internal state when they occur, the model must notify the views to refresh the display''}
 
 \subsubsection{Fordele ved MVC}
 \begin{itemize}
@@ -92,7 +103,7 @@ MVP er en videreudviklet version af MVC, der forsøger at forene Forms and Contr
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{figs/mvpFlow}
+	\includegraphics[width=0.8\linewidth]{figs/mvpFlow}
 	\caption{Programmets flow i en MVP applikation}
 	\label{fig:mvpFlow}
 \end{figure}
